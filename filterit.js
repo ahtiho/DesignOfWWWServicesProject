@@ -31,9 +31,9 @@ function FilterFunction(filterdata, data) {
         }
     }
     var regionClause = createFilterClause(filterdata, 'Region');
-    var countryClause = createFilterClause(filterdata, 'Country')
-    var priceClause = createFilterClause(filterdata, 'Price')
-    var safetyClause = createFilterClause(filterdata, 'Safety')
+    var countryClause = createFilterClause(filterdata, 'Country');
+    var priceClause = createFilterClause(filterdata, 'Price');
+    var safetyClause = createFilterClause(filterdata, 'Safety');
     var gpaClause = createBinaryClause(filterdata, 'Gpa'); 
     var populationLower = filterdata[0].Population_Lower[0];
     var populationUpper = filterdata[0].Population_Upper[0];
@@ -51,7 +51,7 @@ function FilterFunction(filterdata, data) {
 
     if (level.length === 0) {
         startMonthClause = `(U_Start_Month IN ${createFilterClause(filterdata, 'Start_Month')} OR G_Start_Month IN ${createFilterClause(filterdata, 'Start_Month')})`;
-        endMonthClause = `(U_End_Month IN ${createFilterClause(filterdata, 'End_Month')} OR G_End_Month IN ${createFilterClause(filterdata, 'End_Month')})`
+        endMonthClause = `(U_End_Month IN ${createFilterClause(filterdata, 'End_Month')} OR G_End_Month IN ${createFilterClause(filterdata, 'End_Month')})`;
         languageClause = filterdata[0].Language.map(lang => `(${lang}_UG = 1 OR ${lang}_G = 1)`).join(' AND ');
     } else if (level[0] === 'U') {
         startMonthClause = `U_Start_Month IN ${createFilterClause(filterdata, 'Start_Month')}`;
