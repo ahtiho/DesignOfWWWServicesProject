@@ -1,0 +1,88 @@
+
+* { /* neutralising settings */
+	margin: 0px;
+    padding: 0px;
+
+}
+
+/* general */
+header {
+background-color: #FF9F46
+
+}
+
+h1, h2, h3, h4, h5, h6,li,p,button {
+	font-family: "Inter", "Lucida Bright", "DejaVu Serif", Georgia, "serif";
+    color: #040404;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 97px;
+    color: #040404;
+    letter-spacing: -2px;
+    font-style: normal;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;    
+
+}
+
+/* navigation */
+nav {
+	width: 1015px;
+    margin-left: auto;
+	margin-right: auto;
+    display:flex;
+    flex-direction: row;
+	 margin: 0;
+	 padding: 0;
+     justify-content: space-between;
+	}
+
+  #mainHeaderContent {
+     width: 975px;
+     margin-left: auto;
+     margin-right: auto;
+  }
+
+/*nav li a {
+text-align: center;
+	display: block;
+  width: 130px;
+padding: 30px;*/
+
+
+#nav_links {
+	margin-left: auto;
+	margin-right: auto;
+	list-style-type: none;
+
+
+/* links */
+
+a:link {
+	text-decoration: none;
+	color: black;}
+
+a:visited {
+	text-decoration: none;
+	color: black;}
+
+a:hover {
+	text-decoration: none;
+	color: #FF9F46;}
+
+a:active {
+	text-decoration: none;
+	color: #FF9F46;
+	font-weight: bold;}
+
+
+/* IDs */
+
+
