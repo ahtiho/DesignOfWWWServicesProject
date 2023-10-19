@@ -1,0 +1,57 @@
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  column-gap: 10px;
+}
+
+.dropdown-group{
+  display: flex; 
+  flex-wrap:wrap;
+  justify-content: space-between;
+  padding-left: 400px;
+  padding-right: 400px;
+}
+.btn{
+  display: flex;
+  justify-content:flex-end;
+  padding-right: 400px;
+}
+.btn button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px;
+  height: 40px;
+  width: 140px;
+  
+  
+}
+.image img {
+  height: 40px;
+  width: 40px;
+}
+select{
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  font-family: 'Arial';
+  border: 2px solid #222222;
+  border-radius:16px;
+
+}
+
+select.study_language_dropdown{
+  font-size: 15px;
+}
+
+input[type = text]{
+  height: 40px;
+  width: 140px;
+  font-size: 20px;
+  font-family: 'Arial';
+  border: 2px solid #222222;
+  border-radius: 16px;
+}
