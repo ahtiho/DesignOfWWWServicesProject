@@ -3,8 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
+
+    <!-- Leaflet map jutut-->
+
 	<link rel="stylesheet" type="text/css" href="css-muotoilut.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <title>Avara Aalto</title>
+
+
 </head>
 
 
@@ -23,7 +30,7 @@
         <div id="titleDiv"> <!-- h1 + tekstit + button-->
             <h1>avara aalto</h1>
             <h2>Aalto University School of Business</h2>
-            <p>(TESTI)Here you can search for the exchange destinations of The School of Business.
+            <p>Here you can search for the exchange destinations of The School of Business.
                 Main exchange application period is yearly in January, second round application in August.
                 After the internal selection at Aalto, selected students are nominated to the exchange universities.
                 After that students will yet go through the application process of the exchange university.</p>
@@ -44,6 +51,23 @@
 
     </header>
 
+
+    <!-- tähän tulee ahdin osio-->
+
+    <div id="map-wrap"></div>
+    <div id="map"></div></div>
+    <script>
+        var map = L.map('map').setView([0,0], 1);
+
+        L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=K0eLj6ZMBtwt8Ig1KrD1', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+    ,}).addTo(map);
+    </script>
+
+
+    <section>
+        <h3>moiii</h3>
+    </section>
 </body>
 
 
