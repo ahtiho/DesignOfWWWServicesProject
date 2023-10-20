@@ -12,7 +12,9 @@ import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
 import HeaderComponent from './Header.jsx'
+import MapComponent from './Map'
 
+import InfoComponent from './InfoBox'
 const Search = ({ name, img, searchInput, handleSearchChange }) => {
   return (
     <div className="container">
@@ -94,6 +96,9 @@ const App = () => {
     <button onClick={toggleShowMore}>
         {showMore ? 'Show Less' : 'More Filters (4+)'}
     </button>
+    </div>
+    <div>
+      <InfoComponent/>
     </div>
   </div>
   </div>
