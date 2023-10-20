@@ -12,6 +12,8 @@ import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
 import HeaderComponent from './Header.jsx'
+import MapComponent from './Kartta.jsx'
+
 
 const Search = ({ name, img, searchInput, handleSearchChange }) => {
   return (
@@ -95,6 +97,13 @@ const App = () => {
         {showMore ? 'Show Less' : 'More Filters (4+)'}
     </button>
     </div>
+
+   <div>
+      <MapComponent/>
+
+   </div>
+    
+    
   </div>
   </div>
   )
