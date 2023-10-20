@@ -1,4 +1,3 @@
-
 * { /* neutralising settings */
 	margin: 0px;
     padding: 0px;
@@ -14,7 +13,7 @@ padding-bottom: 60px;
 }
 
 h1, h2, h3, h4, h5, h6,li,p,button {
-	font-family: "Inter", "Lucida Bright", "DejaVu Serif", "Georgia", "serif";
+	font-family: "Inter", "Lucida Bright", "DejaVu Serif", Georgia, "serif";
     color: #040404;
 }
 
@@ -137,34 +136,31 @@ padding: 30px;*/
         /*border: 2px solid #000;*/
         padding: 14px 36px;
         margin: auto;
-        color: white;
+        
     
      }
 
-     #headerButton a {
-        color: white; /* Set the text color for the anchor element inside the button */
-    }
+
     #arrow {
         padding-top: 30%;
     }
 
-
+    #button-color {
+        color: white;
+    }
 
     #button-color:hover {
         color: #FF9F46;
     }
 
    
-    #map {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    
-        transition: height 0.5s ease-in-out;
-
-    }
-
     #map-wrap {
-        height: 500px;
-        width: 500px;
+        width: 100%;
+        text-align: center;
+        margin: 20px 0; /* Marginaalit ylä- ja alapuolella */
+    }
+    #map {
+        width: 80%; /* Kartan leveys on 80% map-wrap elementin leveydestä */
+        height: 400px;
+        display: inline-block;
     }

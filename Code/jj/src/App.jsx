@@ -67,7 +67,7 @@ const App = () => {
     <div>
       <HeaderComponent/>
     </div>  
-  <div>
+  <div id = "filterBox">
     <div className="dropdown-group">
     <Search
       name="Text Search"
@@ -94,12 +94,13 @@ const App = () => {
         </div>
       </div> 
       )}
+      </div>
     <div className='btn'>
     <button onClick={toggleShowMore}>
         {showMore ? 'Show Less' : 'More Filters (4+)'}
     </button>
     </div>
-    <div>
+    <div className = "leaflet_container">
       <MapComponent/>
     </div>
     <div className="info-container">
@@ -109,7 +110,7 @@ const App = () => {
       </div>
 ))}
     </div>
-    </div>
+    
     </div>
   )
 }

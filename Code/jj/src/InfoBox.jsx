@@ -10,9 +10,9 @@ class InfoComponent extends Component {
         return (
             <div className = 'InfoBox'>
                 <h3>{firstItem.Country}</h3>
-                <h2>{firstItem.UNIVERSITY}</h2>
+                <h2>{firstItem.University}</h2>
                 <p>City: {firstItem.City}</p>
-                <p>Continent: {firstItem.Continent}</p>   
+                <p>Continent: {firstItem.Region}</p>   
             </div>
         );
     }

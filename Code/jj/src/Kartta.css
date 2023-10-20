@@ -1,6 +1,0 @@
-.map-frame {
-    width: 300px; /* tai esim. 100% */
-    height: 300px;
-    margin: 20px auto; /* keskittää kartan horisontaalisesti, jos leveys on kiinteä */
-    border: 1px solid #ddd; /* lisää reunuksen kartan ympärille */
-  }
