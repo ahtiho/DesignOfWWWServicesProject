@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import jsonData from './unidata.json';
+
 import './InfoBox.css'
 class InfoComponent extends Component {
     render() {
-        const firstItem = jsonData[0];
+
+        const item = this.props.data;
+        console.log(item)
+        const firstItem = item
         return (
             <div className = 'InfoBox'>
-                <h1>Country: {firstItem.Country}</h1>
-                <h2>University: {firstItem.UNIVERSITY}</h2>
+                <h3>{firstItem.Country}</h3>
+                <h2>{firstItem.UNIVERSITY}</h2>
                 <p>City: {firstItem.City}</p>
-                <p>Continent: {firstItem.Continent}</p>
-                
+                <p>Continent: {firstItem.Continent}</p>   
             </div>
         );
     }

@@ -1,0 +1,10 @@
+.InfoBox {
+    display: inline-block;
+    flex-direction: column;
+    border: 2px solid #000;
+    padding: 10px;
+    border-radius: 16px;
+    width: 400px;
+    height: 300px;
+    box-sizing: border-box; 
+  }

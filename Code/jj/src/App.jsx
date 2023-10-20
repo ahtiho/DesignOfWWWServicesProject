@@ -12,9 +12,11 @@ import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
 import HeaderComponent from './Header.jsx'
-import MapComponent from './Map'
-
+import MapComponent from './Kartta'
+import jsonData from './unidata.json';
 import InfoComponent from './InfoBox'
+
+
 const Search = ({ name, img, searchInput, handleSearchChange }) => {
   return (
     <div className="container">
@@ -98,10 +100,17 @@ const App = () => {
     </button>
     </div>
     <div>
-      <InfoComponent/>
+      <MapComponent/>
     </div>
-  </div>
-  </div>
+    <div className="info-container">
+      {jsonData.map((item, index) => (
+        <div key = {index}>
+          <InfoComponent data={item} />
+      </div>
+))}
+    </div>
+    </div>
+    </div>
   )
 }
 export default App;
