@@ -116,10 +116,26 @@ text-align: center;
 padding: 30px;*/
 
 
+<<<<<<< HEAD
 #headerButtonPosition{
     padding-top: 30px;
     padding-left: 60%;
 }
+=======
+    <!-- tähän tulee ahdin osio-->
+
+    <div id="map-wrap">
+        <div id="map"></div>
+    </div>
+    <script>
+        window.onload = function() {
+            var map = L.map('map').setView([0,0], 1);
+            L.tileLayer('https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=K0eLj6ZMBtwt8Ig1KrD1', {
+                attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
+            }).addTo(map);
+        };
+    </script>
+>>>>>>> 52296453b03e9acbff31af5e5eb90e6fa6959d14
 
 
  #headerButton {
