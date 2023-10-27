@@ -11,12 +11,16 @@ import imagePop from "/src/photos/population-icon.png"
 import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
-import HeaderComponent from './Header.jsx'
+import HeaderComponent from './Header.jsx';
+import FilterComponent from './filterit'
 import MapComponent from './Kartta'
+/*import App from 'AppComponent'*/
+import Dropdown from './DropdownComponent.jsx'
+import Search from './SearchComponent'
+
 import jsonData from './unidata.json';
 import InfoComponent from './InfoBox'
-
-
+/*
 const Search = ({ name, img, searchInput, handleSearchChange }) => {
   return (
     <div className="container">
@@ -52,7 +56,7 @@ const Dropdown = ({ name, values, img }) => {
       </div>
     </div>            
   );
-};
+};*/
 
 
 const App = () => {
@@ -61,12 +65,19 @@ const App = () => {
   const [searchInput, setSearchInput] = useState("");
   const toggleShowMore = () => {
     setShowMore(!showMore);
-  };
+    };
+
   return (
+    //tässä kaikki sisältö
   <div>
     <div>
       <HeaderComponent/>
     </div>  
+
+
+
+
+
   <div id = "filterBox">
     <div className="dropdown-group">
     <Search
@@ -95,14 +106,18 @@ const App = () => {
       </div> 
       )}
       </div>
+
     <div className='btn'>
     <button onClick={toggleShowMore}>
         {showMore ? 'Show Less' : 'More Filters (4+)'}
     </button>
-    </div>
+    </div> 
+
+
     <div className = "leaflet_container">
       <MapComponent/>
     </div>
+
     <div className="info-container">
       {jsonData.map((item, index) => (
         <div key = {index}>
@@ -113,11 +128,6 @@ const App = () => {
     
     </div>
   )
-}
-export default App;
+      }
 
-
-
-
-
-
+  export default App ;
