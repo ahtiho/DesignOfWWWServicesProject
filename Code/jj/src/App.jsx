@@ -14,7 +14,6 @@ import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
 import jsonData from './unidata.json';
 import InfoComponent from './InfoBox';
-
 //erilliset komponentit
 import HeaderComponent from './Header.jsx';
 import FilterComponent from './filterit'
@@ -22,10 +21,10 @@ import MapComponent from './Kartta'
 /*import App from 'AppComponent'*/
 import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
-import { languagefilter, countryfilter, regionfilter, monthfilter, } from "./filterit.js"
+import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit.js"
+import FilterFunction from './filterit.js'
 import { components } from "react-select";
-
-
+import MultiCheckboxDropdown from './MultiCheckboxDropdown'
 //checkbox juttuun importteja
 import { useLocalStore } from "mobx-react-lite";
 //import "bootstrap/dist/css/bootstrap.min.css"; muotoilee kaiken väärin ;D
@@ -71,7 +70,7 @@ const Dropdown = ({ name, values, img }) => {
 };*/
 
 // nää on testejä, poistan salee myöhemmin
-const Checkbox = ({ label, value, onChange }) => {
+/*const Checkbox = ({ label, value, onChange }) => {
   return (
     <label>
       <input type="checkbox" checked={value} onChange={onChange} />
@@ -93,27 +92,7 @@ const Option = (props) => {
       </components.Option>
     </div>
   );
-};
-
-//checkbox
-/*
-const state = useLocalStore(() => ({
-  items: [
-    { id: "em", label: "Exact Mass", checked: true },
-    { id: "f", label: "Formula", checked: true },
-    { id: "mw", label: "Molecular Weight", checked: true },
-    { id: "cp1", label: "Custom Property 1", checked: true },
-    { id: "cp2", label: "Custom Property 2", checked: true },
-    { id: "cp3", label: "Custom Property 3", checked: true },
-    { id: "cp4", label: "Custom Property 4", checked: true },
-    { id: "cp5", label: "Custom Property 5", checked: true },
-    { id: "cp6", label: "Custom Property 6", checked: true },
-    { id: "cp7", label: "Custom Property 7", checked: true },
-    { id: "cp8", label: "Custom Property 8", checked: true }
-  ]
-}));
-*/
-
+};*/
 
 
 
@@ -123,6 +102,25 @@ const state = useLocalStore(() => ({
 
 
 const App = () => {
+  /*
+  
+  useEffect = (() => {
+    const updatedFilteredData = FilterFunction(jsonData, filters);
+    setFilteredData(updatedFilteredData);
+  }, [filters]);
+
+  const handleFilterChange = (filterName, values) => {
+    setFilters({
+      ...filters,
+      [filterName]: values,
+
+    });
+
+  }
+*/
+  
+
+
   //filterien dropdown-valikot
   var values_list = ["UG", "G"];
 
@@ -170,6 +168,19 @@ const App = () => {
     setCheckedTwo(!checkedTwo);
   };
 
+  const [filters, setFilters] =useState({
+    Country: [],
+    Language: [],
+    Region: [],
+    Start_Month: [],
+    End_Month: [],
+    Level: [],
+    Price: [],
+    Population: [],
+    Gpa: [],
+    Safety: []
+
+  })
 
 
   return (
@@ -178,6 +189,7 @@ const App = () => {
     <div>
       <HeaderComponent/>
     </div>  
+
 
     {/* Filteriosio */}
     <div id = "filterBox">
@@ -190,6 +202,19 @@ const App = () => {
         handleSearchChange={(event) => setSearchInput(event.target.value)}/>
 
         <Dropdown name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
+        
+
+        {/* TÄÄÄÄÄ!!!!!!! -----------------
+        
+        ---------------------
+        
+        ----------------
+        
+        */}
+             
+
+        <CheckboxDropdown name="Level" items={level_list} img={imageLevel} className="app-dropdown" onChange={(value) => handleFilterChange('Level', value)}/>
+        <CheckboxDropdown name="Region" items={region_list} img={imageRegion} className="app-dropdown"/>
 
         <Dropdown name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
       </div>
@@ -198,11 +223,10 @@ const App = () => {
         <Dropdown name="Starting month" values={month_list} img={imageDates} className="app-dropdown" /> 
         <Dropdown name="Ending month" values={month_list} img={imageDates} className="app-dropdown" /> 
 
-        <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" />
+        <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onChange={1}/>
 
       </div>
         
-
 
       {showMore && (
         <div>
@@ -233,18 +257,19 @@ const App = () => {
     </div>
         
     
-        <div>
+        <div className="CheckBox"> {/* CHECKBOX----------------------------------*/}
            
         <p>moii</p>
-      {/*<CheckboxDropdown />*/}
-    </div>
+  
+        <CheckboxDropdown items={region_list} />
+      </div>
 
         {/* tänne kaikkee paskaa */}
-    <div>
-    
-  
 
-    </div>
+
+
+
+
     
     {/* tähän tulee kaikki hakutulokset */}
     <div className="info-container">

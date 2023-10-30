@@ -57,15 +57,15 @@ const CheckDropdownItem = React.forwardRef(
         <Form.Check
           type="checkbox"
           label={children}
-          checked={checked}
+          checked={checked} ONKO DEFAULT CHECKED VAI EI
           onChange={onChange && onChange.bind(onChange, id)}
         />
       </Form.Group>
     );
   }
 );
-
-export const CheckboxDropdown = observer(({ items }) => {
+//name="Level" values={level_list} img={imageLevel} className="app-dropdown"
+export const CheckboxDropdown = observer(({ name, items, img }) => {
   const handleChecked = (key, event) => {
     items.find(i => i.id === key).checked = event.target.checked;
   };
@@ -80,8 +80,12 @@ export const CheckboxDropdown = observer(({ items }) => {
 
   return (
     <Dropdown>
+      <div className="image">
+          <img src={img} alt="Image" />
+        </div>
+
       <Dropdown.Toggle variant="primary" id="dropdown-basic">
-        Properties
+        <option value="" selected>{name}</option>
       </Dropdown.Toggle>
 
       <Dropdown.Menu
@@ -89,7 +93,29 @@ export const CheckboxDropdown = observer(({ items }) => {
         onSelectAll={handleSelectAll}
         onSelectNone={handleSelectNone}
       >
-        {items.map(i => (
+
+    {/*{values.map((value, index) => (
+              <option key={index} value={value}>
+                {value}
+              </option>
+    ))}*/}
+            
+
+            {items.map((value, index) => (
+          <Dropdown.Item
+            key={index}
+            as={CheckDropdownItem}
+            //id={i.id}
+            checked={index.checked}
+            onChange={handleChecked}
+          >
+            {value}
+          </Dropdown.Item>
+
+
+        ))}
+
+        {/*{items.map(i => (
           <Dropdown.Item
             key={i.id}
             as={CheckDropdownItem}
@@ -99,8 +125,10 @@ export const CheckboxDropdown = observer(({ items }) => {
           >
             {i.label}
           </Dropdown.Item>
-        ))}
+        ))}*/}
       </Dropdown.Menu>
     </Dropdown>
   );
 });
+
+export {CheckboxMenu, CheckDropdownItem}
