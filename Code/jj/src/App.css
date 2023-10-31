@@ -13,6 +13,9 @@
   align-items: center;
   margin: 20px;
   column-gap: 10px;
+  border-style: solid;
+  border-width: 5px;
+  border:#222222;
 }
 
 .dropdown-group{
@@ -103,3 +106,111 @@ input[type = text]{
   color: red;
 }
 
+.multiselect {
+ color: blue; 
+}
+
+
+
+.box {
+  font-family: Arial, Helvetica, sans-serif;
+  
+  height: 40px;
+  width: 10em;
+  font-size: 20px;
+  font-family: 'Arial';
+  /*border: 2px solid #222222;
+  border-radius:16px;*/
+}
+
+
+
+
+/*täs kaikkee dropdown checkboxeihin liittyvää*/
+
+.multiselect-dropdown{
+  display: inline-block;
+  padding: 2px 5px 0px 5px;
+  border-radius: 25px;
+  border: solid 2px #222222;
+  background-color: white;
+  height: 40px;
+  position: relative;
+  /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right .75rem center;
+  background-size: 16px 12px;*/
+}
+.multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder{
+  margin-right:0.5em; 
+  margin-bottom:2px;
+  padding:1px 0; 
+  border-radius: 30px; 
+  display:inline-block;
+  cursor:pointer;
+}
+.multiselect-dropdown span.optext{
+  background-color:rgb(161, 43, 43);
+  padding:1px 0.75em; 
+  cursor:pointer;
+  text-align: center;
+}
+.multiselect-dropdown span.optext .optdel {
+  float: right;
+  margin: 0 -6px 1px 5px;
+  font-size: 0.7em;
+  margin-top: 2px;
+  cursor: pointer;
+  color: #ffffff;
+}
+.multiselect-dropdown span.optext .optdel:hover { color: rgb(33, 142, 55);}
+.multiselect-dropdown span.placeholder{
+  color:#222222;
+  text-align: center;
+}
+.multiselect-dropdown-list-wrapper{
+  box-shadow: rgb(171, 171, 171) 0 3px 8px;
+  z-index: 100;
+  padding:2px;
+  border-radius: 25px;
+  border: solid 1px #222222;
+  display: none;
+  margin: -1px;
+  position: absolute;
+  top:40px; /* tätä vaihtamalla saa muutettua missä kohtia dropdown boksi on */
+  left: 0;
+  right: 0;
+  background: white;
+}
+.multiselect-dropdown-list-wrapper .multiselect-dropdown-search{
+  margin-bottom:8px;
+}
+.multiselect-dropdown-list{
+  padding:2px;
+  height: 15rem;
+  overflow-y:auto;
+  overflow-x: hidden;
+}
+.multiselect-dropdown-list::-webkit-scrollbar {
+  width: 10px;
+}
+.multiselect-dropdown-list::-webkit-scrollbar-thumb {
+  background-color: #ff9f46;
+  border-radius:3px;
+}
+
+.multiselect-dropdown-list div{
+  padding: 6px;
+}
+.multiselect-dropdown-list input{
+  height: 1.15em;
+  width: 1.15em;
+  margin-right: 0.35em;  
+}
+.multiselect-dropdown-list div.checked{
+}
+.multiselect-dropdown-list div:hover{
+  background-color: #ffc690;
+}
+.multiselect-dropdown span.maxselected {width:100%;}
+.multiselect-dropdown-all-selector {border-bottom:solid 1px #222;}
