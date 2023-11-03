@@ -1,10 +1,7 @@
 // filterit
 import React from 'react'; // Import React
-import './Header.css'
-import herokuva from "/src/photos/herokuva.png"
-import nuoli from "/src/photos/arrow.png"
-import { useState } from 'react'
 import './App.css'
+import { useState } from 'react'
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -15,11 +12,11 @@ import imageSearch from "/src/photos/text-search-icon.png"
 import imagePop from "/src/photos/population-icon.png"
 import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
-import React from 'react';
-import HeaderComponent from './Header.jsx'
-import MapComponent from './Kartta'
 import jsonData from './unidata.json';
 import InfoComponent from './InfoBox'
+
+
+
 
 class FilterComponent extends React.Component {
     render() {
@@ -65,4 +62,5 @@ class FilterComponent extends React.Component {
 }
 }
 
-export default FilterComponent;
+
+export default FilterComponent ;

@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import React from 'react';
+import MultiselectDropdown from './MultiCheckboxDropdown';
 
+<MultiselectDropdown options="" title="Moi"/>
 
 const Dropdown2 = ({ name, values, img }) => {
     return (
@@ -11,9 +13,15 @@ const Dropdown2 = ({ name, values, img }) => {
         </div>
 
         <div className="box">
+        <p>{name}</p>
+
+        {/* tee tähän kaks eri polkuu riippuen halutaaks multiselect-search vai ei */}
         <form>
-            <select name="select" multiple className="multiselect" multiselect-search="true" multiselect-select-all="true" multiselect-max-items="10">
-        <option value="" disabled selected>{name}</option>
+            <select name="select"  multiple className="multiselect" multiselect-search="true" multiselect-select-all="true">
+              
+        
+        {/* <option value=""  disabled="disabled">{name}</option> */}
+        
         {values.map((value, index) => (
           value == name ? <option key={index} disabled>{value}</option> :
           <option key={index} value={value}>
@@ -47,14 +55,3 @@ const Dropdown2 = ({ name, values, img }) => {
   }
 
 export default Dropdown2;
-
-<div>
-<form>
-  <select name="select" multiple className="multiselect" multiselect-search="true" multiselect-select-all="true" multiselect-max-items="1">
-    {/*<option>First</option>
-    <option>Second</option>
-    <option>Third</option>*/}
-    
-  </select>
-</form>
-</div>

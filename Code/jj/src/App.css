@@ -1,3 +1,11 @@
+
+
+* { /* neutralising settings */
+	margin: 0px;
+    padding: 0px;
+
+}
+
 .App {
   position: absolute;
   top: 0;
@@ -7,24 +15,185 @@
   overflow: hidden;
 }
 
+/* yleiset -------------------------------------------------------------------------------- */
 
+h1, h2, h3, h4, h5, h6,li,p,button {
+  font-family: "Inter", "Lucida Bright", "DejaVu Serif", "Georgia", "serif";
+  color: #040404;
+}
+
+p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: white;
+}
+
+h1 { /* avara aalto */
+  font-size: 80px;
+  font-weight: 700;
+  line-height: 97px;
+  color: #040404;
+  letter-spacing: -2px;
+  font-style: normal;
+}
+
+h2 { /* aalto university school of business */
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;   
+  padding-bottom: 20px;
+
+}
+
+
+
+/* header -------------------------------------------------------------------------------- */
+
+header {
+  background-color: #FF9F46;
+  margin-bottom: 50px;
+  padding-bottom: 60px;
+  
+  
+  }
+
+    /* navigation */
+  
+    #navi {
+      width: 1015px;
+      margin-left: auto;
+      margin-right: auto;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 40px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+  }
+
+  #navLine {
+    width: 60vw;
+      margin-left: auto;
+      margin-right: auto;
+    border: 1px solid #040404;
+    margin-bottom: 40px;
+  }
+  
+  #logo {
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      letter-spacing: -2px;
+  }
+
+
+  /* main header content */
+  
+  #mainHeaderContent {
+    background-color: #FF9F46; 
+    width: 975px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: justify;
+  
+  }
+
+  /* JATKA TÄSTÄ */
+  #titleDiv {
+    padding: 10px 50px;
+  }
+
+  /*  float: left;
+  display: flex;
+  justify-content:space-between; */
+
+/*nav li a {
+text-align: center;
+  display: block;
+  width: 130px;
+padding: 30px;*/
+
+
+#headerButtonPosition{
+    padding-top: 30px;
+    padding-left: 60%;
+}
+
+
+ #headerButton {
+        position: absolute; 
+        background-color: black;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        text-align: center;
+        /*border: 2px solid #000;*/
+        padding: 14px 36px;
+        margin: auto;
+        color: white;
+    
+     }
+
+     #headerButton a {
+        color: white; /* Set the text color for the anchor element inside the button */
+    }
+    #arrow {
+        padding-top: 30%;
+    }
+
+
+    #button-color:hover {
+        color: #FF9F46;
+    }
+
+
+/* filterit ----------------------------------------------------------------------------------------- */
+
+#filterBox {
+  display: grid;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Filter component wrappning*/
 .container {
   display: flex;
   align-items: center;
   margin: 20px;
-  column-gap: 10px;
-  border-style: solid;
+  column-gap: 20px;
+  /*border-style: solid;
   border-width: 5px;
-  border:#222222;
+  border:#e16969; */
 }
 
+/* yksittäisen filteririvin div */
 .dropdown-group{
   display: flex; 
   flex-wrap:wrap;
   justify-content: space-between;
-  padding-left: 400px;
-  padding-right: 400px;
+  /*padding-left: 400px;
+  padding-right: 400px;*/
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
+
+/* --------------------------------------------------------------------------- */
+  
+ 
+
 .btn{
   display: flex;
   justify-content:flex-end;
@@ -66,7 +235,7 @@ input[type = text]{
   font-size: 20px;
   font-family: 'Arial';
   border: 2px solid #222222;
-  border-radius: 16px;
+  border-radius: 25px;
 }
 .info-container {
   display: flex;
@@ -84,13 +253,6 @@ input[type = text]{
   width: 100%;
   height: 60vh;
   }
-
-#filterBox {
-    width: 1800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
 
 .multiselect {
   width: 100%;
@@ -111,7 +273,6 @@ input[type = text]{
 }
 
 
-
 .box {
   font-family: Arial, Helvetica, sans-serif;
   
@@ -122,8 +283,6 @@ input[type = text]{
   /*border: 2px solid #222222;
   border-radius:16px;*/
 }
-
-
 
 
 /*täs kaikkee dropdown checkboxeihin liittyvää*/
@@ -214,3 +373,42 @@ input[type = text]{
 }
 .multiselect-dropdown span.maxselected {width:100%;}
 .multiselect-dropdown-all-selector {border-bottom:solid 1px #222;}
+
+/* Footer ---------------------------------------------------------------------------------------- */
+
+#Footer {
+  background-color: #222;
+  margin-top: 80px;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.FooterWrap {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+  
+}
+
+p.FooterWrap {
+  font-size: 150px;
+
+}
+
+  
+  /*links
+  ------------------------------------------------------------------------------------------ */
+  
+  a:link {
+    text-decoration: none; color: black;}
+  
+  a:visited {
+    text-decoration: none; color: black;}
+  
+  a:hover {
+    text-decoration: none; color: black;}
+  
+  a:active {
+    text-decoration: none; color: black;}
+  

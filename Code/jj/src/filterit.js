@@ -98,6 +98,6 @@ var countryfilter = ['Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', '
 var regionfilter = ['Africa', 'Asia', 'Europe (Erasmus)', 'Europe (Bilat)', 'Latin America', 'North America', 'Oceania']
 var monthfilter = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-export default {createFilterClause};
-export { languagefilter, countryfilter, regionfilter, monthfilter }
+export default {FilterFunction};
+export { languagefilter, countryfilter, regionfilter, monthfilter}
 

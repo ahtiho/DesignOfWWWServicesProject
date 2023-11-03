@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import bootstrap from 'bootstrap'
 import './App.css'
 // kuvat
 import imageCountry from "/src/photos/country_icon.png"
@@ -16,6 +17,7 @@ import jsonData from './unidata.json';
 import InfoComponent from './InfoBox';
 //erilliset komponentit
 import HeaderComponent from './Header.jsx';
+import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
 import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
@@ -29,7 +31,8 @@ import { useLocalStore } from "mobx-react-lite";
 import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
 import MultiselectDropdown from './MultiCheckboxDropdown'
 
-import Dropdown2 from './DropdownComponent copy';
+import Dropdown2 from './DropdownComponent-copy';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   /*
@@ -127,16 +130,6 @@ const App = () => {
         searchInput={searchInput}
         handleSearchChange={(event) => setSearchInput(event.target.value)}/>
 
-      <form>
-            <select name="select"  multiple  multiselect-search="true" multiselect-select-all="true" multiselect-max-items="10">
-            <option>First</option>
-                <option>Second</option>
-                <option>Third</option>
-              </select>
-        
-        </form>
-
-
       <Dropdown2 name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
 
 
@@ -214,8 +207,10 @@ const App = () => {
       </div>
 ))}
     </div>
+        <div><Footer/></div>
     
     </div> /* Sisältö päättyy tähän*/
+
   )
       }
 

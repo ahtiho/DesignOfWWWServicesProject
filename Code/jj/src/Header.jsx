@@ -1,5 +1,5 @@
 import React from 'react'; // Import React
-import './Header.css'
+import './App.css'
 import herokuva from "/src/photos/herokuva.png"
 import nuoli from "/src/photos/arrow.png"
 class HeaderComponent extends React.Component {
@@ -14,7 +14,11 @@ class HeaderComponent extends React.Component {
             <p>
               <a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot">aalto.fi</a>
             </p>
+
+            
           </div>
+
+          <div id="navLine"></div>
         </nav>
 
         <div id="mainHeaderContent" className="clearfix">

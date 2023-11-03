@@ -86,19 +86,21 @@ style.setAttribute("id","multiselect_dropdown_styles");
 `;*/
 document.head.appendChild(style);
 
-function MultiselectDropdown(options){
+function MultiselectDropdown(options, title){
   var config={
     search:true,
     height:'15rem',
-    placeholder:'select here',
+    placeholder:'otsikko',
     txtSelected:'selected',
     txtAll:'All',
     txtRemove: 'Remove',
     txtSearch:'search',
     ...options
   };
-  function newEl(tag,attrs){
+
+  function newElement(tag,attrs){
     var e=document.createElement(tag);
+    
     if(attrs!==undefined) Object.keys(attrs).forEach(k=>{
       if(k==='class') { Array.isArray(attrs[k]) ? attrs[k].forEach(o=>o!==''?e.classList.add(o):0) : (attrs[k]!==''?e.classList.add(attrs[k]):0)}
       else if(k==='style'){  
@@ -115,12 +117,12 @@ function MultiselectDropdown(options){
   
   document.querySelectorAll("select[multiple]").forEach((el,k)=>{
     
-    var div=newEl('div',{class:'multiselect-dropdown',style:{width:config.style?.width??el.clientWidth+'px',padding:config.style?.padding??''}});
+    var div=newElement('div',{class:'multiselect-dropdown',style:{width:config.style?.width??el.clientWidth+'px',padding:config.style?.padding??''}});
     el.style.display='none';
     el.parentNode.insertBefore(div,el.nextSibling);
-    var listWrap=newEl('div',{class:'multiselect-dropdown-list-wrapper'});
-    var list=newEl('div',{class:'multiselect-dropdown-list',style:{height:config.height}});
-    var search=newEl('input',{class:['multiselect-dropdown-search'].concat([config.searchInput?.class??'form-control']),style:{width:'100%',display:el.attributes['multiselect-search']?.value==='true'?'block':'none'},placeholder:config.txtSearch});
+    var listWrap=newElement('div',{class:'multiselect-dropdown-list-wrapper'});
+    var list=newElement('div',{class:'multiselect-dropdown-list',style:{height:config.height}});
+    {/* tänne voit muokkaa Search muotoiluja */} var search=newElement('input',{class:['multiselect-dropdown-search'].concat([config.searchInput?.class??'form-control']),style:{width:'100%',display:el.attributes['multiselect-search']?.value==='true'?'block':'none'},placeholder:config.txtSearch});
     listWrap.appendChild(search);
     div.appendChild(listWrap);
     listWrap.appendChild(list);
@@ -129,10 +131,10 @@ function MultiselectDropdown(options){
       list.innerHTML='';
       
       if(el.attributes['multiselect-select-all']?.value=='true'){
-        var op=newEl('div',{class:'multiselect-dropdown-all-selector'})
-        var ic=newEl('input',{type:'checkbox'});
+        var op=newElement('div',{class:'multiselect-dropdown-all-selector'})
+        var ic=newElement('input',{type:'checkbox'});
         op.appendChild(ic);
-        op.appendChild(newEl('label',{text:config.txtAll}));
+        op.appendChild(newElement('label',{text:config.txtAll}));
   
         op.addEventListener('click',()=>{
           op.classList.toggle('checked');
@@ -152,10 +154,10 @@ function MultiselectDropdown(options){
       }
 
       Array.from(el.options).map(o=>{
-        var op=newEl('div',{class:o.selected?'checked':'',optEl:o})
-        var ic=newEl('input',{type:'checkbox',checked:o.selected});
+        var op=newElement('div',{class:o.selected?'checked':'',optEl:o})
+        var ic=newElement('input',{type:'checkbox',checked:o.selected});
         op.appendChild(ic);
-        op.appendChild(newEl('label',{text:o.text}));
+        op.appendChild(newElement('label',{text:o.text}));
 
         op.addEventListener('click',()=>{
           op.classList.toggle('checked');
@@ -175,18 +177,18 @@ function MultiselectDropdown(options){
         div.querySelectorAll('span.optext, span.placeholder').forEach(t=>div.removeChild(t));
         var sels=Array.from(el.selectedOptions);
         if(sels.length>(el.attributes['multiselect-max-items']?.value??5)){
-          div.appendChild(newEl('span',{class:['optext','maxselected'],text:sels.length+' '+config.txtSelected}));          
+          div.appendChild(newElement('span',{class:['optext','maxselected'],text:sels.length+' '+config.txtSelected}));          
         }
         else{
           sels.map(x=>{
-            var c=newEl('span',{class:'optext',text:x.text, srcOption: x});
+            var c=newElement('span',{class:'optext',text:x.text, srcOption: x});
             if((el.attributes['multiselect-hide-x']?.value !== 'true'))
-              c.appendChild(newEl('span',{class:'optdel',text:'🗙',title:config.txtRemove, onclick:(ev)=>{c.srcOption.listitemEl.dispatchEvent(new Event('click'));div.refresh();ev.stopPropagation();}}));
+              c.appendChild(newElement('span',{class:'optdel',text:'🗙',title:config.txtRemove, onclick:(ev)=>{c.srcOption.listitemEl.dispatchEvent(new Event('click'));div.refresh();ev.stopPropagation();}}));
 
             div.appendChild(c);
           });
         }
-        if(0==el.selectedOptions.length) div.appendChild(newEl('span',{class:'placeholder',text:el.attributes['placeholder']?.value??config.placeholder}));
+        if(0==el.selectedOptions.length) div.appendChild(newElement('span',{class:'placeholder',text:el.attributes['placeholder']?.value??config.placeholder}));
       };
       div.refresh();
     }
