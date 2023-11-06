@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import bootstrap from 'bootstrap'
 import './App.css'
 // kuvat
 import imageCountry from "/src/photos/country_icon.png"
@@ -17,44 +16,6 @@ import React from 'react';
 import jsonData from './unidata.json';
 import InfoComponent from './InfoBox'
 import SortButton from './SortButton'
-
-const Search = ({ name, img, searchInput, handleSearchChange }) => {
-  return (
-    <div className="container">
-      <div className="image">
-        <img src={img} alt="Image" />
-      </div>
-      <div className="searchbar">
-        <input
-         type="text" 
-         placeholder={name}
-         value = {searchInput}
-         onChange = {handleSearchChange} />
-      </div>
-    </div>
-  );
-};
-
-const Dropdown = ({ name, values, img }) => {
-  return (
-    <div className = "container">
-      <div className="image">
-        <img src={img} alt="Image" />
-      </div>
-      <div className="box">
-        <select>
-         <option value="" disabled selected>{name}</option>
-          {values.map((value, index) => (
-            <option key={index} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
-      </div>
-    </div>            
-  );
-};
-import InfoComponent from './InfoBox';
 //erilliset komponentit
 import HeaderComponent from './Header.jsx';
 import Footer from './Footer.jsx'

@@ -2,6 +2,9 @@ h3 {
     font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Android Emoji", "EmojiOne", "Twemoji", "Segoe UI", Roboto, sans-serif;
   }
   
+p {
+  color: black
+}
 .InfoBox {
     display: inline-block;
     flex-direction: column;
