@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import bootstrap from 'bootstrap'
 
+=======
+import { useState, useEffect } from 'react'
+import './App.css'
+import './App.css'
+>>>>>>> 1847169f282dc2d19a39f5037563b25a0e182694
 // kuvat
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
@@ -14,7 +20,8 @@ import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import React from 'react';
 import jsonData from './unidata.json';
-import InfoComponent from './InfoBox';
+import InfoComponent from './InfoBox'
+import SortButton from './SortButton'
 //erilliset komponentit
 import HeaderComponent from './Header.jsx';
 import Footer from './Footer.jsx'
@@ -40,6 +47,10 @@ import Dropdown2 from './DropdownComponent-copy';
 
 
 const App = () => {
+  const sortvalues = ["Country", "Hintataso", "crimeIndex", "Pop/City2"]
+
+  const [selectedProperty, setSelectedProperty] = useState("Country");
+  const [sortedData, setSortedData] = useState([]);
   /*
   
   useEffect = (() => {
@@ -103,6 +114,50 @@ const App = () => {
   const handleChange = () => {
     setChecked(!checked);
   };
+  const searchResult = jsonData.filter((data) =>
+    data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
+    data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
+    data.University.toLowerCase().includes(searchInput.toLowerCase())||
+    data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+
+  useEffect(() => {
+
+    const sorted = sortByProperty(jsonData, selectedProperty);
+    setSortedData(sorted);
+    }, [selectedProperty]);
+
+  const sortByProperty = (arr, property) => {
+    return arr.slice().sort((a, b) => {
+        if (property === 'Country'){
+          const propA = a[property].toLowerCase();
+          const propB = b[property].toLowerCase();
+          if (propA < propB) return -1;
+          if (propA > propB) return 1;
+          return 0;}
+        else if (property === 'Hintataso') {
+          const propA = a[property];
+          const propB = b[property];
+          if (propA < propB) return -1;
+          if (propA > propB) return 1;
+          return 0;}
+        else if (property === 'Pop/City2'){
+          console.log(a[property])
+          const propA = a[property];
+          const propB = b[property];
+          if (propA < propB) return -1;
+          if (propA > propB) return 1;
+          return 0;}
+          else if (property === 'crimeIndex'){
+            const propA = a[property];
+            const propB = b[property];
+            if (propA < propB) return -1;
+            if (propA > propB) return 1;
+            return 0;
+          }
+        }
+
+        )
+      };
 
   const [checkedOne, setCheckedOne] = useState(false);
   const [checkedTwo, setCheckedTwo] = useState(false);
@@ -209,16 +264,23 @@ const App = () => {
     <div className = "leaflet_container">
       <MapComponent/>
     </div>
+    <div className='results '>
+      <p>All results: {searchResult.length}</p>
+    </div>
+    <div className='btn'>
+    <SortButton
+        values={sortvalues}
+        handleChange={(event) => setSelectedProperty(event.target.value)}
+      /> </div>
         
     
     
     {/* tähän tulee kaikki hakutulokset */}
     <div className="info-container">
-      {jsonData.map((item, index) => (
-        <div key = {index}>
-          <InfoComponent data={item} />
-      </div>
-))}
+      {sortedData.map((item, index) => (
+          <div key={index}>
+            <InfoComponent data={item} />
+      </div>))}
     </div>
         <div><Footer/></div>
     
