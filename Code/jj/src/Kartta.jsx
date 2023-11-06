@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import "leaflet/dist/leaflet.css"
 import L from 'leaflet';
 import jsonData from './unidata.json'
+
 class MapComponent extends React.Component {
     render() {
         // Define the position with latitude and longitude
