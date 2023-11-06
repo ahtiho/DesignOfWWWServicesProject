@@ -27,10 +27,8 @@ class MapComponent extends React.Component {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 {jsonData.map((data, index) => (
-
-                    <Marker key={index} position={[data.Latitude, data.Longitude]} icon={customIcon}>
-                        
-                        <Popup>{data.City}</Popup>
+                    <Marker key={index} position={[data.Latitude, data.Longitude]} icon={customIcon}> 
+                        <Popup>{data.University}</Popup>
                     </Marker>
                 ))}
             </MapContainer>
