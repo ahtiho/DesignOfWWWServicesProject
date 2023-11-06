@@ -27,10 +27,11 @@ p {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: white;
+  color: rgb(22, 22, 22);
 }
 
 h1 { /* avara aalto */
+  
   font-size: 80px;
   font-weight: 700;
   line-height: 97px;
@@ -39,14 +40,13 @@ h1 { /* avara aalto */
   font-style: normal;
 }
 
-h2 { /* aalto university school of business */
+
+h2 {  /* aalto university school of business */
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;   
   padding-bottom: 20px;
-
 }
-
 
 
 /* header -------------------------------------------------------------------------------- */
@@ -412,3 +412,82 @@ p.FooterWrap {
   a:active {
     text-decoration: none; color: black;}
   
+
+  /* PopulationRange ---------------------------------------------------------------*/
+
+  .priceSlider {
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+
+  .min-max label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    float: left;
+    margin-right: 5px;
+    line-height: 1.6;
+  }
+
+  .min {
+    float: left;
+  }
+
+  .max {
+    float:right;
+  }
+
+  .min-max {
+    width: 90%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 25px 0px 15px 0px;
+  }
+
+  .min-max span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    border: 1px solid #dedede;
+  }
+
+  .min-max-range {
+    padding: 30px 0px 20px 0px;
+  }
+
+  .range {
+    -webkit-appearance:none;
+    appearance: none;
+    width: 50%;
+    height: 10px;
+    max-width: 400px;
+    background-color: #040404;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    float: left;
+
+  }
+
+  .range::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    appearance: none;
+    background-color: #FF9F46;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .range::moz-range-thumb {
+    -webkit-appearance:none;
+    appearance: none;
+    background-color: red;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }

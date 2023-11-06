@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import bootstrap from 'bootstrap'
-import './App.css'
+
 // kuvat
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
@@ -30,9 +30,14 @@ import { useLocalStore } from "mobx-react-lite";
 //import "bootstrap/dist/css/bootstrap.min.css"; muotoilee kaiken väärin ;D
 import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
 import MultiselectDropdown from './MultiCheckboxDropdown'
+import PopulationRange from './populationRange'
 
 import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+//import MultiRangeSlider from './MultiRangeSlider.jsx';
+
 
 const App = () => {
   /*
@@ -67,7 +72,7 @@ const App = () => {
   var country_list = countryfilter;
   // tee population
   var population_list = [""];
-  var safety_list = [1, 2, 3, 4];
+  var safety_list = [1, 2, 3, 4,5];
 
 
   // määrittää asetusten perustilat
@@ -116,7 +121,15 @@ const App = () => {
      {/* Header -> erillinen tiedosto */}
     <div>
       <HeaderComponent/>
+      <PopulationRange/>
+      <MultiRangeSlider
+      min={0}
+      max={1000}
+      onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
+    />
     </div>  
+
+    
 
 
 
