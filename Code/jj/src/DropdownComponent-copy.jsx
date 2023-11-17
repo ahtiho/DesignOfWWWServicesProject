@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './ilmoncss.css'
 import React from 'react';
 import MultiselectDropdown from './MultiCheckboxDropdown';
 
@@ -17,7 +17,7 @@ const Dropdown2 = ({ name, values, img }) => {
 
         {/* tee tähän kaks eri polkuu riippuen halutaaks multiselect-search vai ei */}
         <form>
-            <select name="select"  multiple className="multiselect" multiselect-search="true" multiselect-select-all="true">
+            <select name="select" multiple  className="multiselect" multiselect-search="true" multiselect-select-all="true">
               
         
         {/* <option value=""  disabled="disabled">{name}</option> */}

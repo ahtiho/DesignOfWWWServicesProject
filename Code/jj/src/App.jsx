@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { useState } from 'react'
-import bootstrap from 'bootstrap'
-
-=======
 import { useState, useEffect } from 'react'
 import './App.css'
-import './App.css'
->>>>>>> 1847169f282dc2d19a39f5037563b25a0e182694
+import { Helmet } from 'react-helmet';
 // kuvat
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
@@ -43,7 +37,7 @@ import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-//import MultiRangeSlider from './MultiRangeSlider.jsx';
+import MultiRangeSlider from './MultiRangeSlider.jsx';
 
 
 const App = () => {
@@ -172,119 +166,119 @@ const App = () => {
 // -------------------------------------------------------------------------------------------
 
   return (
-  <div> 
-     {/* Header -> erillinen tiedosto */}
+     
     <div>
-      <HeaderComponent/>
-      <PopulationRange/>
-      <MultiRangeSlider
-      min={0}
-      max={1000}
-      onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)}
-    />
-    </div>  
-
-    
-
-
-
-    {/* Filteriosio */}
-    <div id = "filterBox">
-
-      <div className="dropdown-group"> {/* 1st line of filters*/}
-      <Search
-        name="Text Search"
-        img={imageSearch}
-        searchInput={searchInput}
-        handleSearchChange={(event) => setSearchInput(event.target.value)}/>
-
-      <Dropdown2 name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
-
-
-        {/* ALKUPERÄINEN LEVEL LIST - PALAUTA JOS UUSI EI TOIMI <Dropdown name="Level" values={level_list} img={imageLevel} className="app-dropdown" /> */}
-        
-
-        {/* 
-        <CheckboxDropdown name="Level" items={level_list} img={imageLevel} className="app-dropdown" onChange={(value) => handleFilterChange('Level', value)}/>
-        <CheckboxDropdown name="Region" items={region_list} img={imageRegion} className="app-dropdown"/>*/}
-      <Dropdown2 name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
-
-      {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-        <Dropdown name="Region" values={region_list} img={imageRegion} className="app-dropdown" /> */}
-      </div>
-
-      <div className="dropdown-group"> {/* 2nd line of filters*/}
-        <Dropdown2 name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
-        <Dropdown2 name="Ending month" values={month_list} img={imageDates} className="app-dropdown" />
-        
-         {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-        <Dropdown name="Starting month" values={month_list} img={imageDates} className="app-dropdown" /> 
-      <Dropdown name="Ending month" values={month_list} img={imageDates} className="app-dropdown" /> */}
-
-        <Dropdown2 name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown"/>
-        {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-        <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onChange={1}/> */}
-
-      </div>
-        
-
-      {showMore && (
+        {/* Header -> erillinen tiedosto */}
         <div>
-          <div className="dropdown-group"> {/* 3rd line of filters*/}
-          <Dropdown2 name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
-            <Dropdown2 name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
-            <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
-            
-             {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-            <Dropdown name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
-            <Dropdown name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
-      <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" /> */}
+        
+          <HeaderComponent />
+          <PopulationRange />
+          <MultiRangeSlider
+            min={0}
+            max={1000}
+            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)} />
+        </div>
+
+
+
+
+
+        {/* Filteriosio */}
+        <div id="filterBox">
+
+          <div className="dropdown-group"> {/* 1st line of filters*/}
+            <Search
+              name="Text Search"
+              img={imageSearch}
+              searchInput={searchInput}
+              handleSearchChange={(event) => setSearchInput(event.target.value)} />
+
+            <Dropdown2 name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
+
+
+            {/* ALKUPERÄINEN LEVEL LIST - PALAUTA JOS UUSI EI TOIMI <Dropdown name="Level" values={level_list} img={imageLevel} className="app-dropdown" /> */}
+
+
+            {/*
+    <CheckboxDropdown name="Level" items={level_list} img={imageLevel} className="app-dropdown" onChange={(value) => handleFilterChange('Level', value)}/>
+    <CheckboxDropdown name="Region" items={region_list} img={imageRegion} className="app-dropdown"/>*/}
+            <Dropdown2 name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
+
+            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
+      <Dropdown name="Region" values={region_list} img={imageRegion} className="app-dropdown" /> */}
+          </div>
+
+          <div className="dropdown-group"> {/* 2nd line of filters*/}
+            <Dropdown2 name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
+            <Dropdown2 name="Ending month" values={month_list} img={imageDates} className="app-dropdown" />
+
+            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
+   <Dropdown name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
+ <Dropdown name="Ending month" values={month_list} img={imageDates} className="app-dropdown" /> */}
+
+            <Dropdown2 name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" />
+            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
+    <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onChange={1}/> */}
 
           </div>
-          <div id="4th_line_wrap"> {/* koodaa tämä CSS*/}
-          <div className="dropdown-group"> {/* 4th line of filters*/}
 
-          <Dropdown2 name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" />
-          {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-          <Dropdown name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" /> */}
-          <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
-          </div>
-          </div>
-        </div> 
-        )}
+
+          {showMore && (
+            <div>
+              <div className="dropdown-group"> {/* 3rd line of filters*/}
+                <Dropdown2 name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
+                <Dropdown2 name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
+                <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
+
+                {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
+           <Dropdown name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
+           <Dropdown name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
+     <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" /> */}
+
+              </div>
+              <div id="4th_line_wrap"> {/* koodaa tämä CSS*/}
+                <div className="dropdown-group"> {/* 4th line of filters*/}
+
+                  <Dropdown2 name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" />
+                  {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
+            <Dropdown name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" /> */}
+                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                </div>
+              </div>
+            </div>
+          )}
         </div>  {/* Filteriosio päättyy !*/}
 
-    <div className='btn'>
-    <button onClick={toggleShowMore}>
-        {showMore ? 'Show Less' : 'More Filters (4+)'}
-    </button>
-    </div> 
+        <div className='btn'>
+          <button onClick={toggleShowMore}>
+            {showMore ? 'Show Less' : 'More Filters (4+)'}
+          </button>
+        </div>
 
-    {/* Kartta, erillisestä tiedostosta */}
-    <div className = "leaflet_container">
-      <MapComponent/>
-    </div>
-    <div className='results '>
-      <p>All results: {searchResult.length}</p>
-    </div>
-    <div className='btn'>
-    <SortButton
-        values={sortvalues}
-        handleChange={(event) => setSelectedProperty(event.target.value)}
-      /> </div>
-        
-    
-    
-    {/* tähän tulee kaikki hakutulokset */}
-    <div className="info-container">
-      {sortedData.map((item, index) => (
-          <div key={index}>
-            <InfoComponent data={item} />
-      </div>))}
-    </div>
-        <div><Footer/></div>
-    
-    </div> /* Sisältö päättyy tähän*/
+        {/* Kartta, erillisestä tiedostosta */}
+        <div className="leaflet_container">
+          <MapComponent />
+        </div>
+        <div className='results '>
+          <p>All results: {searchResult.length}</p>
+        </div>
+        <div className='btn'>
+          <SortButton
+            values={sortvalues}
+            handleChange={(event) => setSelectedProperty(event.target.value)} /> </div>
+
+
+
+        {/* tähän tulee kaikki hakutulokset */}
+        <div className="info-container">
+          {sortedData.map((item, index) => (
+            <div key={index}>
+              <InfoComponent data={item} />
+            </div>))}
+        </div>
+        <div><Footer /></div>
+
+      </div> /* Sisältö päättyy tähän*/ /* Sisältö päättyy tähän*/
 
   )
       }

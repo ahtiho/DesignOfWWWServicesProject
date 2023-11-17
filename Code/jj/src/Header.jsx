@@ -11,7 +11,7 @@ class HeaderComponent extends React.Component {
             <p id="logo">
               <a href="index.html">a.</a>
             </p>
-            <p>
+            <p id="aaltolinkki">
               <a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot">aalto.fi</a>
             </p>
 
@@ -36,18 +36,22 @@ class HeaderComponent extends React.Component {
             </div>
           </div>
 
-          <div>
+          <div id="herokuva">
+    
             <img
               src={herokuva}
               alt="a hand holding a world globe"
-              height="397px"
-              width="397px"
+              
             />
           </div>
 
           <div id="arrow">
+            <a href="#filterBox"> 
             <img src={nuoli}alt="an arrow" height="120" />
+            </a>
+           
           </div>
+        
         </div>
       </header>
     );

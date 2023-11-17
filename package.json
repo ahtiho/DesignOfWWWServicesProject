@@ -8,6 +8,7 @@
     "mobx-react-lite": "^4.0.5",
     "multiselect-react-dropdown": "^2.0.25",
     "react-bootstrap": "^2.9.1",
+    "react-helmet": "^6.1.0",
     "react-leaflet": "^4.2.1",
     "react-select": "^5.7.7"
   }
