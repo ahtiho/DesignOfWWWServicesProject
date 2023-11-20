@@ -170,22 +170,23 @@ padding: 30px;*/
      #headerButton a {
         color: white; /* Set the text color for the anchor element inside the button */
     }
+
+  #headerButton:hover{
+    background-color: #FF9F46;
+  }
     #arrow {
         padding-top: 38%;
         padding-left: 20px;
     }
 
-
-    #button-color:hover {
-        color: #FF9F46;
-    }
-
-    img #herokuva {
-      box-shadow: 6px 5px 16.9px 0px rgba(88, 71, 55, 0.29);
+    #hero {
+      filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
       max-width: 720px;
       max-height: 720px;
 
     };
+
+
 
 
 /* filterit ----------------------------------------------------------------------------------------- */
@@ -533,3 +534,71 @@ p.FooterWrap {
     border-radius: 50%;
     cursor: pointer;
   }
+
+
+  /* responsive desings --------------------------------------------------------------------------*/
+
+
+  @media only screen and (max-width: 950px) {
+    /* styles for devices with a maximum screen width of 950px */
+
+   #mainHeaderContent {
+      
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+      text-align: justify;
+    
+    }
+
+    #headerButtonPosition{
+      padding-top: 30px;
+      padding-left: 60%;
+    }
+
+    #titleDiv {
+      margin-bottom: 80px;
+    }
+
+    #herokuva {
+      display: none;
+    }
+
+    #arrow {
+      display: none;
+    }
+  
+    
+    }
+
+    @media only screen and (max-width: 685px) {
+      /* styles for mobile devices */
+  
+     #mainHeaderContent {
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+        text-align: center;
+      
+      }
+  
+      #headerButtonPosition{
+        padding-top: 30px;
+        padding-left: 0px;
+       
+      }
+  
+      #titleDiv {
+        margin-bottom: 80px;
+      }
+  
+      #herokuva {
+        display: none;
+      }
+  
+      #arrow {
+        display: none;
+      }
+    
+      
+      }
