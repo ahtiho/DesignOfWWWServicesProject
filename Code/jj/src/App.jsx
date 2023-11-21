@@ -38,6 +38,7 @@ import Dropdown2 from './DropdownComponent-copy';
 
 
 import MultiRangeSlider from './MultiRangeSlider.jsx';
+import FilterComponent from './FilterComponent';
 
 
 const App = () => {
@@ -172,16 +173,14 @@ const App = () => {
         <div>
         
           <HeaderComponent />
+          <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
+          <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
           <PopulationRange />
           <MultiRangeSlider
             min={0}
             max={1000}
             onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)} />
         </div>
-
-
-
-
 
         {/* Filteriosio */}
         <div id="filterBox">
@@ -193,16 +192,11 @@ const App = () => {
               searchInput={searchInput}
               handleSearchChange={(event) => setSearchInput(event.target.value)} />
 
-            <Dropdown2 name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
+            <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
+            <FilterComponent name="Region" values={region_list} img={imageLevel} className="app-dropdown" />
 
-
-            {/* ALKUPERÄINEN LEVEL LIST - PALAUTA JOS UUSI EI TOIMI <Dropdown name="Level" values={level_list} img={imageLevel} className="app-dropdown" /> */}
-
-
-            {/*
-    <CheckboxDropdown name="Level" items={level_list} img={imageLevel} className="app-dropdown" onChange={(value) => handleFilterChange('Level', value)}/>
-    <CheckboxDropdown name="Region" items={region_list} img={imageRegion} className="app-dropdown"/>*/}
             <Dropdown2 name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
+            
 
             {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
       <Dropdown name="Region" values={region_list} img={imageRegion} className="app-dropdown" /> */}
