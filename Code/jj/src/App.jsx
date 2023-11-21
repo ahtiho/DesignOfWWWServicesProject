@@ -46,22 +46,15 @@ const App = () => {
 
   const [selectedProperty, setSelectedProperty] = useState("Country");
   const [sortedData, setSortedData] = useState([]);
-  /*
-  
-  useEffect = (() => {
-    const updatedFilteredData = FilterFunction(jsonData, filters);
-    setFilteredData(updatedFilteredData);
-  }, [filters]);
 
-  const handleFilterChange = (filterName, values) => {
-    setFilters({
-      ...filters,
-      [filterName]: values,
+  const [filters, setFilters] = useState({});
 
-    });
-
-  }
-*/
+  const handleFiltersChange = (name, selectedValues) => {
+    setFilters(prevFilters => ({
+      ...prevFilters,
+      [name]: selectedValues
+    }) )
+  };
   
 
   //filterien dropdown-valikot
@@ -89,7 +82,7 @@ const App = () => {
     setShowMore(!showMore);
     };
   
-  const [filters, setFilters] = useState({
+  /*const [filters, setFilters] = useState({
       Country: [],
       Language: [],
       Region: [],
@@ -101,7 +94,7 @@ const App = () => {
       Gpa: [],
       Safety: []
     })
-
+*/
 
   //Checkbox: todennäköisesti turhia :) ----------------------------------------------------------
   const [checked, setChecked] = useState(false);
@@ -171,46 +164,35 @@ const App = () => {
     <div>
         {/* Header -> erillinen tiedosto */}
         <div>
-        
           <HeaderComponent />
-          <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
-          <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
-          <PopulationRange />
-          <MultiRangeSlider
-            min={0}
-            max={1000}
-            onChange={({ min, max }) => console.log(`min = ${min}, max = ${max}`)} />
         </div>
 
         {/* Filteriosio */}
         <div id="filterBox">
-
+        <h2 id="filter-title">Filters</h2><br></br>
           <div className="dropdown-group"> {/* 1st line of filters*/}
+            
             <Search
               name="Text Search"
               img={imageSearch}
               searchInput={searchInput}
               handleSearchChange={(event) => setSearchInput(event.target.value)} />
 
-            <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" />
-            <FilterComponent name="Region" values={region_list} img={imageLevel} className="app-dropdown" />
+            <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
+            <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
 
-            <Dropdown2 name="Region" values={region_list} img={imageRegion} className="app-dropdown" />
-            
-
-            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-      <Dropdown name="Region" values={region_list} img={imageRegion} className="app-dropdown" /> */}
+           
           </div>
 
           <div className="dropdown-group"> {/* 2nd line of filters*/}
-            <Dropdown2 name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
-            <Dropdown2 name="Ending month" values={month_list} img={imageDates} className="app-dropdown" />
+            <FilterComponent name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
+            <FilterComponent name="Ending month" values={month_list} img={imageDates} className="app-dropdown" />
 
             {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
    <Dropdown name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
  <Dropdown name="Ending month" values={month_list} img={imageDates} className="app-dropdown" /> */}
 
-            <Dropdown2 name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" />
+            <FilterComponent name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" />
             {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
     <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onChange={1}/> */}
 
@@ -220,8 +202,8 @@ const App = () => {
           {showMore && (
             <div>
               <div className="dropdown-group"> {/* 3rd line of filters*/}
-                <Dropdown2 name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
-                <Dropdown2 name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
+                <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
+                <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
                 <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
 
                 {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
