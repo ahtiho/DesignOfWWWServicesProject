@@ -18,7 +18,7 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
         ...prev,
         [value]: !prev[value],
       };
-      onFilterChange(name, newSelection);
+      onFilterChange(name, Object.keys(newSelection).filter(key => newSelection[key]));
       return newSelection;
     }
     )
@@ -38,19 +38,20 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
         {showMore && (
             <div className="FilterVeto">
               {values.map((value, index) => (
-                
-                <>
-                <input type="checkbox" name={name} value={value} id={index} />
-                <label for={index}>{value}</label>
-                <br></br></>
-            ))}
+                <React.Fragment key={index}>
+                <input type="checkbox" 
+                name={name} 
+                value={value} 
+                id={`${name}-checkbox-${index}`}
+                onChange = {() => handleCheckboxChange(value)}
+                checked={selectedValues[value] || false} 
+                />
+                <label htmlFor={`${name}-checkbox-${index}`}>{value}</label>
+                <br/>
+             </React.Fragment>))}
+      </div> 
+    )} </div> </div>)
 
-            </div>
-          )}
-        
-  </div>   
-      </div>         
-    );
-  }
+              }
 
 export default FilterComponent;

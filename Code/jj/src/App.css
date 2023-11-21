@@ -637,3 +637,29 @@ p.FooterWrap {
       }
 
       
+/* ssticky */
+
+
+.container {
+  
+}
+
+
+.sticky-div {
+  border: 2px solid #222222;
+  border-radius:25px;
+  position:fixed;
+  top:0;
+  width:180px;
+  z-index:100;
+  left: 1700px;
+  text-align: center;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  float: right;
+  margin-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #040404;
+
+}
