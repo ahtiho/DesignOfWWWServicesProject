@@ -191,11 +191,15 @@ padding: 30px;*/
 
 /* filterit ----------------------------------------------------------------------------------------- */
 
+
+
 #filterBox {
   display: grid;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  padding-top: 40px;
 }
 
 /* Filter component wrappning*/
@@ -242,10 +246,9 @@ padding: 30px;*/
   width: 140px;
 }
 
-.image img {
-  height: 40px;
-  width: 40px;
-}
+
+
+
 select{
   height: 40px;
   width: 140px;
@@ -303,29 +306,7 @@ input[type = text]{
 
 }
 
-/* tää ei toimi */
-.CheckBox {
-  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
-  text-align: center;
-  position: absolute;
-  overflow: hidden;
-  color: red;
-}
 
-.multiselect {
- color: blue; 
-}
-
-
-.box {
-  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  
-  height: 40px;
-  width: 10em;
-  font-size: 20px;
-  /*border: 2px solid #222222;
-  border-radius:16px;*/
-}
 
 
 /*täs kaikkee dropdown checkboxeihin liittyvää*/
@@ -426,16 +407,14 @@ input[type = text]{
   padding-bottom: 80px;
 }
 
-.FooterWrap {
+
+.FooterWrap p{
+  font-size: 14px;
+  color: white;
   text-align: center;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-left: auto;
   margin-right: auto;
-  
-  
-}
-
-p.FooterWrap {
-  font-size: 150px;
 
 }
 
@@ -604,11 +583,28 @@ p.FooterWrap {
       }
 
 
-      /* Filterit ------- */
+      /* Filterit ----------------------------------------------- */
 
+      .image img {
+        height: 40px;
+        width: 40px;
+        margin-right:
+      }
+      
+      .FBox {
+        font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        height: 40px;
+        width: 10em;
+        font-size: 20px;
+        
+        
+        /*border: 2px solid #222222;
+        border-radius:16px;*/
+      }
+      
       .FilterSection {
         display:flex;
-      flex-direction: row;
+        flex-direction: row;
       }
       
       #FilterLabel { /* filter button */
@@ -621,29 +617,68 @@ p.FooterWrap {
         font-size: 16px;
         font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
         color: #040404;
+        cursor: pointer;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 10px;
+        padding-left: 10px;
+        
       }
+
+      #dropdownNuoli {
+        width: 10px;
+        height: 10px;
+        padding-top: 8px;
+      }
+
+      #dropdownNuoli img {
+        width: 10px;
+        height: 5.37px;
+        float: right;
+        padding-left: 30px;
+      }
+
 
       .FilterVeto {
         border: 2px solid #222222;
-        border-radius:16px;
+        border-radius:25px;
         position: absolute;
-        width: 6em;
+        width: 160px;
         background-color: white;
+        display: block;
+        
       }
 
       #filter-title {
         text-align: center;
+        padding-top: 50px;
         
       }
 
+      .checkboxHide {
+        /* default checkbox */ 
+          
+          margin-left: 10px;
+        
+        }
       
-/* ssticky */
-
-
-.container {
-  
-}
-
+      .checkboxText {
+        padding-left: 0px;
+        cursor: pointer;
+        padding-left: 10px;
+        margin-bottom: 0px;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-size: 14px;
+        /*display: block; */
+        
+      }
+      
+/* ssticky--------------------------------------------*/
 
 .sticky-div {
   border: 2px solid #222222;
@@ -663,3 +698,5 @@ p.FooterWrap {
   background-color: #040404;
 
 }
+
+

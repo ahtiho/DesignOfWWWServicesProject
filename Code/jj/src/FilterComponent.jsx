@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import React from 'react';
+import nuoli from "/src/photos/nuoli.png"
 
 
 const FilterComponent = ({ name, values, img, onFilterChange }) => {
@@ -30,23 +31,27 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
           <img src={img} alt="Image" />
         </div>
 
-        <div className="box">
+        <div className="FBox">
         <button id="FilterLabel" onClick={toggleShowMore}>
-        {showMore ? name : name}
+        <div>{name}</div><div id="dropdownNuoli">
+          <img src={nuoli} alt="arrow-down"  />
+        </div>
         </button>
 
         {showMore && (
             <div className="FilterVeto">
               {values.map((value, index) => (
                 <React.Fragment key={index}>
-                <input type="checkbox" 
+                <span className="checkboxHide">
+                <input type="checkbox"
+                
                 name={name} 
                 value={value} 
                 id={`${name}-checkbox-${index}`}
                 onChange = {() => handleCheckboxChange(value)}
-                checked={selectedValues[value] || false} 
-                />
-                <label htmlFor={`${name}-checkbox-${index}`}>{value}</label>
+                checked={selectedValues[value] || false}
+                /></span>
+                <label htmlFor={`${name}-checkbox-${index}`} className="checkboxText">{value}</label>
                 <br/>
              </React.Fragment>))}
       </div> 
