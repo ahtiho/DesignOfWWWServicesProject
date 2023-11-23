@@ -241,7 +241,7 @@ input[type = text]{
   flex-wrap: wrap;
   gap: 50px; /* Adjust the gap as needed */
   justify-content: center; /* Center the items horizontally */
-  padding-top: 200px;
+  padding-top: 100px;
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -423,4 +423,12 @@ p.FooterWrap {
   
   a:active {
     text-decoration: none; color: black;}
+
+  .Summaryofdest {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
   

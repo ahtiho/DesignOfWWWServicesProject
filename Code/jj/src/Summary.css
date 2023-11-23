@@ -1,0 +1,19 @@
+.Summary {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .element{
+
+    margin: 0 30%;
+  }
+
+  .element p {
+    color: orange;
+    font-size: 36px;
+    font-weight: bold;
+    justify-content: center;
+  }

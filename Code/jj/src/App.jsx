@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import './App.css'
-// kuvat
+import MultiRangeSlider from "multi-range-slider-react";
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -31,7 +30,7 @@ import { useLocalStore } from "mobx-react-lite";
 //import "bootstrap/dist/css/bootstrap.min.css"; muotoilee kaiken väärin ;D
 import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
 import MultiselectDropdown from './MultiCheckboxDropdown'
-
+import Summary from './Summary';
 import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -100,6 +99,11 @@ const App = () => {
   //Checkbox: todennäköisesti turhia :) ----------------------------------------------------------
   const [checked, setChecked] = useState(false);
 
+  const [minValue, setMinValue] = useState(25);
+  const [maxValue, setMaxValue] = useState(75);
+  const [minValue2, setMinValue2] = useState(0);
+  const [maxValue2, setMaxValue2] = useState(0);
+
   const handleChange = () => {
     setChecked(!checked);
   };
@@ -114,7 +118,15 @@ const App = () => {
     const sorted = sortByProperty(jsonData, selectedProperty);
     setSortedData(sorted);
     }, [selectedProperty]);
+  
+  const regionvalues = sortedData.map(item => item["Region"]);
+  const distinctRegions = new Set(regionvalues).size;
 
+  const countryvalues = sortedData.map(item => item["Country"]);
+  const distinctCountries = new Set(countryvalues).size;
+
+  const universityvalues = sortedData.map(item => item["University"]);
+  const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
         if (property === 'Country'){
@@ -240,7 +252,11 @@ const App = () => {
         {showMore ? 'Show Less' : 'More Filters (4+)'}
     </button>
     </div> 
-
+    
+    
+    <div className='Summaryofdest'>
+    <Summary continents={distinctRegions} countries={distinctCountries} universities={distinctUniversities}/>
+    </div>
     {/* Kartta, erillisestä tiedostosta */}
     <div className = "leaflet_container">
       <MapComponent/>
@@ -264,8 +280,18 @@ const App = () => {
       </div>))}
     </div>
         <div><Footer/></div>
+      <div className="multi-range-slider-container">
+        <MultiRangeSlider
+          minValue={minValue}
+          maxValue={maxValue}
     
+          onInput={(e) => {
+            setMinValue(e.minValue);
+            setMaxValue(e.maxValue);
+          }}
+        ></MultiRangeSlider> </div>
     </div> /* Sisältö päättyy tähän*/
+
 
   )
       }

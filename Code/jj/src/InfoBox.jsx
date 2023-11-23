@@ -29,9 +29,6 @@ class InfoComponent extends Component {
                             <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Hintataso"]} </p>
                             <p><img src={'/src/photos/safety-icon.png'} alt="Image" />: {firstItem["crimeIndex"]} </p>
                             <p><img src={'/src/photos/population-icon.png'} alt="Image" />: {firstItem["Pop/City2"]} </p>
-                            <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Hintataso"]} </p>
-    
-
                             <p><img src={'/src/photos/gpa-icon.png'} alt="Image" />: {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
                     </div>
                     </div>

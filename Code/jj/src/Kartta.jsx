@@ -7,7 +7,7 @@ import jsonData from './unidata.json'
 class MapComponent extends React.Component {
     render() {
         // Define the position with latitude and longitude
-        const position = [51.505, -0.09];
+        const position = [40.4168, 3.7038];
         const customIcon = L.icon({
             iconUrl: 'https://cdn4.iconfinder.com/data/icons/small-n-flat/24/map-marker-512.png',
             iconSize: [40, 40],
@@ -22,7 +22,7 @@ class MapComponent extends React.Component {
             padding: "20px 0 0 0",
         };
         return (
-            <MapContainer center={position} zoom={13} style={mapStyle} scrollWheelZoom={false}>
+            <MapContainer center={position} zoom={1.5} style={mapStyle} scrollWheelZoom={false}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
