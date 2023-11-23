@@ -35,9 +35,6 @@ import PopulationRange from './populationRange'
 
 import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-import MultiRangeSlider from './MultiRangeSlider.jsx';
 import FilterComponent from './FilterComponent';
 
 
@@ -170,12 +167,15 @@ const App = () => {
   const handleChangeTwo = () => {
     setCheckedTwo(!checkedTwo);
   };
+
+
 // -------------------------------------------------------------------------------------------
 
   return (
      
     <div>
         {/* Header -> erillinen tiedosto */}
+  
         <div>
           <HeaderComponent />
         </div>
@@ -189,6 +189,7 @@ const App = () => {
         {/* Filteriosio */}
         <div id="filterBox">
         <h2 id="filter-title">Filters</h2><br></br>
+        <div id="filterLine"></div>
           <div className="dropdown-group"> {/* 1st line of filters*/}
             
             <Search

@@ -29,7 +29,7 @@ h1, h2, h3, h4, h5, h6,li,p,button {
 
 p {
   color: rgb(22, 22, 22);
-  font-size: 18px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 146.438%;
@@ -38,7 +38,7 @@ p {
 
 h1 { /* avara aalto */
   
-  font-size: 110px;
+  font-size: 80px;
   font-weight: 700;
   color: black;
   letter-spacing: -2px;
@@ -52,11 +52,12 @@ h1 { /* avara aalto */
 
 h2 {  /* aalto university school of business */
   font-weight: 400;
-  font-size: 32px;
+  font-size: 26px;
   padding-bottom: 20px;
   font-style: normal;
   line-height: normal;
   letter-spacing: -2px;
+  text-align: left;
 }
 
 
@@ -74,7 +75,7 @@ header {
     /* navigation */
   
     #navi {
-      max-width: 1600px;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
       display:flex;
@@ -85,8 +86,7 @@ header {
       font-style: normal;
       font-weight: 500;
       line-height: normal;
-      
-  vertical-align:middle;
+      vertical-align:middle;
     }
 
   #aaltolinkki {
@@ -98,7 +98,7 @@ header {
 
     #navLine {
       /*width: 60vw;*/
-      max-width: 1600px;
+      max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
       border: 1px solid #040404;
@@ -117,7 +117,7 @@ header {
   /* main header content */
   
   #mainHeaderContent {
-    max-width: 1500px;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -144,7 +144,7 @@ padding: 30px;*/
 
 
 #headerButtonPosition{
-    padding-top: 100px;
+    padding-top: 80px;
     padding-left: 60%;
 }
 
@@ -152,7 +152,7 @@ padding: 30px;*/
  #headerButton {
         position: absolute; 
         background-color: black;
-        font-size: 20px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -175,7 +175,7 @@ padding: 30px;*/
     background-color: #FF9F46;
   }
     #arrow {
-        padding-top: 38%;
+        padding-top: 33%;
         padding-left: 20px;
     }
 
@@ -518,7 +518,7 @@ input[type = text]{
   /* responsive desings --------------------------------------------------------------------------*/
 
 
-  @media only screen and (max-width: 950px) {
+  @media only screen and (max-width: 800px) {
     /* styles for devices with a maximum screen width of 950px */
 
    #mainHeaderContent {
@@ -550,7 +550,7 @@ input[type = text]{
     
     }
 
-    @media only screen and (max-width: 685px) {
+    @media only screen and (max-width: 550px) {
       /* styles for mobile devices */
   
      #mainHeaderContent {
@@ -640,15 +640,26 @@ input[type = text]{
       }
 
 
-      .FilterVeto {
+      .FilterVeto.active {
         border: 2px solid #222222;
         border-radius:25px;
         position: absolute;
         width: 160px;
         background-color: white;
         display: block;
+        opacity: 1;
+        visibility: visible;
+        
         
       }
+
+      .FilterVeto.inactive {
+        opacity: 0;
+        visibility: hidden;
+       
+      }
+
+
 
       #filter-title {
         text-align: center;
@@ -685,17 +696,20 @@ input[type = text]{
   border-radius:25px;
   position:fixed;
   top:0;
-  width:180px;
+  width:140px;
   z-index:100;
-  left: 1700px;
+  float: right;
+  /*left: 1200px;*/
   text-align: center;
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
+  font-size: 14px;
   float: right;
   margin-top: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #040404;
+  filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
 
 }
 
