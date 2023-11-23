@@ -11,8 +11,8 @@ class HeaderComponent extends React.Component {
             <p id="logo">
               <a href="index.html">a.</a>
             </p>
-            <p>
-              <a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot">aalto.fi</a>
+            <p id="aaltolinkki">
+              <a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot" target="_blank">aalto.fi</a>
             </p>
 
             
@@ -32,22 +32,25 @@ class HeaderComponent extends React.Component {
               After that students will yet go through the application process of the exchange university.
             </p>
             <div id="headerButtonPosition">
-              <button id="headerButton"><a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot">Read more</a></button>
+              <button id="headerButton"><a href="https://www.aalto.fi/fi/muut-opinnot/vaihto-opinnot" target="_blank">Read more</a></button>
             </div>
           </div>
 
-          <div>
+          <div id="herokuva">
             <img
               src={herokuva}
-              alt="a hand holding a world globe"
-              height="397px"
-              width="397px"
+              alt="a hand holding a world globe" id="hero"
+              
             />
           </div>
 
           <div id="arrow">
+            <a href="#filterBox"> 
             <img src={nuoli}alt="an arrow" height="120" />
+            </a>
+           
           </div>
+        
         </div>
       </header>
     );

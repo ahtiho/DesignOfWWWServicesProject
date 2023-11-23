@@ -6,6 +6,11 @@
 
 }
 
+/* ----------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
 .App {
   position: absolute;
   top: 0;
@@ -18,41 +23,48 @@
 /* yleiset -------------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6,li,p,button {
-  font-family: "Inter", "Lucida Bright", "DejaVu Serif", "Georgia", "serif";
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #040404;
 }
 
 p {
-  font-size: 18px;
+  color: rgb(22, 22, 22);
+  font-size: 14px;
   font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  color: white;
-}
+  font-weight: 500;
+  line-height: 146.438%;
+  text-align: left;
+  }
 
 h1 { /* avara aalto */
+  
   font-size: 80px;
   font-weight: 700;
-  line-height: 97px;
-  color: #040404;
+  color: black;
   letter-spacing: -2px;
   font-style: normal;
+  font-style: normal;
+  line-height: normal;
+  text-shadow: 3px 3px 7.599999904632568px rgba(187, 110, 38, 0.55);
+
 }
 
-h2 { /* aalto university school of business */
+h2 {  /* aalto university school of business */
   font-weight: 400;
-  font-size: 24px;
-  line-height: 29px;   
+  font-size: 26px;
   padding-bottom: 20px;
-
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -2px;
+  text-align: left;
 }
 
 
-
-/* header -------------------------------------------------------------------------------- */
+/* header ------------------------------------------------------------------------------------------- */
 
 header {
-  background-color: #FF9F46;
+  /*background-color: #FF9F46;*/
+  background: linear-gradient(#FF9F46, #FF9F4600);
   margin-bottom: 50px;
   padding-bottom: 60px;
   
@@ -62,7 +74,7 @@ header {
     /* navigation */
   
     #navi {
-      width: 1015px;
+      max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
       display:flex;
@@ -73,30 +85,38 @@ header {
       font-style: normal;
       font-weight: 500;
       line-height: normal;
+      vertical-align:middle;
+    }
+
+  #aaltolinkki {
+    /*border: 1px solid #222;
+    border-radius: 50px;
+    padding: 0px;*/
+    padding-top: 35px;
   }
 
-  #navLine {
-    width: 60vw;
-      margin-left: auto;
-      margin-right: auto;
-    border: 1px solid #040404;
-    margin-bottom: 40px;
-  }
+    #navLine {
+      /*width: 60vw;*/
+      max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      border: 1px solid #040404;
+      margin-bottom: 40px;
+    }
   
-  #logo {
-      font-size: 64px;
-      font-style: normal;
-      font-weight: 800;
-      line-height: normal;
-      letter-spacing: -2px;
-  }
+    #logo {
+        font-size: 64px;
+        font-style: normal;
+        font-weight: 800;
+        line-height: normal;
+        letter-spacing: -2px;
+    }
 
 
   /* main header content */
   
   #mainHeaderContent {
-    background-color: #FF9F46; 
-    width: 975px;
+    max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -107,6 +127,8 @@ header {
   /* JATKA TÄSTÄ */
   #titleDiv {
     padding: 10px 50px;
+    max-width: 700px;
+    padding-top: 50px;
   }
 
   /*  float: left;
@@ -121,7 +143,7 @@ padding: 30px;*/
 
 
 #headerButtonPosition{
-    padding-top: 30px;
+    padding-top: 80px;
     padding-left: 60%;
 }
 
@@ -129,7 +151,7 @@ padding: 30px;*/
  #headerButton {
         position: absolute; 
         background-color: black;
-        font-size: 20px;
+        font-size: 14px;
         font-style: normal;
         font-weight: 500;
         line-height: normal;
@@ -147,31 +169,45 @@ padding: 30px;*/
      #headerButton a {
         color: white; /* Set the text color for the anchor element inside the button */
     }
+
+  #headerButton:hover{
+    background-color: #FF9F46;
+  }
     #arrow {
-        padding-top: 30%;
+        padding-top: 33%;
+        padding-left: 20px;
     }
 
+    #hero {
+      filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
+      max-width: 720px;
+      max-height: 720px;
 
-    #button-color:hover {
-        color: #FF9F46;
-    }
+    };
+
+
 
 
 /* filterit ----------------------------------------------------------------------------------------- */
+
+
 
 #filterBox {
   display: grid;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
+  padding-top: 40px;
+  
 }
 
-/* Filter component wrappning*/
+/* YKSITTÄINEN FILTER-KOMPONENTTI KUVA + BUTTON*/
 .container {
   display: flex;
   align-items: center;
   margin: 20px;
-  column-gap: 20px;
+  column-gap: 10px;
   /*border-style: solid;
   border-width: 5px;
   border:#e16969; */
@@ -179,12 +215,12 @@ padding: 30px;*/
 
 /* yksittäisen filteririvin div */
 .dropdown-group{
-  display: flex; 
-  flex-wrap:wrap;
+  display: grid;
+  grid-template-columns: auto auto auto;
   justify-content: space-between;
-  /*padding-left: 400px;
-  padding-right: 400px;*/
-  width: 1000px;
+  /*flex-wrap:wrap;
+  justify-content: space-between;*/
+  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -192,7 +228,6 @@ padding: 30px;*/
 
 /* --------------------------------------------------------------------------- */
   
- 
 
 .btn{
   display: flex;
@@ -205,22 +240,57 @@ padding: 30px;*/
   color: white;
   border: none;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 25px;
   height: 40px;
   width: 140px;
 }
 
-.image img {
+.btn button:hover {
+  background-color: black;
+  color: #FF9F46;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
   height: 40px;
-  width: 40px;
+  width: 140px;
 }
+
+.showmoreButton {
+  /*display: flex;
+  justify-content:flex-end;*/
+  padding-right: 20%;
+  padding-bottom: 4.25%;
+  float: right;
+}
+
+.showmoreButton button {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  height: 40px;
+  width: 140px;
+}
+
+.showmoreButton button:hover {
+  background-color: black;
+  color: #FF9F46;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  height: 40px;
+  width: 140px;
+}
+
+/* DROPDOWN ESIM. GPA */
 select{
   height: 40px;
   width: 140px;
-  font-size: 20px;
-  font-family: 'Arial';
+  font-size: 16px;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
   border: 2px solid #222222;
-  border-radius:16px;
+  border-radius:25px;
 
 }
 
@@ -228,13 +298,15 @@ select.study_language_dropdown{
   font-size: 15px;
 }
 
+/* TEXT SEARCH */
 input[type = text]{
   height: 40px;
   width: 140px;
-  font-size: 20px;
-  font-family: 'Arial';
+  font-size: 16px;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
   border: 2px solid #222222;
   border-radius: 25px;
+  padding-left: 10px;
 }
 .info-container {
   display: flex;
@@ -251,11 +323,7 @@ input[type = text]{
   height: 60vh;
   }
 
-#filterBox {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+
 .results {
     position: absolute;
     left: 25%;
@@ -271,120 +339,8 @@ input[type = text]{
 
 }
 
-/* tää ei toimi */
-.CheckBox {
-  font-family: sans-serif;
-  text-align: center;
-  position: absolute;
-  overflow: hidden;
-  color: red;
-}
-
-.multiselect {
- color: blue; 
-}
 
 
-.box {
-  font-family: Arial, Helvetica, sans-serif;
-  
-  height: 40px;
-  width: 10em;
-  font-size: 20px;
-  font-family: 'Arial';
-  /*border: 2px solid #222222;
-  border-radius:16px;*/
-}
-
-
-/*täs kaikkee dropdown checkboxeihin liittyvää*/
-
-.multiselect-dropdown{
-  display: inline-block;
-  padding: 2px 5px 0px 5px;
-  border-radius: 25px;
-  border: solid 2px #222222;
-  background-color: white;
-  height: 40px;
-  position: relative;
-  /*background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right .75rem center;
-  background-size: 16px 12px;*/
-}
-.multiselect-dropdown span.optext, .multiselect-dropdown span.placeholder{
-  margin-right:0.5em; 
-  margin-bottom:2px;
-  padding:1px 0; 
-  border-radius: 30px; 
-  display:inline-block;
-  cursor:pointer;
-}
-.multiselect-dropdown span.optext{
-  background-color:rgb(161, 43, 43);
-  padding:1px 0.75em; 
-  cursor:pointer;
-  text-align: center;
-}
-.multiselect-dropdown span.optext .optdel {
-  float: right;
-  margin: 0 -6px 1px 5px;
-  font-size: 0.7em;
-  margin-top: 2px;
-  cursor: pointer;
-  color: #ffffff;
-}
-.multiselect-dropdown span.optext .optdel:hover { color: rgb(33, 142, 55);}
-.multiselect-dropdown span.placeholder{
-  color:#222222;
-  text-align: center;
-}
-.multiselect-dropdown-list-wrapper{
-  box-shadow: rgb(171, 171, 171) 0 3px 8px;
-  z-index: 100;
-  padding:2px;
-  border-radius: 25px;
-  border: solid 1px #222222;
-  display: none;
-  margin: -1px;
-  position: absolute;
-  top:40px; /* tätä vaihtamalla saa muutettua missä kohtia dropdown boksi on */
-  left: 0;
-  right: 0;
-  background: white;
-}
-.multiselect-dropdown-list-wrapper .multiselect-dropdown-search{
-  margin-bottom:8px;
-}
-.multiselect-dropdown-list{
-  padding:2px;
-  height: 15rem;
-  overflow-y:auto;
-  overflow-x: hidden;
-}
-.multiselect-dropdown-list::-webkit-scrollbar {
-  width: 10px;
-}
-.multiselect-dropdown-list::-webkit-scrollbar-thumb {
-  background-color: #ff9f46;
-  border-radius:3px;
-}
-
-.multiselect-dropdown-list div{
-  padding: 6px;
-}
-.multiselect-dropdown-list input{
-  height: 1.15em;
-  width: 1.15em;
-  margin-right: 0.35em;  
-}
-.multiselect-dropdown-list div.checked{
-}
-.multiselect-dropdown-list div:hover{
-  background-color: #ffc690;
-}
-.multiselect-dropdown span.maxselected {width:100%;}
-.multiselect-dropdown-all-selector {border-bottom:solid 1px #222;}
 
 /* Footer ---------------------------------------------------------------------------------------- */
 
@@ -395,16 +351,14 @@ input[type = text]{
   padding-bottom: 80px;
 }
 
-.FooterWrap {
+
+.FooterWrap p{
+  font-size: 14px;
+  color: white;
   text-align: center;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin-left: auto;
   margin-right: auto;
-  
-  
-}
-
-p.FooterWrap {
-  font-size: 150px;
 
 }
 
@@ -432,3 +386,304 @@ p.FooterWrap {
     padding: 10px;
   }
   
+
+  /* PopulationRange ---------------------------------------------------------------*/
+
+  .priceSlider {
+    width: 200px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+
+  .min-max label {
+    font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    float: left;
+    margin-right: 5px;
+    line-height: 1.6;
+  }
+
+  .min {
+    float: left;
+  }
+
+  .max {
+    float:right;
+  }
+
+  .min-max {
+    width: 90%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 25px 0px 15px 0px;
+  }
+
+  .min-max span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    display: inline-block;
+    width: 40px;
+    border: 1px solid #dedede;
+  }
+
+  .min-max-range {
+    padding: 30px 0px 20px 0px;
+  }
+
+  .range {
+    -webkit-appearance:none;
+    appearance: none;
+    width: 50%;
+    height: 10px;
+    max-width: 400px;
+    background-color: #040404;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    float: left;
+
+  }
+
+  .range::-webkit-slider-thumb {
+    -webkit-appearance:none;
+    appearance: none;
+    background-color: #FF9F46;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .range::moz-range-thumb {
+    -webkit-appearance:none;
+    appearance: none;
+    background-color: red;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+
+  /* responsive desings --------------------------------------------------------------------------*/
+
+
+  @media only screen and (max-width: 840px) {
+    /* styles for devices with a maximum screen width of 950px */
+
+   #mainHeaderContent {
+      
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+      text-align: justify;
+    
+    }
+
+    #headerButtonPosition{
+      padding-top: 30px;
+      padding-left: 60%;
+    }
+
+    #titleDiv {
+      margin-bottom: 80px;
+    }
+
+    #herokuva {
+      display: none;
+    }
+
+    #arrow {
+      display: none;
+    }
+
+   
+
+    .dropdown-group{
+      display:flex;
+      flex-direction:column;
+      align-items: center;
+      justify-content: space-between;
+      /*flex-wrap:wrap;
+      justify-content: space-between;*/
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  
+    
+    }
+
+    @media only screen and (max-width: 550px) {
+      /* styles for mobile devices */
+  
+     #mainHeaderContent {
+        margin-left: auto;
+        margin-right: auto;
+        display: table;
+        text-align: center;
+      
+      }
+  
+      #headerButtonPosition{
+        padding-top: 30px;
+        padding-left: 0px;
+       
+      }
+  
+      #titleDiv {
+        margin-bottom: 80px;
+      }
+  
+      #herokuva {
+        display: none;
+      }
+  
+      #arrow {
+        display: none;
+      }
+    
+      
+      }
+
+
+      /* Filterit ----------------------------------------------- */
+
+      #filterBox {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .image img {
+        height: 40px;
+        width: 40px;
+      }
+      
+      .FBox {
+        font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+        height: 40px;
+        width: 10em;
+        font-size: 20px;
+        
+        
+        /*border: 2px solid #222222;
+        border-radius:16px;*/
+      }
+      
+     
+      
+      #FilterLabel { /* filter button */
+        border: 2px solid #222222;
+        border-radius:30px;
+        padding-left: 0px;
+        width: 80%;
+        background-color: white;
+        padding: 10px 0px;
+        font-size: 16px;
+        font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        color: #040404;
+        cursor: pointer;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-right: 10px;
+        padding-left: 10px;
+        
+      }
+
+      #dropdownNuoli {
+        width: 10px;
+        height: 10px;
+        padding-top: 8px;
+      }
+
+      #dropdownNuoli img {
+        width: 10px;
+        height: 5.37px;
+        float: right;
+        padding-left: 30px;
+      }
+
+
+      .FilterVeto.active {
+        border: 2px solid #222222;
+        border-radius:25px;
+        position: absolute;
+        width: 160px;
+        background-color: white;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        max-height: 200px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        padding-top: 6px;
+        padding-bottom: 10px;
+        
+        
+      }
+
+      .FilterVeto.inactive {
+        opacity: 0;
+        visibility: hidden;
+       
+      }
+
+
+
+      #filter-title {
+        text-align: center;
+        padding-top: 50px;
+        
+      }
+
+      .checkboxHide {
+        /* default checkbox */ 
+          
+          margin-left: 10px;
+        
+        }
+      
+      .checkboxText {
+        padding-left: 0px;
+        cursor: pointer;
+        padding-left: 10px;
+        margin-bottom: 0px;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        font-size: 14px;
+        /*display: block; */
+        
+      }
+      
+/* ssticky--------------------------------------------*/
+
+.sticky-div {
+  border: 2px solid #222222;
+  border-radius:25px;
+  position:fixed;
+  top:0;
+  width:140px;
+  z-index:100;
+  float: right;
+  /*left: 1200px;*/
+  text-align: center;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: white;
+  font-size: 14px;
+  float: right;
+  margin-top: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #040404;
+  filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
+
+}
+
+
