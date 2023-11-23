@@ -175,12 +175,11 @@ const App = () => {
      
     <div>
         {/* Header -> erillinen tiedosto */}
-  
         <div>
           <HeaderComponent />
         </div>
 
-        <div>
+        <div> {/* STICKY BAR */}
                 <div class="container">
           <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
         </div>
@@ -188,68 +187,43 @@ const App = () => {
 
         {/* Filteriosio */}
         <div id="filterBox">
-        <h2 id="filter-title">Filters</h2><br></br>
-        <div id="filterLine"></div>
-          <div className="dropdown-group"> {/* 1st line of filters*/}
-            
-            <Search
-              name="Text Search"
-              img={imageSearch}
-              searchInput={searchInput}
-              handleSearchChange={(event) => setSearchInput(event.target.value)} />
-
-            <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
-            <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" onFilterChange={handleFiltersChange} />
-
-           
-          </div>
-
-          <div className="dropdown-group"> {/* 2nd line of filters*/}
-            <FilterComponent name="Starting month" values={month_list} img={imageDates} className="app-dropdown"onFilterChange={handleFiltersChange} />
-            <FilterComponent name="Ending month" values={month_list} img={imageDates} className="app-dropdown" onFilterChange={handleFiltersChange}/>
-
-            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-   <Dropdown name="Starting month" values={month_list} img={imageDates} className="app-dropdown" />
- <Dropdown name="Ending month" values={month_list} img={imageDates} className="app-dropdown" /> */}
-
-            <FilterComponent name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onFilterChange={handleFiltersChange}/>
-            {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-    <Dropdown name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onChange={1}/> */}
-
-          </div>
+          <h2 id="filter-title">Filters</h2><br></br>
+          <div id="filterLine"></div> {/* tähän jos halutaan joku hieno koristeviiva vielä*/}
 
 
-          {showMore && (
-            <div>
-              <div className="dropdown-group"> {/* 3rd line of filters*/}
-                <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
-
-                {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-           <Dropdown name="Price" values={price_list} img={imagePrice} className="app-dropdown" />
-           <Dropdown name="Country" values={country_list} img={imageCountry} className="app-dropdown" />
-     <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" /> */}
-
-              </div>
-              <div id="4th_line_wrap"> {/* koodaa tämä CSS*/}
-                <div className="dropdown-group"> {/* 4th line of filters*/}
-
-                  <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
-                  {/* ALKUPERÄINEN REGION LIST - PALAUTA JOS UUSI EI TOIMI
-            <Dropdown name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" /> */}
-                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
-                </div>
-              </div>
+            <div className="dropdown-group"> {/* 1st line of filters*/}
+              <Search className="app-dropdown" name="Text Search" img={imageSearch} searchInput={searchInput} handleSearchChange={(event) => setSearchInput(event.target.value)} />
+              <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
+              <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" onFilterChange={handleFiltersChange} />
+              <FilterComponent name="Starting month" values={month_list} img={imageDates} className="app-dropdown"onFilterChange={handleFiltersChange} />
+              <FilterComponent name="Ending month" values={month_list} img={imageDates} className="app-dropdown" onFilterChange={handleFiltersChange}/>
+              <FilterComponent name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onFilterChange={handleFiltersChange}/>
+      
             </div>
-          )}
-        </div>  {/* Filteriosio päättyy !*/}
 
-        <div className='btn'>
+            {showMore && (
+             <div className="dropdown-group"> {/* 3rd line of filters*/}
+                  <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
+                  <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
+                  <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
+                  <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
+                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+
+            </div>
+                
+                
+      
+            )}
+
+          <div className='showmoreButton'>
           <button onClick={toggleShowMore}>
             {showMore ? 'Show Less' : 'More Filters (4+)'}
           </button>
         </div>
+        
+        </div>  {/* Filteriosio päättyy !*/}
+
+        
 
         {/* Kartta, erillisestä tiedostosta */}
         <div className="leaflet_container">

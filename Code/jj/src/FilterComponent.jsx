@@ -49,7 +49,7 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
 
   // return -------------------------------------------->
   return (
-    <div className = "FilterSection">
+    <div className = "container">
       <div className="image">
         <img src={img} alt="Image" />
       </div>
