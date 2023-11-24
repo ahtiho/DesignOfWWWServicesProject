@@ -23,8 +23,8 @@ import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
 import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
-import { languagefilter, countryfilter, regionfilter, monthfilter } from "./Filterit.js"
-import FilterFunction from './Filterit.js'
+import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
+import {FilterFunction} from './filterit_toim.jsx'
 import { components } from "react-select";
 import MultiCheckboxDropdown from './MultiCheckboxDropdown'
 //checkbox juttuun importteja
@@ -44,7 +44,7 @@ import GPAInfo from './GPAInfo';
 
 
 const App = () => {
-  const sortvalues = ["Country", "Hintataso", "crimeIndex", "Pop/City2"]
+  const sortvalues = ["Alphabetical order", "Sort by Price Level ", "Sort by Safety", "Sort by Population"]
 
   const [selectedProperty, setSelectedProperty] = useState("Country");
   //const [sortedData, setSortedData] = useState([]);
@@ -65,10 +65,11 @@ const App = () => {
 
   });
 
-var [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
+const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
 
 console.log("yks:", newFilteredData);
+
 //newFilteredData.forEach(item => console.log(item.Country));
 
 
@@ -77,8 +78,13 @@ console.log("yks:", newFilteredData);
     // Varmista, että filters sisältää jonkin filtterin ennen filtteröinnin suorittamista
     const areFiltersSet = Object.values(filters).some(filter => filter.length > 0);
     if (areFiltersSet) {
-      const newFilteredData = <FilterFunction filterdata="filters" data="newFilteredData" />;
+     
+      const newFilteredData = FilterFunction(filters, jsonData);
+
       setFilteredData(newFilteredData);
+    } else {
+      
+      setFilteredData(jsonData)
     }
   }, [filters]);
 
@@ -152,7 +158,7 @@ const handleFiltersChange = (name, selectedValues) => {
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
-data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+    data.Region.toLowerCase().includes(searchInput.toLowerCase()));
 
 
   useEffect(() => {
@@ -170,26 +176,31 @@ data.Region.toLowerCase().includes(searchInput.toLowerCase()));
   const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
-        if (property === 'Country'){
+        
+        if (property === 'Alphabetical order'){
+          const property = "Country"
           const propA = a[property].toLowerCase();
           const propB = b[property].toLowerCase();
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-        else if (property === 'Hintataso') {
+        else if (property === 'Sort by Price Level ') {
+          const property = 'Hintataso'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-        else if (property === 'Pop/City2'){
-          console.log(a[property])
+        else if (property === 'Sort by Population'){
+          const property = 'Pop/City2'
+          
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-          else if (property === 'crimeIndex'){
+          else if (property === 'Sort by Safety'){
+            const property = 'crimeIndex'
             const propA = a[property];
             const propB = b[property];
             if (propA < propB) return -1;
@@ -279,8 +290,12 @@ data.Region.toLowerCase().includes(searchInput.toLowerCase()));
         
         </div>  {/* Filteriosio päättyy !*/}
 
-        
+        <div className='Summaryofdest'>
+          <Summary continents = {distinctRegions} universities = {distinctUniversities}  countries = {distinctCountries}/>
 
+        </div>
+
+        
         {/* Kartta, erillisestä tiedostosta */}
         <div className="leaflet_container">
           <MapComponent />
