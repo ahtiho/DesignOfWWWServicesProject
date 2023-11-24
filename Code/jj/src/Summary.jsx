@@ -4,6 +4,7 @@ import './Summary.css'
 
 const Summary = ({ continents, universities, countries }) => {
     return(
+        <div id="summarywrap">
         <div className="Summary">
             <div className="element">
             <p>
@@ -24,6 +25,7 @@ const Summary = ({ continents, universities, countries }) => {
                 Countries
             </h2>
             </div>
+
             <div className="element">
             <p>
             {universities} <br/> 
@@ -34,7 +36,7 @@ const Summary = ({ continents, universities, countries }) => {
             </h2>
             </div>
         </div>
-    )
+        </div>)
 }
 
 export default Summary

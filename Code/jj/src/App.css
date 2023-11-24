@@ -202,6 +202,8 @@ padding: 30px;*/
   
 }
 
+
+
 /* YKSITTÄINEN FILTER-KOMPONENTTI KUVA + BUTTON*/
 .container {
   display: flex;
@@ -379,13 +381,17 @@ input[type = text]{
     text-decoration: none; color: black;}
 
   .Summaryofdest {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 
+    /*
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
-    padding-bottom: 100px;
-  }
+    padding-bottom: 100px; */
+  } 
   
 
   /* PopulationRange ---------------------------------------------------------------*/
@@ -557,8 +563,12 @@ input[type = text]{
 
       #filter-title {
         text-align: center;
-        padding-top: 50px;
+        padding-top: 40px;
         
+      }
+
+      #filterLine {
+        height: 20px;
       }
 
       .checkboxHide {
@@ -619,11 +629,15 @@ input[type = text]{
         top: 0;
         /*left: calc(100% + 10px); /* Position the box to the right of the image */
         padding: 10px;
-        background-color: #f0f0f0;
+        background-color: rgba(255, 246, 232, 0.9);
         text-align: center;
         font-size: 12px;
         border-radius: 20px;
         filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
+      }
+
+      .clear {
+        clear: both;
       }
     
 
@@ -747,10 +761,13 @@ input[type = text]{
     transform: translateX(0);}
 
 
+    .Summaryofdest {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
   }
-
-
-
 
 
   /* ------------------------ FOR MOBILE */
@@ -794,4 +811,13 @@ input[type = text]{
       margin-right:20px;
       transform: translateX(0);}
     /* KORJAA KUN TUOTEKORTIT OVAT OK */
+
+    .Summaryofdest {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+
     }

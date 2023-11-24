@@ -287,6 +287,8 @@ const handleFiltersChange = (name, selectedValues) => {
             {showMore ? 'Show Less' : 'More Filters (4+)'}
           </button>
         </div>
+
+        <div className="clear"></div>
         
         </div>  {/* Filteriosio päättyy !*/}
 
