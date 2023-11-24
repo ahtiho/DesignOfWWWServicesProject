@@ -47,6 +47,8 @@ const App = () => {
   const [selectedProperty, setSelectedProperty] = useState("Country");
   const [sortedData, setSortedData] = useState([]);
 
+
+  // FILTEREIHIN LIITTYVII JUTTUJAAAA -----------------------------------------
   const [filters, setFilters] = useState({
     Country: [],
     Language: [],
@@ -61,12 +63,31 @@ const App = () => {
 
   });
 
-  const handleFiltersChange = (name, selectedValues) => {
+var [newFilteredData, setFilteredData] = useState([{jsonData}]); // Tila suodatetulle datalle
+
+
+
+  useEffect(() => {
+    // Kutsu FilterFunction-funktiota aina, kun filters-tila päivittyy
+    // Varmista, että filters sisältää jonkin filtterin ennen filtteröinnin suorittamista
+    const areFiltersSet = Object.values(filters).some(filter => filter.length > 0);
+    if (areFiltersSet) {
+      const newFilteredData = <FilterFunction filtereddata="filters" data="jsonData" />;
+      setFilteredData(newFilteredData);
+    }
+  }, [filters]);
+
+
+const handleFiltersChange = (name, selectedValues) => {
     setFilters(prevFilters => ({
       ...prevFilters,
       [name]: selectedValues
     }) )
   };
+
+
+
+// -----------------------------------------------------------------
   
 
   //filterien dropdown-valikot
@@ -120,11 +141,13 @@ const App = () => {
   const handleChange = () => {
     setChecked(!checked);
   };
-  const searchResult = jsonData.filter((data) =>
+  {/*const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
     data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+
+*/}
 
   useEffect(() => {
 
@@ -199,11 +222,11 @@ const App = () => {
           <ScrollComponent/>
         </div>
 
-        <div> {/* STICKY BAR */}
+     {/* <div> {/* STICKY BAR
                 <div class="container">
           <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
         </div>
-        </div>
+        </div>*/}
 
         {/* Filteriosio */}
         <div id="filterBox">
@@ -250,7 +273,7 @@ const App = () => {
           <MapComponent />
         </div>
         <div className='results '>
-          <p>All results: {searchResult.length}</p>
+          {/*<p>All results: {searchResult.length}</p>*/}
         </div>
         <div className='btn'>
           <SortButton
@@ -268,7 +291,7 @@ const App = () => {
         </div>
         <div><Footer /></div>
 
-      </div> /* Sisältö päättyy tähän*/ /* Sisältö päättyy tähän*/
+      </div> /* Sisältö päättyy tähän*/
 
 
   )

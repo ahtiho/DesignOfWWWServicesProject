@@ -9,7 +9,7 @@ const ScrollComponent = () => {
   useEffect(() => {
     const myScrollFunc = () => {
       const y = window.scrollY;
-      if (y >= 1500) {
+      if (y >= 1100) {
         setShowCTA(true);
       } else {
         setShowCTA(false);
@@ -29,7 +29,9 @@ const ScrollComponent = () => {
       {/* Your other React components */}
       {/* Conditional rendering based on showCTA state */}
       <div id="customID" className={showCTA ? 'cta show' : 'cta hide'}>
-        {/* Your CTA content */}moiiiiii
+        {/* Your CTA content */}<div class="container">
+          <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
+        </div>
       </div>
     </div>
   );
