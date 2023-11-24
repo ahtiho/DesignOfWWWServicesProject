@@ -23,8 +23,8 @@ import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
 import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
-import { languagefilter, countryfilter, regionfilter, monthfilter } from "./Filterit.js"
-import FilterFunction from './Filterit.js'
+import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
+import {FilterFunction} from './filterit_toim.jsx'
 import { components } from "react-select";
 import MultiCheckboxDropdown from './MultiCheckboxDropdown'
 //checkbox juttuun importteja
@@ -63,10 +63,11 @@ const App = () => {
 
   });
 
-var [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
+const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
 
 console.log("yks:", newFilteredData);
+
 //newFilteredData.forEach(item => console.log(item.Country));
 
 
@@ -75,8 +76,13 @@ console.log("yks:", newFilteredData);
     // Varmista, että filters sisältää jonkin filtterin ennen filtteröinnin suorittamista
     const areFiltersSet = Object.values(filters).some(filter => filter.length > 0);
     if (areFiltersSet) {
-      const newFilteredData = <FilterFunction filterdata="filters" data="newFilteredData" />;
+     
+      const newFilteredData = FilterFunction(filters, jsonData);
+
       setFilteredData(newFilteredData);
+    } else {
+      
+      setFilteredData(jsonData)
     }
   }, [filters]);
 
@@ -150,7 +156,7 @@ const handleFiltersChange = (name, selectedValues) => {
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
-data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+    data.Region.toLowerCase().includes(searchInput.toLowerCase()));
 
 
   useEffect(() => {
@@ -276,8 +282,12 @@ data.Region.toLowerCase().includes(searchInput.toLowerCase()));
         
         </div>  {/* Filteriosio päättyy !*/}
 
-        
+        <div className='Summaryofdest'>
+          <Summary continents = {distinctRegions} universities = {distinctUniversities}  countries = {distinctCountries}/>
 
+        </div>
+
+        
         {/* Kartta, erillisestä tiedostosta */}
         <div className="leaflet_container">
           <MapComponent />

@@ -6,7 +6,6 @@ class InfoComponent extends Component {
         const item = this.props.data;
         const UG = "Level of studies: UG"
         const G = "Level of studies: G"
-        console.log(item)
         const firstItem = item
         if (firstItem["ADDITIONAL REQUIREMENTS"].length > 0){
             firstItem["ADDITIONAL REQUIREMENTS"] = "Yes"
@@ -26,8 +25,8 @@ class InfoComponent extends Component {
                     </div>
                     <div className='details-right'>
                             <p><img src={'/src/photos/study-language-icon.png'} alt="Image" />: {firstItem["Language of\ninstruction"]} </p>
-                            <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Hintataso"]} </p>
-                            <p><img src={'/src/photos/safety-icon.png'} alt="Image" />: {firstItem["crimeIndex"]} </p>
+                            <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Price"]} </p>
+                            <p><img src={'/src/photos/safety-icon.png'} alt="Image" />: {firstItem["Safety"]} </p>
                             <p><img src={'/src/photos/population-icon.png'} alt="Image" />: {firstItem["Pop/City2"]} </p>
                             <p><img src={'/src/photos/gpa-icon.png'} alt="Image" />: {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
                     </div>
