@@ -87,7 +87,9 @@ function FilterFunction(filterdata, data) {
 
     var result = alasql(query, [data]);
 
+    console.log(result);
     return result;
+    console.log(result instanceof Promise);
 }
 
 

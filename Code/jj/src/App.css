@@ -677,13 +677,12 @@ input[type = text]{
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   font-size: 14px;
-  float: right;
   margin-top: 20px;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #040404;
   filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
-
+  margin-left: 1200px;
 }
 
 .cta {
@@ -693,9 +692,12 @@ input[type = text]{
   width: 60px;
   height: 60px;
   border-radius:50%;
-  background: red;
   z-index: 1;
-  transition: all 1s;
+  /*transition: all 1s;*/
+  /*transform: translateX(100%);
+  transition: transform 1s;*/
+  transition: 1s;
+  right: 0;
 }
 .hide {
   opacity:0;
@@ -704,6 +706,7 @@ input[type = text]{
 .show {
   opacity:1;
   left:0;
+  transform: translateX(0);
 }
 
 

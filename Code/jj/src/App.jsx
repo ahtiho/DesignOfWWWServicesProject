@@ -45,8 +45,10 @@ const App = () => {
   const sortvalues = ["Alphabetical order", "Sort by Price Level ", "Sort by Safety", "Sort by Population"]
 
   const [selectedProperty, setSelectedProperty] = useState("Country");
-  const [sortedData, setSortedData] = useState([]);
+  //const [sortedData, setSortedData] = useState([]);
 
+
+  // FILTEREIHIN LIITTYVII JUTTUJAAAA -----------------------------------------
   const [filters, setFilters] = useState({
     Country: [],
     Language: [],
@@ -61,12 +63,34 @@ const App = () => {
 
   });
 
-  const handleFiltersChange = (name, selectedValues) => {
+var [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
+
+
+console.log("yks:", newFilteredData);
+//newFilteredData.forEach(item => console.log(item.Country));
+
+
+  useEffect(() => {
+    // Kutsu FilterFunction-funktiota aina, kun filters-tila päivittyy
+    // Varmista, että filters sisältää jonkin filtterin ennen filtteröinnin suorittamista
+    const areFiltersSet = Object.values(filters).some(filter => filter.length > 0);
+    if (areFiltersSet) {
+      const newFilteredData = <FilterFunction filterdata="filters" data="newFilteredData" />;
+      setFilteredData(newFilteredData);
+    }
+  }, [filters]);
+
+
+const handleFiltersChange = (name, selectedValues) => {
     setFilters(prevFilters => ({
       ...prevFilters,
       [name]: selectedValues
     }) )
   };
+
+
+
+// -----------------------------------------------------------------
   
 
   //filterien dropdown-valikot
@@ -120,24 +144,27 @@ const App = () => {
   const handleChange = () => {
     setChecked(!checked);
   };
-  const searchResult = sortedData.filter((data) =>
+
+
+  const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
-    data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+data.Region.toLowerCase().includes(searchInput.toLowerCase()));
+
 
   useEffect(() => {
-    const sorted = sortByProperty(jsonData, selectedProperty);
-    setSortedData(sorted);
+    const sorted = sortByProperty(newFilteredData, selectedProperty);
+    setFilteredData(sorted);
     }, [selectedProperty]);
   
-  const regionvalues = sortedData.map(item => item["Region"]);
+  const regionvalues = newFilteredData.map(item => item["Region"]);
   const distinctRegions = new Set(regionvalues).size;
 
-  const countryvalues = sortedData.map(item => item["Country"]);
+  const countryvalues = newFilteredData.map(item => item["Country"]);
   const distinctCountries = new Set(countryvalues).size;
 
-  const universityvalues = sortedData.map(item => item["University"]);
+  const universityvalues = newFilteredData.map(item => item["University"]);
   const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
@@ -203,11 +230,13 @@ const App = () => {
           <ScrollComponent/>
         </div>
 
-        <div> {/* STICKY BAR */}
+    
+
+     {/* <div> {/* STICKY BAR
                 <div class="container">
           <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
         </div>
-        </div>
+        </div>*/}
 
         {/* Filteriosio */}
         <div id="filterBox">
@@ -268,11 +297,11 @@ const App = () => {
           {searchResult.map((item, index) => (
             <div key={index}>
               <InfoComponent data={item} />
-            </div>))}
+          </div>))}
         </div>
         <div><Footer /></div>
 
-      </div> /* Sisältö päättyy tähän*/ /* Sisältö päättyy tähän*/
+      </div> /* Sisältö päättyy tähän*/
 
 
   )
