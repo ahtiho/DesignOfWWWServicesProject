@@ -25,8 +25,8 @@ const ScrollComponent = () => {
   }, []);
 
   return (
-    <div>
-      {/* Your other React components */}
+    <div id="scrollWrap">
+
       {/* Conditional rendering based on showCTA state */}
       <div id="customID" className={showCTA ? 'cta show' : 'cta hide'}>
         {/* Your CTA content */}<div className="container">

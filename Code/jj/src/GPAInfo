@@ -1,0 +1,17 @@
+//GPAInfo.jsx
+
+import React from 'react'; // Import React
+import './App.css';
+import Info from "/src/photos/Info.png";
+
+
+function GPAInfo() { 
+    return (
+   {/*} <div id="GpaInfoBox">
+        <p>
+        GPA refers to the requirements from the receiving university, which is different from Aalto's index.
+        </p>
+    </div>*/}
+)}
+
+export default GPAInfo;

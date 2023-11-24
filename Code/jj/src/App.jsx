@@ -39,6 +39,8 @@ import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import FilterComponent from './FilterComponent';
 import ScrollComponent from './ScrollComponent';
+import Info from "/src/photos/Info.png";
+import GPAInfo from './GPAInfo';
 
 
 const App = () => {
@@ -266,7 +268,13 @@ const handleFiltersChange = (name, selectedValues) => {
                   <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
                   <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
-                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                  <div id="gpabox"><Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                  <div> 
+                  <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
+                  <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
+                  </div>
+                  
+                  </div>
 
             </div>
                 
