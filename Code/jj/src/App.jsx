@@ -38,6 +38,7 @@ import Summary from './Summary';
 import Dropdown2 from './DropdownComponent-copy';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import FilterComponent from './FilterComponent';
+import ScrollComponent from './ScrollComponent';
 
 
 const App = () => {
@@ -192,6 +193,10 @@ const App = () => {
         {/* Header -> erillinen tiedosto */}
         <div>
           <HeaderComponent />
+        </div>
+
+        <div>
+          <ScrollComponent/>
         </div>
 
         <div> {/* STICKY BAR */}

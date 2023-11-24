@@ -55,7 +55,7 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
       </div>
 
       <div className="FBox" ref={menuRef}>
-          <button id="FilterLabel" onClick={()=>{setOpen(!open)}}>
+          <button className="FilterLabel" onClick={()=>{setOpen(!open)}}>
           <div>{name}</div><div id="dropdownNuoli">
             <img src={nuoli} alt="arrow-down"  />
           </div>
