@@ -29,7 +29,7 @@ const ScrollComponent = () => {
       {/* Your other React components */}
       {/* Conditional rendering based on showCTA state */}
       <div id="customID" className={showCTA ? 'cta show' : 'cta hide'}>
-        {/* Your CTA content */}<div class="container">
+        {/* Your CTA content */}<div className="container">
           <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
         </div>
       </div>

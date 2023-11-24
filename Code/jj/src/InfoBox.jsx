@@ -34,7 +34,7 @@ class InfoComponent extends Component {
                     </div>
                         <div className='btndetails'>
                             <button>
-                                <a href= {firstItem["AaltoLink"]} target="" className = 'linkki'> More details</a>
+                                <a href= {firstItem["AaltoLink"]} target="_blank" className = 'linkki'> More details</a>
                             </button>  
                         </div>
                 
