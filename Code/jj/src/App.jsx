@@ -120,14 +120,13 @@ const App = () => {
   const handleChange = () => {
     setChecked(!checked);
   };
-  const searchResult = jsonData.filter((data) =>
+  const searchResult = sortedData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
     data.Region.toLowerCase().includes(searchInput.toLowerCase()));
 
   useEffect(() => {
-
     const sorted = sortByProperty(jsonData, selectedProperty);
     setSortedData(sorted);
     }, [selectedProperty]);
@@ -261,7 +260,7 @@ const App = () => {
 
         {/* tähän tulee kaikki hakutulokset */}
         <div className="info-container">
-          {sortedData.map((item, index) => (
+          {searchResult.map((item, index) => (
             <div key={index}>
               <InfoComponent data={item} />
             </div>))}
