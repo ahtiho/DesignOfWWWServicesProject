@@ -1,0 +1,157 @@
+
+* { /* neutralising settings */
+	margin: 0px;
+    padding: 0px;
+
+}
+
+/* general
+-------------------------------------------------------------------------- */
+header {
+background-color: #FF9F46;
+padding-bottom: 60px;
+
+}
+
+h1, h2, h3, h4, h5, h6,li,p,button {
+	font-family: "Inter", "Lucida Bright", "DejaVu Serif", "Georgia", "serif";
+    color: #040404;
+}
+
+p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+h1 {
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 97px;
+    color: #040404;
+    letter-spacing: -2px;
+    font-style: normal;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;   
+    padding-bottom: 20px;
+
+}
+
+/*links
+-------------------------------------------------------------------------- */
+
+a:link {
+	text-decoration: none; color: black;}
+
+a:visited {
+	text-decoration: none; color: black;}
+
+a:hover {
+	text-decoration: none; color: black;}
+
+a:active {
+	text-decoration: none; color: black;}
+
+
+/* IDs 
+-------------------------------------------------------------------------- */
+
+
+/* navigation */
+
+#navi {
+    width: 1015px;
+    margin-left: auto;
+	margin-right: auto;
+    display:flex;
+    flex-direction: row;
+     justify-content: space-between;
+     padding: 40px;
+}
+
+#navi {
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+#logo {
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -2px;
+}
+
+/* main header content */
+
+  #mainHeaderContent {
+    background-color: #FF9F46; 
+    width: 975px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    text-align: justify;
+  
+  }
+
+  /* JATKA TÄSTÄ */
+  #titleDiv {
+    padding: 10px 50px;
+  }
+
+  /*  float: left;
+	display: flex;
+	justify-content:space-between; */
+
+/*nav li a {
+text-align: center;
+	display: block;
+  width: 130px;
+padding: 30px;*/
+
+
+#headerButtonPosition{
+    padding-top: 30px;
+    padding-left: 60%;
+}
+
+
+ #headerButton {
+        position: absolute; 
+        background-color: black;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        border: none;
+        cursor: pointer;
+        border-radius: 50px;
+        text-align: center;
+        /*border: 2px solid #000;*/
+        padding: 14px 36px;
+        margin: auto;
+        color: white;
+    
+     }
+
+     #headerButton a {
+        color: white; /* Set the text color for the anchor element inside the button */
+    }
+    #arrow {
+        padding-top: 30%;
+    }
+
+
+
+    #button-color:hover {
+        color: #FF9F46;
+    }
+
+   

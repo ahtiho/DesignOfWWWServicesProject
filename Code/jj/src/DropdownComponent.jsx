@@ -9,13 +9,13 @@ const Dropdown = ({ name, values, img }) => {
         <div className="image">
           <img src={img} alt="Image" />
         </div>
-        <div className="Fbox">
+        <div className="box">
           <select>
-           <button value="" disabled selected>{name}</button>
+           <option value="" disabled selected>{name}</option>
             {values.map((value, index) => (
-              <button key={index} value={value}>
+              <option key={index} value={value}>
                 {value}
-              </button>
+              </option>
             ))}
           </select>
         </div>

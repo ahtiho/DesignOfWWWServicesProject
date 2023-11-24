@@ -42,7 +42,7 @@ import ScrollComponent from './ScrollComponent';
 
 
 const App = () => {
-  const sortvalues = ["Country", "Hintataso", "crimeIndex", "Pop/City2"]
+  const sortvalues = ["Alphabetical order", "Sort by Price Level ", "Sort by Safety", "Sort by Population"]
 
   const [selectedProperty, setSelectedProperty] = useState("Country");
   const [sortedData, setSortedData] = useState([]);
@@ -141,26 +141,31 @@ const App = () => {
   const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
-        if (property === 'Country'){
+        
+        if (property === 'Alphabetical order'){
+          const property = "Country"
           const propA = a[property].toLowerCase();
           const propB = b[property].toLowerCase();
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-        else if (property === 'Hintataso') {
+        else if (property === 'Sort by Price Level ') {
+          const property = 'Hintataso'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-        else if (property === 'Pop/City2'){
-          console.log(a[property])
+        else if (property === 'Sort by Population'){
+          const property = 'Pop/City2'
+          
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-          else if (property === 'crimeIndex'){
+          else if (property === 'Sort by Safety'){
+            const property = 'crimeIndex'
             const propA = a[property];
             const propB = b[property];
             if (propA < propB) return -1;
