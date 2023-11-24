@@ -606,21 +606,23 @@ input[type = text]{
 
       #infocircle:hover + #gpaboxshow  {
         display:block;
-        border: 1px solid red;
+        
       }
 
       
       #gpaboxshow {
         display: none;
         position: absolute;
-        width: 100px;
+        width: 140px;
         /*position: absolute;
         top: 0;
         /*left: calc(100% + 10px); /* Position the box to the right of the image */
         padding: 10px;
         background-color: #f0f0f0;
-        border: 1px solid #ccc;
+        text-align: center;
         font-size: 12px;
+        border-radius: 20px;
+        filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
       }
     
 
