@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './ilmoncss.css'
 import React from 'react';
 import MultiselectDropdown from './MultiCheckboxDropdown';
 

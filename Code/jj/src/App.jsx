@@ -239,14 +239,6 @@ const handleFiltersChange = (name, selectedValues) => {
           <ScrollComponent/>
         </div>
 
-    
-
-     {/* <div> {/* STICKY BAR
-                <div class="container">
-          <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
-        </div>
-        </div>*/}
-
         {/* Filteriosio */}
         <div id="filterBox">
           <h2 id="filter-title">Filters</h2><br></br>
