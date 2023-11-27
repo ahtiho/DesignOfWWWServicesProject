@@ -25,6 +25,12 @@
 .details-left {
   width: 55%;
 }
+
+.details-right {
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
 .details-right img{
   height: 15px;
   width: 15px;
@@ -54,6 +60,49 @@ a.linkki:link {
 
 a.linkki:visited{
     color: white; 
+  }
+
+  .FilterInfoRow {
+    /*padding:10px;*/
+    padding-bottom: 15px;
+    font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #040404;
+    
+  }
+
+  #DetailsRightRow {
+    display: flex;
+    
+  }
+ 
+  .InfoImage {
+    padding-right: 5px;
+  }
+
+  .FilterInfoRow {
+
+  }
+
+  .FilterInfoRow:hover + .infoboxshow  {
+    display:block; 
+  }
+
+  
+  .infoboxshow {
+    display: none;
+    position: absolute;
+    width: 90px;
+    /*position: absolute;
+    top: 0;
+    /*left: calc(100% + 10px); /* Position the box to the right of the image */
+    padding: 10px;
+    background-color: rgba(255, 246, 232, 0.9);
+    text-align: center;
+    font-size: 12px;
+    border-radius: 10px;
+    filter: drop-shadow(3px 2px 5.3px rgba(88, 71, 55, 0.15));
+    margin-top: -10px;
+    
   }
 
 
