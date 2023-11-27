@@ -155,7 +155,7 @@ const handleFiltersChange = (name, selectedValues) => {
   };
 
 
-  const searchResult = newFilteredData.filter((data) =>
+   const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
@@ -303,7 +303,7 @@ const handleFiltersChange = (name, selectedValues) => {
         
         {/* Kartta, erillisestä tiedostosta */}
         <div className="leaflet_container">
-          <MapComponent />
+          <MapComponent data = {searchResult}/>
         </div>
 
         <div id="ResultsAndSort">
@@ -337,5 +337,5 @@ const handleFiltersChange = (name, selectedValues) => {
   )
       }
 
-
-  export default App ;
+  
+  export default App;
