@@ -148,14 +148,22 @@ export function FilterFunction(filterdata, data) {
     
         clauses.push(`${populationClauses.join(' OR ')}`);
     }
-    
+    var GpaClause=""
     
     if (levelsClause.length > 0) clauses.push(levelsClause);
     if (regionClause.length > 0) clauses.push(regionClause);
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    if (GPAClause.length > 0) clauses.push(GPAClause);
+    if (filterdata.Gpa.length > 0){
+        if(filterdata.Gpa.includes("Yes")) {
+            GpaClause.push(`LENGTH(additional_requirements) > 4`);
+
+        } else {
+            GpaClause.push(`LENGTH(additional_requirements) < 2`);
+        }
+        
+    } 
 
    
     //if (gpaClause.length > 0) clauses.push(gpaClause);
