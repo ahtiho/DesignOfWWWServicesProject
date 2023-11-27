@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './InfoBox.css'
+
 class InfoComponent extends Component {
     
     render() {
@@ -24,12 +25,22 @@ class InfoComponent extends Component {
                         <p>Spring term: {firstItem["Spring term"]}</p>  
                     </div>
                     <div className='details-right'>
-                            <p><img src={'/src/photos/study-language-icon.png'} alt="Image" />: {firstItem["Language of\ninstruction"]} </p>
-                            <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Price"]} </p>
-                            <p><img src={'/src/photos/safety-icon.png'} alt="Image" />: {firstItem["Safety"]} </p>
-                            <p><img src={'/src/photos/population-icon.png'} alt="Image" />: {firstItem["CityPop"]} </p>
-                            <p><img src={'/src/photos/gpa-icon.png'} alt="Image" />: {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/study-language-icon.png'} alt="Image" /> {firstItem["Language of\ninstruction"]} </p>
+                            <p className="infoboxshow">Language of studies</p></div>
+
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/price-icon.png'} alt="Image" /> {firstItem["Price"]} </p>
+                            <p className="infoboxshow">Price Level</p></div>
+
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/safety-icon.png'} alt="Image" /> {firstItem["Safety"]} </p>
+                            <p className="infoboxshow">Safety Level</p></div>
+
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/population-icon.png'} alt="Image" /> {firstItem["Pop/City2"]} </p>
+                            <p className="infoboxshow">Population</p></div>
+
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/gpa-icon.png'} alt="Image" /> {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
+                            <p className="infoboxshow">GPA Requirements</p></div>
                     </div>
+
                     </div>
                         <div className='btndetails'>
                             <button>

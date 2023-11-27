@@ -239,14 +239,6 @@ const handleFiltersChange = (name, selectedValues) => {
           <ScrollComponent/>
         </div>
 
-    
-
-     {/* <div> {/* STICKY BAR
-                <div class="container">
-          <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
-        </div>
-        </div>*/}
-
         {/* Filteriosio */}
         <div id="filterBox">
           <h2 id="filter-title">Filters</h2><br></br>
@@ -271,7 +263,7 @@ const handleFiltersChange = (name, selectedValues) => {
               
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div id="gpabox">
-                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                  <FilterComponent name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div> 
                   <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
                   <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
@@ -280,16 +272,15 @@ const handleFiltersChange = (name, selectedValues) => {
                   </div>
 
             </div>
-                
-                
-      
             )}
 
-          <div className='showmoreButton'>
-          <button onClick={toggleShowMore}>
-            {showMore ? 'Show Less' : 'More Filters (4+)'}
-          </button>
-        </div>
+          
+          <div id="showmoreButtonWrap">
+            <div className='showmoreButton'>
+            <button onClick={toggleShowMore}>
+              {showMore ? 'Show Less' : 'More Filters (4+)'}
+            </button>
+        </div></div>
 
         <div className="clear"></div>
         
