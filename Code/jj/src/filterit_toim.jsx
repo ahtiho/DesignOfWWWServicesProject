@@ -21,15 +21,7 @@ function createFilterClause(filterdata, column) {
     return '';
 }
 
-function createBinaryClause(filterdata, column) {
-    if (filterdata[0][column].length > 0) {
-        var binaryValue = filterdata[0][column][0];
-        if (binaryValue == 0 || binaryValue == 1) {
-            return `${column} = ${binaryValue}`;
-        }
-    }
-    return '';
-}
+
 
 
 export function FilterFunction(filterdata, data) {
@@ -49,6 +41,8 @@ export function FilterFunction(filterdata, data) {
     var countryClause = createFilterClause(filterdata, 'Country');
     var priceClause = createFilterClause(filterdata, 'Price');
     var safetyClause = createFilterClause(filterdata, 'Safety');
+    var GPAClause = createFilterClause(filterdata, 'GPA');
+
     
     console.log(filterdata)
     var populationClause = ''
@@ -118,15 +112,15 @@ export function FilterFunction(filterdata, data) {
     if(filterdata["Study Language"].length > 0) {
         if (level.length === 1 && level.includes('UG')) {
             const conditions = filterdata["Study Language"].map(language => `${language}_UG = "1"`);
-            languageClause = conditions.join(' AND ');
+            languageClause = conditions.join(' OR ');
         }
         else if(level.length === 1 && level.includes('G')) {
             const conditions = filterdata["Study Language"].map(language => `${language}_G = "1"`);
-            languageClause = conditions.join(' AND ');
+            languageClause = conditions.join(' OR ');
         }
         else {
             const conditions = filterdata["Study Language"].map(language => `(${language}_UG = "1" OR ${language}_G = "1")`);
-            languageClause = conditions.join(' AND ');
+            languageClause = conditions.join(' OR ');
             languageClause = `(${languageClause})`
         }}
 
@@ -161,6 +155,8 @@ export function FilterFunction(filterdata, data) {
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
+    if (GPAClause.length > 0) clauses.push(GPAClause);
+
    
     //if (gpaClause.length > 0) clauses.push(gpaClause);
     if (populationClause.length > 0) clauses.push(populationClause);
