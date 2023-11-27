@@ -9,7 +9,7 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
   
   const [showMore, setShowMore] = useState(false)
   const [selectedValues, setSelectedValues] = useState({});
-  const [searchTerm, setSearchTerm] = useState('');  // hakupalkin teksti
+  const [searchTerm, setSearchTerm] = useState("");  // hakupalkin teksti
 
 
   const toggleShowMore = () => {
@@ -35,7 +35,7 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
 
 
   const filteredValues = values.filter(value =>
-    value.toLowerCase().includes(searchTerm.toLowerCase))
+    value.toLowerCase().includes(searchTerm.toLowerCase()))
     ;
 
   useEffect(() => {

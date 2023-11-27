@@ -305,13 +305,20 @@ const handleFiltersChange = (name, selectedValues) => {
         <div className="leaflet_container">
           <MapComponent />
         </div>
-        <div className='results '>
-          <p>All results: {searchResult.length}</p>
-        </div>
-        <div className='btn'>
+
+        <div id="ResultsAndSort">
+          <div className='results '>
+            <p>All results: {searchResult.length}</p>
+          </div>
+         <div className='btn'>
           <SortButton
             values={sortvalues}
-            handleChange={(event) => setSelectedProperty(event.target.value)} /> </div>
+            handleChange={(event) => setSelectedProperty(event.target.value)} /> 
+            </div>
+
+       
+
+        </div> {/* ResultsAndSort päättyy*/}
 
 
 
