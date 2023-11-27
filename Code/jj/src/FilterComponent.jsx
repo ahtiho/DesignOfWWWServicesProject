@@ -5,7 +5,7 @@ import nuoli from "/src/photos/nuoli.png"
 import ClickOutside from './ClickOutside';
 
 
-const FilterComponent = ({ name, values, img, onFilterChange, include_searchbar}) => {
+const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar}) => {
   
   const [showMore, setShowMore] = useState(false)
   const [selectedValues, setSelectedValues] = useState({});
@@ -35,8 +35,8 @@ const FilterComponent = ({ name, values, img, onFilterChange, include_searchbar}
 
 
   const filteredValues = values.filter(value =>
-    value.toLowerCase(.includes(searchTerm.toLowerCase))
-    );
+    value.toLowerCase().includes(searchTerm.toLowerCase))
+    ;
 
   useEffect(() => {
     let handler = (e) => {
