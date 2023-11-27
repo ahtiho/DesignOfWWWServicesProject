@@ -53,10 +53,10 @@ const App = () => {
   // FILTEREIHIN LIITTYVII JUTTUJAAAA -----------------------------------------
   const [filters, setFilters] = useState({
     Country: [],
-    Language: [],
+    "Study Language": [],
     Region: [],
-    Start_Month: [],
-    End_Month: [],
+    "Starting month": [],
+    "Ending month": [],
     Level: [],
     Price: [],
     Population: [],
@@ -272,16 +272,15 @@ const handleFiltersChange = (name, selectedValues) => {
                   </div>
 
             </div>
-                
-                
-      
             )}
 
-          <div className='showmoreButton'>
-          <button onClick={toggleShowMore}>
-            {showMore ? 'Show Less' : 'More Filters (4+)'}
-          </button>
-        </div>
+          
+          <div id="showmoreButtonWrap">
+            <div className='showmoreButton'>
+            <button onClick={toggleShowMore}>
+              {showMore ? 'Show Less' : 'More Filters (4+)'}
+            </button>
+        </div></div>
 
         <div className="clear"></div>
         
