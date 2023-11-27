@@ -1,5 +1,5 @@
 import React from "react";
-import './SortButton.css'
+import './App.css';
 
 const SortButton = ({ name, values, handleChange }) => {
   return (

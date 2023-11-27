@@ -256,6 +256,16 @@ padding: 30px;*/
   height: 40px;
   width: 140px;
 }
+/*SORT BUTTON */
+.sortbutton {
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 40px;
+  width: 220px;
+  padding-top: 100px;
+}
 
 .showmoreButton {
   /*display: flex;
@@ -288,7 +298,8 @@ padding: 30px;*/
 /* DROPDOWN ESIM. GPA */
 select{
   height: 40px;
-  width: 140px;
+  /*padding: 10px 0px;*/
+  width: 160px;
   font-size: 16px;
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
   border: 2px solid #222222;
