@@ -202,6 +202,8 @@ padding: 30px;*/
   
 }
 
+
+
 /* YKSITTÄINEN FILTER-KOMPONENTTI KUVA + BUTTON*/
 .container {
   display: flex;
@@ -228,13 +230,18 @@ padding: 30px;*/
 
 /* --------------------------------------------------------------------------- */
   
+/* SORT BUTTONIIN MUOTOILUJA */
 
 .btn{
-  display: flex;
+ /* display: flex;
   justify-content:flex-end;
   padding-right: 25%;
-  padding-bottom: 4.25%;
+  padding-bottom: 4.25%; */
+  
+  
+  /*float: right;*/
 }
+
 .btn button {
   background-color: black;
   color: white;
@@ -254,6 +261,40 @@ padding: 30px;*/
   height: 40px;
   width: 140px;
 }
+/*SORT BUTTON */
+.sortbutton {
+  color: white;
+  cursor: pointer;
+  border-radius: 20px;
+  /*height: 40px; */
+  /*width: 220px;*/ }
+
+/* ALL RESULTS */
+#ResultsAndSort {
+  max-width: 1300px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.results {
+  /*position: absolute;*/
+  /*left: 25%;
+  padding-top: 100px;
+  padding-bottom: 50px; */
+  max-width: 400px;
+}
+.results p {
+ font-size: 40px;
+ 
+ 
+}
+
+
 
 .showmoreButton {
   /*display: flex;
@@ -284,19 +325,38 @@ padding: 30px;*/
 }
 
 /* DROPDOWN ESIM. GPA */
+
+/* SORT BUTTONIIN VAIKUTTAA */
 select{
-  height: 40px;
-  width: 140px;
+  /*height: 40px;
+  /*padding: 10px 0px;
+  width: 160px;
   font-size: 16px;
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
   border: 2px solid #222222;
-  border-radius:25px;
+  border-radius:25px;*/
+  border: 2px solid #222222;      
+  border-radius:30px;
+  /*width: 84%; */
+  width: 190px;
+  background-color: white;
+  padding: 10px 0px;
+  font-size: 16px;
+  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #040404;
+  cursor: pointer;
+  /*display:flex;
+        flex-direction: row;
+        justify-content: space-between;*/
+        /*padding-right: 10px;
+        padding-left: 10px;*/
+        text-align: center;
+        
+        
+        /*margin-top: 5px; */
 
 }
 
-select.study_language_dropdown{
-  font-size: 15px;
-}
 
 /* TEXT SEARCH */
 input[type = text]{
@@ -323,17 +383,6 @@ input[type = text]{
   height: 60vh;
   }
 
-
-.results {
-    position: absolute;
-    left: 25%;
-    padding-top: 100px;
-    padding-bottom: 50px;
-  }
-  .results p {
-   font-size: 40px;
-   
-  }
 .multiselect {
   width: 100%;
 
@@ -379,13 +428,17 @@ input[type = text]{
     text-decoration: none; color: black;}
 
   .Summaryofdest {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 
+    /*
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 100px;
-    padding-bottom: 100px;
-  }
+    padding-bottom: 100px; */
+  } 
   
 
   /* PopulationRange ---------------------------------------------------------------*/
@@ -557,8 +610,12 @@ input[type = text]{
 
       #filter-title {
         text-align: center;
-        padding-top: 50px;
+        padding-top: 40px;
         
+      }
+
+      #filterLine {
+        height: 20px;
       }
 
       .checkboxHide {
@@ -607,21 +664,27 @@ input[type = text]{
 
       #infocircle:hover + #gpaboxshow  {
         display:block;
-        border: 1px solid red;
+        
       }
 
       
       #gpaboxshow {
         display: none;
         position: absolute;
-        width: 100px;
+        width: 140px;
         /*position: absolute;
         top: 0;
         /*left: calc(100% + 10px); /* Position the box to the right of the image */
         padding: 10px;
-        background-color: #f0f0f0;
-        border: 1px solid #ccc;
+        background-color: rgba(255, 246, 232, 0.9);
+        text-align: center;
         font-size: 12px;
+        border-radius: 20px;
+        filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
+      }
+
+      .clear {
+        clear: both;
       }
     
 
@@ -745,10 +808,13 @@ input[type = text]{
     transform: translateX(0);}
 
 
+    .Summaryofdest {
+      width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
   }
-
-
-
 
 
   /* ------------------------ FOR MOBILE */
@@ -792,4 +858,35 @@ input[type = text]{
       margin-right:20px;
       transform: translateX(0);}
     /* KORJAA KUN TUOTEKORTIT OVAT OK */
+
+    #ResultsAndSort {
+      max-width: 350px;
+      display:block;
+      margin-left: auto;
+      margin-right: auto;
+      /*flex-direction: row;
+      justify-content: space-around;
+      align-items: center;*/
+      margin-top: 50px;
+      align-content: center;
+      text-align: center;
+    }
+
+    .results {
+      /*position: absolute;*/
+      /*left: 25%;
+      padding-top: 100px;
+      padding-bottom: 50px; */
+      max-width: 300px;
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+    .results p {
+     font-size: 30px;
+     text-align: center;
+     
+     
+    }
+
+
     }

@@ -9,7 +9,7 @@ const ScrollComponent = () => {
   useEffect(() => {
     const myScrollFunc = () => {
       const y = window.scrollY;
-      if (y >= 1100) {
+      if (y >= 1400) {
         setShowCTA(true);
       } else {
         setShowCTA(false);

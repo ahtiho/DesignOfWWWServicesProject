@@ -115,7 +115,8 @@ const handleFiltersChange = (name, selectedValues) => {
   var price_list = [1, 2, 3, 4, 5];
   var country_list = countryfilter;
   // tee population
-  var population_list = [""];
+  var population_list = 
+  ["10k - 500k", "500k - 1 mil", "1 mil - 5 mil", "5 mil +"];
   var safety_list = [1, 2, 3, 4,5];
 
 
@@ -266,9 +267,11 @@ const handleFiltersChange = (name, selectedValues) => {
              <div className="dropdown-group"> {/* 3rd line of filters*/}
                   <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
                   <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                  <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
+                  <FilterComponent name="Population" values={population_list} img={imagePop} className="app-dropdown" onFilterChange={handleFiltersChange}/>
+              
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
-                  <div id="gpabox"><Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                  <div id="gpabox">
+                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
                   <div> 
                   <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
                   <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
@@ -287,6 +290,8 @@ const handleFiltersChange = (name, selectedValues) => {
             {showMore ? 'Show Less' : 'More Filters (4+)'}
           </button>
         </div>
+
+        <div className="clear"></div>
         
         </div>  {/* Filteriosio päättyy !*/}
 
@@ -300,13 +305,20 @@ const handleFiltersChange = (name, selectedValues) => {
         <div className="leaflet_container">
           <MapComponent />
         </div>
-        <div className='results '>
-          <p>All results: {searchResult.length}</p>
-        </div>
-        <div className='btn'>
+
+        <div id="ResultsAndSort">
+          <div className='results '>
+            <p>All results: {searchResult.length}</p>
+          </div>
+         <div className='btn'>
           <SortButton
             values={sortvalues}
-            handleChange={(event) => setSelectedProperty(event.target.value)} /> </div>
+            handleChange={(event) => setSelectedProperty(event.target.value)} /> 
+            </div>
+
+       
+
+        </div> {/* ResultsAndSort päättyy*/}
 
 
 

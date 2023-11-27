@@ -5,10 +5,12 @@ import nuoli from "/src/photos/nuoli.png"
 import ClickOutside from './ClickOutside';
 
 
-const FilterComponent = ({ name, values, img, onFilterChange }) => {
+const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar}) => {
   
   const [showMore, setShowMore] = useState(false)
   const [selectedValues, setSelectedValues] = useState({});
+  const [searchTerm, setSearchTerm] = useState("");  // hakupalkin teksti
+
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
@@ -22,8 +24,7 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
       };
       onFilterChange(name, Object.keys(newSelection).filter(key => newSelection[key]));
       return newSelection;
-    }
-    )
+    });
   }
 
   // --------------- ok jutut
@@ -31,6 +32,11 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
   const [open, setOpen] = useState(false);
 
  let menuRef = useRef();
+
+
+  const filteredValues = values.filter(value =>
+    value.toLowerCase().includes(searchTerm.toLowerCase()))
+    ;
 
   useEffect(() => {
     let handler = (e) => {
@@ -60,6 +66,16 @@ const FilterComponent = ({ name, values, img, onFilterChange }) => {
             <img src={nuoli} alt="arrow-down"  />
           </div>
           </button>
+        {/* Searchbar */}
+        {includeSearchBar && (
+        <input 
+          type="text" 
+          placeholder={`Search in ${name}`} 
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="filter-search-input"
+        />
+      )}
 
       <div className={`FilterVeto ${open ? 'active' : 'inactive'}`}>
             {values.map((value, index) => (
