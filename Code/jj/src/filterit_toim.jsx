@@ -6,8 +6,14 @@ function createFilterClause(filterdata, column) {
     console.log(filterdata)
     filterdata[column].forEach(item => {
         filterValues = filterValues.concat(item); 
+        console.log(filterValues)
     });      
         if (filterValues.length > 0) {
+
+            if (column.includes("month")) {
+                return `${filterValues.map(value => `"${value}"`).join(',')}`
+
+            }
             return `${column} IN (${filterValues.map(value => `"${value}"`).join(',')})`;
         }
     return '';
@@ -55,47 +61,54 @@ export function FilterFunction(filterdata, data) {
     //}
     var languageClause = '';
     var clauses = [];
-
     // ... Muut suodattimet ...
     function convertMonthNamesToNumbers(monthNames) {
-        return monthNames.map(name => monthNamesToNumbers[name]);
+        console.log(monthNames)
+         return monthNames.map(name => monthNamesToNumbers[name]);
       }
-    const startMonthNumbers = convertMonthNamesToNumbers(filterdata.Start_Month);
-    const startMonthFilter = createFilterClause({ Start_Month: startMonthNumbers }, 'Start_Month');
+    const startMonthNumbers = convertMonthNamesToNumbers(filterdata['Starting month']);
+    const startMonthFilter = createFilterClause({ 'Starting month': startMonthNumbers }, 'Starting month');
 
-    const endMonthNumbers = convertMonthNamesToNumbers(filterdata.End_Month);
-    const endMonthFilter = createFilterClause({ Start_Month: startMonthNumbers }, 'Start_Month');
+    const endMonthNumbers = convertMonthNamesToNumbers(filterdata['Ending month']);
+    const endMonthFilter = createFilterClause({ 'Ending month': endMonthNumbers }, 'Ending month');
+    console.log(startMonthFilter)
     if (startMonthFilter) {
         let startMonthClauses = [];
-        if (level.includes('UG')) {
-            startMonthClauses.push(`U_Spring_Start IN ${startMonthFilter}`);
-            startMonthClauses.push(`U_Fall_Start IN ${startMonthFilter}`);
-        }
-        if (level.includes('G')) {
-            startMonthClauses.push(`G_Spring_Start IN ${startMonthFilter}`);
-            startMonthClauses.push(`G_Fall_Start IN ${startMonthFilter}`);
-        }
-        if (startMonthClauses.length > 0) {
-            console.log(startMonthClauses)
+        if (level.length === 1 && level.includes('UG')) {
+            startMonthClauses.push(`ug_s_start IN (${startMonthFilter})`);
+            startMonthClauses.push(`ug_f_start IN (${startMonthFilter})`);
             clauses.push(`(${startMonthClauses.join(' OR ')})`);
+        }
+        else if (level.length === 1 && level.includes('G')) {
+            startMonthClauses.push(`g_s_start IN (${startMonthFilter})`);
+            startMonthClauses.push(`g_f_start IN (${startMonthFilter})`);
+            clauses.push(`(${startMonthClauses.join(' OR ')})`);
+        }
+        else {
+            console.log("perseensuti", startMonthClauses)
+            clauses.push(`ug_f_start IN (${startMonthFilter}) OR ug_s_start IN (${startMonthFilter}) OR g_s_start IN (${startMonthFilter}) OR g_f_start IN (${startMonthFilter})`)
         }
     }
 
     if (endMonthFilter) {
         let endMonthClauses = [];
+        console.log("perse", level)
         if (level.includes('UG')) {
-            endMonthClauses.push(`U_Spring_End IN ${endMonthFilter}`);
-            endMonthClauses.push(`U_Fall_End IN ${endMonthFilter}`);
+            endMonthClauses.push(`ug_s_end IN (${endMonthFilter})`);
+            endMonthClauses.push(`ug_f_end IN (${endMonthFilter})`);
+            clauses.push(`(${endMonthClauses.join(' OR ')})`);
+            
         }
-        if (level.includes('G')) {
-            endMonthClauses.push(`G_Spring_End IN ${endMonthFilter}`);
-            endMonthClauses.push(`G_Fall_End IN ${endMonthFilter}`);
-        }
-        if (endMonthClauses.length > 0) {
-            console.log(endMonthClauses)
+        else if (level.includes('G')) {
+            endMonthClauses.push(`g_s_end IN (${endMonthFilter})`);
+            endMonthClauses.push(`g_f_end IN (${endMonthFilter})`);
             clauses.push(`(${endMonthClauses.join(' OR ')})`);
         }
-    }
+        else {
+            console.log("halloooo vitttu", endMonthClauses)
+            clauses.push(`ug_f_end IN (${endMonthFilter}) OR ug_s_end IN (${endMonthFilter}) OR g_s_end IN (${endMonthFilter}) OR g_f_end IN (${endMonthFilter})`)
+        }
+    } 
 
 
     
@@ -104,14 +117,14 @@ export function FilterFunction(filterdata, data) {
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    console.log(safetyClause)
+    console.log(clauses)
     //if (gpaClause.length > 0) clauses.push(gpaClause);
     if (populationClause.length > 0) clauses.push(populationClause);
     //if (startMonthClause.length > 0) clauses.push(startMonthClause);
     //if (endMonthClause.length > 0) clauses.push(endMonthClause);
     if (languageClause.length > 0) clauses.push(languageClause);
 
-    var whereClause = clauses.length > 0 ? `WHERE 1=1 AND ${clauses.join(' AND ')}` : 'WHERE 1=1';
+    var whereClause = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : 'WHERE 1=1';
     console.log(whereClause)
     if (whereClause === "") {
         var query = `SELECT *
@@ -122,16 +135,12 @@ export function FilterFunction(filterdata, data) {
         FROM ?
         ${whereClause}`;
     }
+   
 
-    var query = `
-        SELECT *
-        FROM ?
-        ${whereClause}
-    `;
-    console.log(query)
     var result = alasql(query, [data]);
+    console.log(result)
 
-    console.log(result);
+    
     return result;
     console.log(result instanceof Promise);
 }
