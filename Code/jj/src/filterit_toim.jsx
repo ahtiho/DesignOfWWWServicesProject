@@ -63,7 +63,7 @@ export function FilterFunction(filterdata, data) {
     //} else if (populationUpper != null) {
     //    populationClause = `population <= ${populationUpper}`;
     //}
-    
+    var languageClause = ''
     var clauses = [];
     // ... Muut suodattimet ...
     function convertMonthNamesToNumbers(monthNames) {
@@ -114,16 +114,16 @@ export function FilterFunction(filterdata, data) {
     
     if(filterdata["Study Language"].length > 0) {
         if (level.length === 1 && level.includes('UG')) {
-            const conditions = filterdata["Study Language"].map(language => `UG_${language} = "1"`);
-            var languageClause = conditions.join(' AND ');
+            const conditions = filterdata["Study Language"].map(language => `${language}_UG = "1"`);
+            languageClause = conditions.join(' AND ');
         }
         else if(level.length === 1 && level.includes('G')) {
-            const conditions = filterdata["Study Language"].map(language => `G_${language} = "1"`);
-            var languageClause = conditions.join(' AND ');
+            const conditions = filterdata["Study Language"].map(language => `${language}_G = "1"`);
+            languageClause = conditions.join(' AND ');
         }
         else {
-            const conditions = filterdata["Study Language"].map(language => `UG_${language} = "1" OR G_${language} = "1"`);
-            var languageClause = conditions.join(' AND ');
+            const conditions = filterdata["Study Language"].map(language => `(${language}_UG = "1" OR ${language}_G = "1")`);
+            languageClause = conditions.join(' AND ');
             languageClause = `(${languageClause})`
         }}
 
@@ -138,6 +138,7 @@ export function FilterFunction(filterdata, data) {
     if (populationClause.length > 0) clauses.push(populationClause);
     //if (startMonthClause.length > 0) clauses.push(startMonthClause);
     //if (endMonthClause.length > 0) clauses.push(endMonthClause);
+    console.log(languageClause)
     if (languageClause.length > 0) clauses.push(languageClause);
     var clauses = clauses.map(element => `(${element})`);
     var whereClause = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : 'WHERE 1=1';
