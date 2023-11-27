@@ -263,7 +263,7 @@ const handleFiltersChange = (name, selectedValues) => {
               
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div id="gpabox">
-                  <Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
+                  <FilterComponent name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div> 
                   <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
                   <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
