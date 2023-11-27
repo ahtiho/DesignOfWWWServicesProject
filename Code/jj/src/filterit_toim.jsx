@@ -2,17 +2,19 @@ import alasql from 'alasql'
 
 function createFilterClause(filterdata, column) {
     var filterValues = [];
-    console.log(typeof filterdata)
-    console.log(filterdata)
+
     filterdata[column].forEach(item => {
         filterValues = filterValues.concat(item); 
-        console.log(filterValues)
+      
     });      
         if (filterValues.length > 0) {
 
             if (column.includes("month")) {
                 return `${filterValues.map(value => `"${value}"`).join(',')}`
 
+            }
+            if (column.includes('Population')) {
+                return `${column} BETWEEN ${filterValues.map(value => `"${value}"`).join(' AND ')}`
             }
             return `${column} IN (${filterValues.map(value => `"${value}"`).join(',')})`;
         }
@@ -31,9 +33,8 @@ function createBinaryClause(filterdata, column) {
 
 
 export function FilterFunction(filterdata, data) {
-    console.log("helou", filterdata.Level)
+    
     var level = filterdata.Level;
-    console.log(level)
     var levelsClause = '';
 
     if (level.length != 0 && level.length != 2) {
@@ -48,10 +49,13 @@ export function FilterFunction(filterdata, data) {
     var countryClause = createFilterClause(filterdata, 'Country');
     var priceClause = createFilterClause(filterdata, 'Price');
     var safetyClause = createFilterClause(filterdata, 'Safety');
+    
+    console.log(filterdata)
+
     //var gpaClause = createBinaryClause(filterdata, ''); 
     //var populationLower = filterdata[0].Population_Lower[0];
     //var populationUpper = filterdata[0].Population_Upper[0];
-    var populationClause = '';
+    var populationClause = createFilterClause(filterdata, 'Population')
     //if (populationLower != null && populationUpper != null) {
     //    populationClause = `population >= ${populationLower} AND population <= ${populationUpper}`;
     //} else if (populationLower != null) {
@@ -59,11 +63,10 @@ export function FilterFunction(filterdata, data) {
     //} else if (populationUpper != null) {
     //    populationClause = `population <= ${populationUpper}`;
     //}
-    var languageClause = '';
+    
     var clauses = [];
     // ... Muut suodattimet ...
     function convertMonthNamesToNumbers(monthNames) {
-        console.log(monthNames)
          return monthNames.map(name => monthNamesToNumbers[name]);
       }
     const startMonthNumbers = convertMonthNamesToNumbers(filterdata['Starting month']);
@@ -71,7 +74,7 @@ export function FilterFunction(filterdata, data) {
 
     const endMonthNumbers = convertMonthNamesToNumbers(filterdata['Ending month']);
     const endMonthFilter = createFilterClause({ 'Ending month': endMonthNumbers }, 'Ending month');
-    console.log(startMonthFilter)
+    
     if (startMonthFilter) {
         let startMonthClauses = [];
         if (level.length === 1 && level.includes('UG')) {
@@ -92,7 +95,7 @@ export function FilterFunction(filterdata, data) {
 
     if (endMonthFilter) {
         let endMonthClauses = [];
-        console.log("perse", level)
+        
         if (level.includes('UG')) {
             endMonthClauses.push(`ug_s_end IN (${endMonthFilter})`);
             endMonthClauses.push(`ug_f_end IN (${endMonthFilter})`);
@@ -105,11 +108,24 @@ export function FilterFunction(filterdata, data) {
             clauses.push(`(${endMonthClauses.join(' OR ')})`);
         }
         else {
-            console.log("halloooo vitttu", endMonthClauses)
             clauses.push(`ug_f_end IN (${endMonthFilter}) OR ug_s_end IN (${endMonthFilter}) OR g_s_end IN (${endMonthFilter}) OR g_f_end IN (${endMonthFilter})`)
         }
     } 
-
+    
+    if(filterdata["Study Language"].length > 0) {
+        if (level.length === 1 && level.includes('UG')) {
+            const conditions = filterdata["Study Language"].map(language => `UG_${language} = "1"`);
+            var languageClause = conditions.join(' AND ');
+        }
+        else if(level.length === 1 && level.includes('G')) {
+            const conditions = filterdata["Study Language"].map(language => `G_${language} = "1"`);
+            var languageClause = conditions.join(' AND ');
+        }
+        else {
+            const conditions = filterdata["Study Language"].map(language => `UG_${language} = "1" OR G_${language} = "1"`);
+            var languageClause = conditions.join(' AND ');
+            languageClause = `(${languageClause})`
+        }}
 
     
     if (levelsClause.length > 0) clauses.push(levelsClause);
@@ -117,15 +133,15 @@ export function FilterFunction(filterdata, data) {
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    console.log(clauses)
+   
     //if (gpaClause.length > 0) clauses.push(gpaClause);
     if (populationClause.length > 0) clauses.push(populationClause);
     //if (startMonthClause.length > 0) clauses.push(startMonthClause);
     //if (endMonthClause.length > 0) clauses.push(endMonthClause);
     if (languageClause.length > 0) clauses.push(languageClause);
-
+    var clauses = clauses.map(element => `(${element})`);
     var whereClause = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : 'WHERE 1=1';
-    console.log(whereClause)
+
     if (whereClause === "") {
         var query = `SELECT *
         FROM ?`;
@@ -136,7 +152,7 @@ export function FilterFunction(filterdata, data) {
         ${whereClause}`;
     }
    
-
+    console.log(query)
     var result = alasql(query, [data]);
     console.log(result)
 

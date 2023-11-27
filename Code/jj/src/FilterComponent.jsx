@@ -33,10 +33,10 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
 
  let menuRef = useRef();
 
-
-  const filteredValues = values.filter(value =>
+  if (includeSearchBar) {
+  const filteredValues = values.filter((value) => 
     value.toLowerCase().includes(searchTerm.toLowerCase()))
-    ;
+  };
 
   useEffect(() => {
     let handler = (e) => {

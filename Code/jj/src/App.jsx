@@ -53,7 +53,7 @@ const App = () => {
   // FILTEREIHIN LIITTYVII JUTTUJAAAA -----------------------------------------
   const [filters, setFilters] = useState({
     Country: [],
-    Language: [],
+    "Study Language": [],
     Region: [],
     "Starting month": [],
     "Ending month": [],
