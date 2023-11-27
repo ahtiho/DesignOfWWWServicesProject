@@ -265,7 +265,7 @@ const handleFiltersChange = (name, selectedValues) => {
             {showMore && (
              <div className="dropdown-group"> {/* 3rd line of filters*/}
                   <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                  <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
+                  <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} includeSearchBar={true}/>
                   <Dropdown name="Population" values={population_list} img={imagePop} className="app-dropdown" />
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div id="gpabox"><Dropdown name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" />
