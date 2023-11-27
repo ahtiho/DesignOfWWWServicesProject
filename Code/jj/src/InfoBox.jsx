@@ -27,7 +27,7 @@ class InfoComponent extends Component {
                             <p><img src={'/src/photos/study-language-icon.png'} alt="Image" />: {firstItem["Language of\ninstruction"]} </p>
                             <p><img src={'/src/photos/price-icon.png'} alt="Image" />: {firstItem["Price"]} </p>
                             <p><img src={'/src/photos/safety-icon.png'} alt="Image" />: {firstItem["Safety"]} </p>
-                            <p><img src={'/src/photos/population-icon.png'} alt="Image" />: {firstItem["Pop/City2"]} </p>
+                            <p><img src={'/src/photos/population-icon.png'} alt="Image" />: {firstItem["CityPop"]} </p>
                             <p><img src={'/src/photos/gpa-icon.png'} alt="Image" />: {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
                     </div>
                     </div>
