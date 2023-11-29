@@ -5,8 +5,8 @@
     border: 2px solid #000;
     padding: 10px;
     border-radius: 16px;
-    width: 400px;
-    height: 350px;
+    width: 380px;
+    height: 360px;
     box-sizing: border-box; /* Include padding and borders in the total width */
     overflow-y: auto;
   }
@@ -39,7 +39,7 @@
 }
 .btndetails {
     display: fixed;
-    padding-top: 5%;
+    padding-top: 1%;
     justify-content: flex-start;
 
   }
@@ -104,6 +104,10 @@ a.linkki:visited{
     filter: drop-shadow(3px 2px 5.3px rgba(88, 71, 55, 0.15));
     margin-top: -10px;
     
+  }
+
+  .universityname {
+    font-size: 24px;
   }
 
 
