@@ -145,7 +145,7 @@ const handleFiltersChange = (name, selectedValues) => {
   };
 
 
-  const searchResult = newFilteredData.filter((data) =>
+   const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
@@ -165,7 +165,6 @@ const handleFiltersChange = (name, selectedValues) => {
 
   const universityvalues = newFilteredData.map(item => item["University"]);
   const distinctUniversities = new Set(universityvalues).size;
-
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
         
@@ -177,14 +176,14 @@ const handleFiltersChange = (name, selectedValues) => {
           if (propA > propB) return 1;
           return 0;}
         else if (property === 'Sort by Price Level ') {
-          const property = 'Price'
+          const property = 'Hintataso'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
         else if (property === 'Sort by Population'){
-          const property = 'CityPop'
+          const property = 'Pop/City2'
           
           const propA = a[property];
           const propB = b[property];
@@ -192,7 +191,7 @@ const handleFiltersChange = (name, selectedValues) => {
           if (propA > propB) return 1;
           return 0;}
           else if (property === 'Sort by Safety'){
-            const property = 'Safety'
+            const property = 'crimeIndex'
             const propA = a[property];
             const propB = b[property];
             if (propA < propB) return -1;
@@ -253,7 +252,7 @@ const handleFiltersChange = (name, selectedValues) => {
               
                   <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div id="gpabox">
-                  <FilterComponent name="GPA" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
+                  <FilterComponent name="Gpa" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div> 
                   <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
                   <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
