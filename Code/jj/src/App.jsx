@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Helmet } from 'react-helmet';
 // kuvat
-import MultiRangeSlider from "multi-range-slider-react";
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -26,13 +24,7 @@ import Search from './SearchComponent'
 import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
 import {FilterFunction} from './filterit_toim.jsx'
 import { components } from "react-select";
-import MultiCheckboxDropdown from './MultiCheckboxDropdown'
-//checkbox juttuun importteja
-import { useLocalStore } from "mobx-react-lite";
-//import "bootstrap/dist/css/bootstrap.min.css"; muotoilee kaiken väärin ;D
 import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
-import MultiselectDropdown from './MultiCheckboxDropdown'
-import PopulationRange from './populationRange'
 
 import Summary from './Summary';
 import Dropdown2 from './DropdownComponent-copy';
@@ -69,8 +61,6 @@ const App = () => {
 
 const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
-
-console.log("yks:", newFilteredData);
 
 //newFilteredData.forEach(item => console.log(item.Country));
 
@@ -243,8 +233,7 @@ const handleFiltersChange = (name, selectedValues) => {
 
         {/* Filteriosio */}
         <div id="filterBox">
-          <h2 id="filter-title">Filters</h2><br></br>
-          <div id="filterLine"></div> {/* tähän jos halutaan joku hieno koristeviiva vielä*/}
+          <h2 id="filter-title">Filters</h2>
 
 
             <div className="dropdown-group"> {/* 1st line of filters*/}
@@ -308,7 +297,6 @@ const handleFiltersChange = (name, selectedValues) => {
             values={sortvalues}
             handleChange={(event) => setSelectedProperty(event.target.value)} /> 
             </div>
-
        
 
         </div> {/* ResultsAndSort päättyy*/}
@@ -322,6 +310,7 @@ const handleFiltersChange = (name, selectedValues) => {
               <InfoComponent data={item} />
           </div>))}
         </div>
+
         <div><Footer /></div>
 
       </div> /* Sisältö päättyy tähän*/

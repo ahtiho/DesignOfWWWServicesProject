@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
 import './InfoBox.css'
+import imageCountry from "/src/photos/country_icon.png"
+import imageGpa from "/src/photos/gpa-icon.png"
+import imageLevel from "/src/photos/level-icon.png"
+import imageRegion from "/src/photos/region-icon.png"
+import imageSafety from "/src/photos/safety-icon.png"
+import imageLang from "/src/photos/study-language-icon.png"
+import imageSearch from "/src/photos/text-search-icon.png"
+import imagePop from "/src/photos/population-icon.png"
+import imageDates from "/src/photos/dates-icon.png"
+import imagePrice from "/src/photos/price-icon.png"
 
 class InfoComponent extends Component {
     
@@ -25,19 +35,18 @@ class InfoComponent extends Component {
                         <p>Spring term: {firstItem["Spring term"]}</p>  
                     </div>
                     <div className='details-right'>
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/study-language-icon.png'} alt="Image" /> {firstItem["Language of\ninstruction"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageLang} alt="Image" /> {firstItem["Language of\ninstruction"]} </p>
                             <p className="infoboxshow">Language of studies</p></div>
 
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/price-icon.png'} alt="Image" /> {firstItem["Price"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePrice} alt="Image" /> {firstItem["Price"]} </p>
                             <p className="infoboxshow">Price Level</p></div>
 
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/safety-icon.png'} alt="Image" /> {firstItem["Safety"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageSafety} alt="Image" /> {firstItem["Safety"]} </p>
                             <p className="infoboxshow">Safety Level</p></div>
 
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/population-icon.png'} alt="Image" /> {firstItem["CityPop"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePop} alt="Image" /> {firstItem["CityPop"]} </p>
                             <p className="infoboxshow">Population</p></div>
-
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={'/src/photos/gpa-icon.png'} alt="Image" /> {firstItem["ADDITIONAL_REQUIREMENTS"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
                             <p className="infoboxshow">GPA Requirements</p></div>
                     </div>
 
