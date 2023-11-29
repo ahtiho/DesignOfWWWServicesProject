@@ -137,10 +137,6 @@ const handleFiltersChange = (name, selectedValues) => {
   //Checkbox: todennäköisesti turhia :) ----------------------------------------------------------
   const [checked, setChecked] = useState(false);
 
-  const [minValue, setMinValue] = useState(25);
-  const [maxValue, setMaxValue] = useState(75);
-  const [minValue2, setMinValue2] = useState(0);
-  const [maxValue2, setMaxValue2] = useState(0);
 
   const handleChange = () => {
     setChecked(!checked);
@@ -159,47 +155,44 @@ const handleFiltersChange = (name, selectedValues) => {
     setFilteredData(sorted);
     }, [selectedProperty]);
   
-  const regionvalues = newFilteredData.map(item => item["Region"]);
+  const regionvalues = searchResult.map(item => item["Region"]);
   const distinctRegions = new Set(regionvalues).size;
 
-  const countryvalues = newFilteredData.map(item => item["Country"]);
+  const countryvalues = searchResult.map(item => item["Country"]);
   const distinctCountries = new Set(countryvalues).size;
 
-  const universityvalues = newFilteredData.map(item => item["University"]);
+  const universityvalues = searchResult.map(item => item["University"]);
   const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
-        
-        if (property === 'Alphabetical order'){
-          const property = "Country"
-          const propA = a[property].toLowerCase();
-          const propB = b[property].toLowerCase();
-          if (propA < propB) return -1;
-          if (propA > propB) return 1;
-          return 0;}
-        else if (property === 'Sort by Price Level ') {
-          const property = 'Hintataso'
+        if (property === 'Sort by Price Level ') {
+          const property = 'Price'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
         else if (property === 'Sort by Population'){
-          const property = 'Pop/City2'
-          
+          const property = 'CityPop'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
-          else if (property === 'Sort by Safety'){
-            const property = 'crimeIndex'
+        else if (property === 'Sort by Safety'){
+            const property = 'Safety'
             const propA = a[property];
             const propB = b[property];
             if (propA < propB) return -1;
             if (propA > propB) return 1;
             return 0;
-          }
+      } else  {
+            const property = 'Country'
+            const propA = a[property].toLowerCase();
+            const propB = b[property].toLowerCase();
+            if (propA < propB) return -1;
+            if (propA > propB) return 1;
+            return 0;}
         }
 
         )
