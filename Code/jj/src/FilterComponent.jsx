@@ -5,7 +5,7 @@ import nuoli from "/src/photos/nuoli.png"
 import ClickOutside from './ClickOutside';
 
 
-const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar}) => {
+const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar, filters}) => {
   
   const [showMore, setShowMore] = useState(false)
   const [selectedValues, setSelectedValues] = useState({});
@@ -15,6 +15,10 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
   const toggleShowMore = () => {
     setShowMore(!showMore);
     };
+
+    const isFilterActive = (name) => {
+      return filters[name] && filters[name].length > 0;
+  };  
 
   const handleCheckboxChange = (value) => {
     setSelectedValues((prev) => {
@@ -61,11 +65,13 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
       </div>
 
       <div className="FBox" ref={menuRef}>
+          <div className={`app-dropdown ${isFilterActive([name]) ? 'active-filter' : ''}`}>
           <button className="FilterLabel" onClick={()=>{setOpen(!open)}}>
           <div>{name}</div><div id="dropdownNuoli">
             <img src={nuoli} alt="arrow-down"  />
           </div>
           </button>
+          </div>
         {/* Searchbar */}
         {includeSearchBar && (
         <input 

@@ -65,6 +65,8 @@ const App = () => {
 
   });
 
+
+
 const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
 
@@ -247,26 +249,26 @@ const handleFiltersChange = (name, selectedValues) => {
 
             <div className="dropdown-group"> {/* 1st line of filters*/}
               <Search className="app-dropdown" name="Text Search" img={imageSearch} searchInput={searchInput} handleSearchChange={(event) => setSearchInput(event.target.value)} />
-              <FilterComponent name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
-              <FilterComponent name="Region" values={region_list} img={imageRegion} className="app-dropdown" onFilterChange={handleFiltersChange} />
-              <FilterComponent name="Starting month" values={month_list} img={imageDates} className="app-dropdown"onFilterChange={handleFiltersChange} />
-              <FilterComponent name="Ending month" values={month_list} img={imageDates} className="app-dropdown" onFilterChange={handleFiltersChange}/>
-              <FilterComponent name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onFilterChange={handleFiltersChange}/>
+              <FilterComponent filters = {filters} name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
+              <FilterComponent filters = {filters} name="Region" values={region_list} img={imageRegion} className="app-dropdown" onFilterChange={handleFiltersChange} />
+              <FilterComponent filters = {filters} name="Starting month" values={month_list} img={imageDates} className="app-dropdown"onFilterChange={handleFiltersChange} />
+              <FilterComponent filters = {filters} name="Ending month" values={month_list} img={imageDates} className="app-dropdown" onFilterChange={handleFiltersChange}/>
+              <FilterComponent filters = {filters} name="Study Language" values={language_list} img={imageLang} className="study_language_dropdown" onFilterChange={handleFiltersChange}/>
       
             </div>
 
             {showMore && (
              <div className="dropdown-group"> {/* 3rd line of filters*/}
-                  <FilterComponent name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                  <FilterComponent name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
-                  <FilterComponent name="Population" values={population_list} img={imagePop} className="app-dropdown" onFilterChange={handleFiltersChange}/>
+                  <FilterComponent filters = {filters} name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
+                  <FilterComponent filters = {filters} name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
+                  <FilterComponent filters = {filters} name="Population" values={population_list} img={imagePop} className="app-dropdown" onFilterChange={handleFiltersChange}/>
               
-                  <FilterComponent name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
+                  <FilterComponent filters = {filters} name="Safety" values={safety_list} img={imageSafety} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div id="gpabox">
-                  <FilterComponent name="Gpa" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
+                  <FilterComponent filters = {filters} name="Gpa" values={gpa_list} img={imageGpa} className="app-dropdown" onFilterChange={handleFiltersChange} />
                   <div> 
                   <img src={Info} alt="infocircle" height="20px" width="20px" id="infocircle"/>
-                  <p id="gpaboxshow">GPA refers to the requirements from the receiving university, which is different from Aalto's index.</p>
+                  <p id="gpaboxshow">GPA refers to the possible additional requirements from the receiving university, eg. GPA, work experience.</p>
                   </div>
                   
                   </div>

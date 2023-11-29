@@ -8,6 +8,7 @@
     width: 400px;
     height: 350px;
     box-sizing: border-box; /* Include padding and borders in the total width */
+    overflow-y: auto;
   }
 
 .info-contents{

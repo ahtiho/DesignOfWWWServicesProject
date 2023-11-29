@@ -584,6 +584,13 @@ input[type = text]{
         padding-left: 10px;
         
       }
+      .active-filter {
+        /* Tässä määrittelet tyylit aktiiviselle filtterille */
+        border: 2px solid green; /* esimerkki */
+        border-radius: 30px;
+        width: inherit;
+        /* Lisää muita tyylejä tarpeen mukaan */
+      }
 
       #dropdownNuoli {
         width: 10px;
@@ -617,13 +624,16 @@ input[type = text]{
         
       }
 
+      .FilterVeto.checked {
+        box-shadow: 0 0 5px green;
+      }
       .FilterVeto.inactive {
         opacity: 0;
         visibility: hidden;
        
       }
 
-
+    
 
       #filter-title {
         text-align: center;
@@ -805,8 +815,7 @@ input[type = text]{
     margin-right: auto;
   }
 
-
-
+  
   .hide {
     opacity:0;
     right:-100%;
