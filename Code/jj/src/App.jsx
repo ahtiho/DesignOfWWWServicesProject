@@ -24,13 +24,7 @@ import Search from './SearchComponent'
 import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
 import {FilterFunction} from './filterit_toim.jsx'
 import { components } from "react-select";
-import MultiCheckboxDropdown from './MultiCheckboxDropdown'
-//checkbox juttuun importteja
-import { useLocalStore } from "mobx-react-lite";
-//import "bootstrap/dist/css/bootstrap.min.css"; muotoilee kaiken väärin ;D
 import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
-import MultiselectDropdown from './MultiCheckboxDropdown'
-import PopulationRange from './populationRange'
 
 import Summary from './Summary';
 import Dropdown2 from './DropdownComponent-copy';
@@ -65,8 +59,6 @@ const App = () => {
 
 const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
-
-console.log("yks:", newFilteredData);
 
 //newFilteredData.forEach(item => console.log(item.Country));
 
@@ -304,7 +296,6 @@ const handleFiltersChange = (name, selectedValues) => {
             values={sortvalues}
             handleChange={(event) => setSelectedProperty(event.target.value)} /> 
             </div>
-
        
 
         </div> {/* ResultsAndSort päättyy*/}

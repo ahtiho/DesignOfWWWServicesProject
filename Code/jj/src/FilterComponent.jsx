@@ -81,14 +81,16 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
             {values.map((value, index) => (
               <React.Fragment key={index}>
               <span className="checkboxHide">
-              <input type="checkbox"
+              <input 
+              type="checkbox"
               name={name} 
               value={value} 
               id={`${name}-checkbox-${index}`}
               onChange = {() => handleCheckboxChange(value)}
               checked={selectedValues[value] || false}
               /></span>
-              <label htmlFor={`${name}-checkbox-${index}`} className="checkboxText">{value}</label>
+              <label htmlFor={`${name}-checkbox-${index}`} className="checkboxText">
+                {/*{value === 1 ? '1 (lowest)' : value === 5 ? '5 (highest)' : value}*/}{value}</label>
               <br/>
            </React.Fragment>))}
       </div> {/* FilterVeto päättyy tähän */}

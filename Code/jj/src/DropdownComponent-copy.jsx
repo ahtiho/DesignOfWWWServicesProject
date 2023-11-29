@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import React from 'react';
-import MultiselectDropdown from './MultiCheckboxDropdown';
 
-<MultiselectDropdown options="" title="Moi"/>
 
 const Dropdown2 = ({ name, values, img }) => {
     return (
