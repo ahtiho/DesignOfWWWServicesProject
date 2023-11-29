@@ -145,7 +145,7 @@ const handleFiltersChange = (name, selectedValues) => {
   };
 
 
-   const searchResult = newFilteredData.filter((data) =>
+  const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.City.toLowerCase().includes(searchInput.toLowerCase()) ||
     data.University.toLowerCase().includes(searchInput.toLowerCase())||
@@ -153,7 +153,7 @@ const handleFiltersChange = (name, selectedValues) => {
 
 
   useEffect(() => {
-    const sorted = sortByProperty(newFilteredData, selectedProperty);
+    const sorted = sortByProperty(searchResult, selectedProperty);
     setFilteredData(sorted);
     }, [selectedProperty]);
   
@@ -165,6 +165,7 @@ const handleFiltersChange = (name, selectedValues) => {
 
   const universityvalues = newFilteredData.map(item => item["University"]);
   const distinctUniversities = new Set(universityvalues).size;
+
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
         
@@ -176,14 +177,14 @@ const handleFiltersChange = (name, selectedValues) => {
           if (propA > propB) return 1;
           return 0;}
         else if (property === 'Sort by Price Level ') {
-          const property = 'Hintataso'
+          const property = 'Price'
           const propA = a[property];
           const propB = b[property];
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
         else if (property === 'Sort by Population'){
-          const property = 'Pop/City2'
+          const property = 'CityPop'
           
           const propA = a[property];
           const propB = b[property];
@@ -191,7 +192,7 @@ const handleFiltersChange = (name, selectedValues) => {
           if (propA > propB) return 1;
           return 0;}
           else if (property === 'Sort by Safety'){
-            const property = 'crimeIndex'
+            const property = 'Safety'
             const propA = a[property];
             const propB = b[property];
             if (propA < propB) return -1;
@@ -231,8 +232,7 @@ const handleFiltersChange = (name, selectedValues) => {
 
         {/* Filteriosio */}
         <div id="filterBox">
-          <h2 id="filter-title">Filters</h2><br></br>
-          <div id="filterLine"></div> {/* tähän jos halutaan joku hieno koristeviiva vielä*/}
+          <h2 id="filter-title">Filters</h2>
 
 
             <div className="dropdown-group"> {/* 1st line of filters*/}

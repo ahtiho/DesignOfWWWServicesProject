@@ -57,7 +57,9 @@ h2 {  /* aalto university school of business */
   line-height: normal;
   letter-spacing: -2px;
   text-align: left;
+  
 }
+
 
 
 /* header ------------------------------------------------------------------------------------------- */
@@ -66,7 +68,7 @@ header {
   /*background-color: #FF9F46;*/
   background: linear-gradient(#FF9F46, #FF9F4600);
   margin-bottom: 50px;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
   
   
   }
@@ -552,8 +554,8 @@ input[type = text]{
       }
       
       .image img {
-        height: 40px;
-        width: 40px;
+        height: 35px;
+        width: 35px;
       }
       
       .FBox {
@@ -857,7 +859,16 @@ input[type = text]{
         justify-content: center;
       }
       
-    
+      #filter-title {
+        text-align: center;
+        padding-top: 0px;
+        
+      }
+
+      header {
+        background: linear-gradient(#FF9F46, #FF9F4600);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
 
     
   }
@@ -963,9 +974,43 @@ input[type = text]{
       display: flex;
       justify-content: center;
     }
-    
-
+    header {
+      background: linear-gradient(#FF9F46, #FF9F4600);
+      margin-bottom: 0px;
+      padding-bottom: 0px;
     }
+
+    #titleDiv {
+      padding: 10px 80px;
+      max-width: 250px;
+      padding-top: 0px;
+    }
+
+    #titleDiv h2 , #titleDiv .priceSlider {
+      text-align: center;
+    }
+
+    #logo {
+      font-size: 40px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+      letter-spacing: -2px;
+  }
+
+    #aaltolinkki {
+      /*border: 1px solid #222;
+      border-radius: 50px;
+      padding: 0px;*/
+      padding-top: 18px;
+    }
+
+    #headerButtonPosition{
+      padding-top: 80px;
+      padding-left: 60%;
+  }
+
+  }
 
     @media only screen and (max-width: 430px) {
       /* styles for devices with a maximum screen width of 950px */
@@ -979,3 +1024,6 @@ input[type = text]{
         margin-right: auto;
       }
     }
+
+
+  }

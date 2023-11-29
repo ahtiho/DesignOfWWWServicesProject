@@ -18,10 +18,10 @@ class InfoComponent extends Component {
         const UG = "Level of studies: UG"
         const G = "Level of studies: G"
         const firstItem = item
-        if (firstItem["ADDITIONAL REQUIREMENTS"].length > 0){
-            firstItem["ADDITIONAL REQUIREMENTS"] = "Yes"
+        if (firstItem["ADDITIONAL_REQUIREMENTS"].length > 2){
+            firstItem["ADDITIONAL_REQUIREMENTS"] = "Yes"
         } else {
-            firstItem["ADDITIONAL REQUIREMENTS"] = "No"
+            firstItem["ADDITIONAL_REQUIREMENTS"] = "No"
         }
         return (
             <div className = 'InfoBox'>
@@ -46,7 +46,6 @@ class InfoComponent extends Component {
 
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePop} alt="Image" /> {firstItem["CityPop"]} </p>
                             <p className="infoboxshow">Population</p></div>
-
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
                             <p className="infoboxshow">GPA Requirements</p></div>
                     </div>

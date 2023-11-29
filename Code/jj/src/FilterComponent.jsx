@@ -90,7 +90,7 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar})
               checked={selectedValues[value] || false}
               /></span>
               <label htmlFor={`${name}-checkbox-${index}`} className="checkboxText">
-                {/*{value === 1 ? '1 (lowest)' : value === 5 ? '5 (highest)' : value}*/}{value}</label>
+                {value === 1 ? '1 (lowest)' : value === 5 ? '5 (highest)' : value}</label>
               <br/>
            </React.Fragment>))}
       </div> {/* FilterVeto päättyy tähän */}
