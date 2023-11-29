@@ -588,9 +588,11 @@ input[type = text]{
       }
       .active-filter {
         /* Tässä määrittelet tyylit aktiiviselle filtterille */
-        border: 2px solid green; /* esimerkki */
+        background-color:rgba(164, 205, 164, 0.651) ;
+        border: 2px solid black; 
+        color:black; /* esimerkki */
         border-radius: 30px;
-        width: inherit;
+        width: 80%;
         /* Lisää muita tyylejä tarpeen mukaan */
       }
 
@@ -1064,6 +1066,3 @@ input[type = text]{
         margin-right: auto;
       }
     }
-
-
-  }

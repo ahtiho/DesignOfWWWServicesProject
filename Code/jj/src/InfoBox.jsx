@@ -46,7 +46,7 @@ class InfoComponent extends Component {
 
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePop} alt="Image" /> {firstItem["CityPop"]} </p>
                             <p className="infoboxshow">Population</p></div>
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL REQUIREMENTS"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL_REQUIREMENTS"]} </p>
                             <p className="infoboxshow">GPA Requirements</p></div>
                     </div>
 
