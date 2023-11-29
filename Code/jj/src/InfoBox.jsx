@@ -10,6 +10,7 @@ import imageSearch from "/src/photos/text-search-icon.png"
 import imagePop from "/src/photos/population-icon.png"
 import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
+import PopulationChanger from './PopulationChanger';
 
 class InfoComponent extends Component {
     
@@ -44,7 +45,7 @@ class InfoComponent extends Component {
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageSafety} alt="Image" /> {firstItem["Safety"]} </p>
                             <p className="infoboxshow">Safety Level</p></div>
 
-                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePop} alt="Image" /> {firstItem["CityPop"]} </p>
+                            <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imagePop} alt="Image"/> <PopulationChanger pop={firstItem["CityPop"]} /> </p>
                             <p className="infoboxshow">Population</p></div>
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL_REQUIREMENTS"]} </p>
                             <p className="infoboxshow">GPA Requirements</p></div>
