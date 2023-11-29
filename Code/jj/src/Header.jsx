@@ -24,7 +24,7 @@ class HeaderComponent extends React.Component {
         <div id="mainHeaderContent" className="clearfix">
           <div id="titleDiv">
             <h1>avara aalto</h1>
-            <h2>Aalto University School of Business</h2>
+            <h2 id="h2_aalto">Aalto University School of Business</h2>
             <p>
               Here you can search for the exchange destinations of The School of Business.
               Main exchange application period is yearly in January, second round application in August.
