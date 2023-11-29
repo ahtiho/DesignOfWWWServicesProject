@@ -155,21 +155,22 @@ export function FilterFunction(filterdata, data) {
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    if (filterdata.Gpa.length > 0){
-        if(filterdata.Gpa.includes("Yes")) {
-            GpaClause.push(`LENGTH(additional_requirements) > 4`);
+    if (filterdata.GPA.length > 0){
+        let gpaClauses = []
+        console.log(data[0]["ADDITIONAL_REQUIREMENTS"])
+        if(filterdata.GPA.length === 1 && filterdata.GPA.includes("Yes")) {
+            gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) > 2`);
 
+        } else if (filterdata.GPA.length === 1 && filterdata.GPA.includes("No")){
+            gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) <= 2`);
         } else {
-            GpaClause.push(`LENGTH(additional_requirements) < 2`);
+            gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) >= 2`);
         }
-        
+    clauses.push(`${gpaClauses.join(' OR ')}`) 
     } 
 
-   
-    //if (gpaClause.length > 0) clauses.push(gpaClause);
     if (populationClause.length > 0) clauses.push(populationClause);
-    //if (startMonthClause.length > 0) clauses.push(startMonthClause);
-    //if (endMonthClause.length > 0) clauses.push(endMonthClause);
+    
     console.log(languageClause)
     if (languageClause.length > 0) clauses.push(languageClause);
     var clauses = clauses.map(element => `(${element})`);
