@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
-import { Helmet } from 'react-helmet';
 // kuvat
-import MultiRangeSlider from "multi-range-slider-react";
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -320,6 +318,7 @@ const handleFiltersChange = (name, selectedValues) => {
               <InfoComponent data={item} />
           </div>))}
         </div>
+
         <div><Footer /></div>
 
       </div> /* Sisältö päättyy tähän*/

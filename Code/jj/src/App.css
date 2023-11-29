@@ -393,7 +393,7 @@ input[type = text]{
   flex-wrap: wrap;
   gap: 50px; /* Adjust the gap as needed */
   justify-content: center; /* Center the items horizontally */
-  padding-top: 100px;
+  padding-top: 50px;
   width: 1000px;
   margin-left: auto;
   margin-right: auto;
@@ -761,6 +761,19 @@ input[type = text]{
 
 /* responsive desings --------------------------------------------------------------------------*/
 
+@media only screen and (max-width: 920px) { /* MUOKKAA */
+  /* styles for devices with a maximum screen width of 950px */
+  .info-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px; /* Adjust the gap as needed */
+    justify-content: center; /* Center the items horizontally */
+    padding-top: 50px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 @media only screen and (max-width: 840px) {
   /* styles for devices with a maximum screen width of 950px */
@@ -849,7 +862,18 @@ input[type = text]{
     
   }
 
-
+  @media only screen and (max-width: 740px) {
+    /* styles for devices with a maximum screen width of 950px */
+    .info-container {
+      display: block;
+      gap: 50px; /* Adjust the gap as needed */
+      justify-content: center; /* Center the items horizontally */
+      padding-top: 50px;
+      width: 410px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
 
   /* ------------------------ FOR MOBILE */
 
@@ -919,7 +943,6 @@ input[type = text]{
      font-size: 30px;
      text-align: center;
      
-     
     }
 
     .container2 {
@@ -942,4 +965,17 @@ input[type = text]{
     }
     
 
+    }
+
+    @media only screen and (max-width: 430px) {
+      /* styles for devices with a maximum screen width of 950px */
+      .info-container {
+        display: block;
+        gap: 50px; /* Adjust the gap as needed */
+        justify-content: center; /* Center the items horizontally */
+        padding-top: 20px;
+        width: 330px;
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
