@@ -67,7 +67,8 @@ const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar, 
       <div className="FBox" ref={menuRef}>
           <div className="app-dropdown">
           <button className={`FilterLabel ${isFilterActive([name]) ? 'active-filter' : ''}`} onClick={()=>{setOpen(!open)}}>
-          <div>{name}</div><div id="dropdownNuoli">
+          <div>{name === "Gpa" ? 'GPA': name}</div><div id="dropdownNuoli">
+          
             <img src={nuoli} alt="arrow-down"  />
           </div>
           </button>
