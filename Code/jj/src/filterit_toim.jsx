@@ -41,10 +41,9 @@ export function FilterFunction(filterdata, data) {
     var countryClause = createFilterClause(filterdata, 'Country');
     var priceClause = createFilterClause(filterdata, 'Price');
     var safetyClause = createFilterClause(filterdata, 'Safety');
-    var GPAClause = createFilterClause(filterdata, 'GPA');
+    var GPAClause = createFilterClause(filterdata, 'Gpa');
 
-    
-    console.log(filterdata)
+  
     var populationClause = ''
     //var gpaClause = createBinaryClause(filterdata, ''); 
     //var populationLower = filterdata[0].Population_Lower[0];
@@ -155,22 +154,25 @@ export function FilterFunction(filterdata, data) {
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    if (filterdata.GPA.length > 0){
+    console.log(filterdata.Gpa.length)
+    if (filterdata.Gpa.length > 0){
         let gpaClauses = []
         console.log(data[0]["ADDITIONAL_REQUIREMENTS"])
-        if(filterdata.GPA.length === 1 && filterdata.GPA.includes("Yes")) {
+        if(filterdata.Gpa.length === 1 && filterdata.Gpa.includes("Yes")) {
             gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) > 2`);
 
-        } else if (filterdata.GPA.length === 1 && filterdata.GPA.includes("No")){
+        } else if (filterdata.Gpa.length === 1 && filterdata.Gpa.includes("No")){
             gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) <= 2`);
         } else {
             gpaClauses.push(`LENGTH(ADDITIONAL_REQUIREMENTS) >= 2`);
         }
     clauses.push(`${gpaClauses.join(' OR ')}`) 
-    } 
-
+    }
+   
+    //if (gpaClause.length > 0) clauses.push(gpaClause);
     if (populationClause.length > 0) clauses.push(populationClause);
-    
+    //if (startMonthClause.length > 0) clauses.push(startMonthClause);
+    //if (endMonthClause.length > 0) clauses.push(endMonthClause);
     console.log(languageClause)
     if (languageClause.length > 0) clauses.push(languageClause);
     var clauses = clauses.map(element => `(${element})`);
