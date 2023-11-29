@@ -28,7 +28,7 @@ class InfoComponent extends Component {
                 <div className= 'info-contents'>
                     <div className= 'details-left'>
                         <h3>{firstItem.Country}</h3>
-                        <h2>{firstItem.University}</h2>
+                        <h2 className="universityname">{firstItem.University}</h2>
                         <p>City: {firstItem.City}</p>
                         <p>Level: {firstItem[UG]} {firstItem[G]}</p>
                         <p>Fall term: {firstItem["Fall term"]}</p>
@@ -48,6 +48,9 @@ class InfoComponent extends Component {
                             <p className="infoboxshow">Population</p></div>
                             <div className="DetailsRightRow"><p className="FilterInfoRow"><img className="InfoImage" src={imageGpa} alt="Image" /> {firstItem["ADDITIONAL_REQUIREMENTS"]} </p>
                             <p className="infoboxshow">GPA Requirements</p></div>
+
+                           
+                            
                     </div>
 
                     </div>
@@ -55,7 +58,7 @@ class InfoComponent extends Component {
                             <button>
                                 <a href= {firstItem["AaltoLink"]} target="_blank" className = 'linkki'> More details</a>
                             </button>  
-                        </div>
+                            </div>
                 
            </div> 
         );
