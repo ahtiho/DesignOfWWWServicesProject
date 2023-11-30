@@ -19,20 +19,15 @@ import SortButton from './SortButton'
 import HeaderComponent from './Header.jsx';
 import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
-import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
 import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
 import {FilterFunction} from './filterit_toim.jsx'
 import { components } from "react-select";
-import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
 
 import Summary from './Summary';
-import Dropdown2 from './DropdownComponent-copy';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import FilterComponent from './FilterComponent';
 import ScrollComponent from './ScrollComponent';
 import Info from "/src/photos/Info.png";
-import GPAInfo from './GPAInfo';
 
 
 const App = () => {

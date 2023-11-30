@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+// The button which sorts the results based on safety, price, population
 
 const SortButton = ({ name, values, handleChange }) => {
   return (

@@ -1,3 +1,5 @@
+/* CSS for Summary section*/
+
 #summarywrap {
   margin-top: 30px;
   margin-bottom: 90px;
@@ -10,10 +12,6 @@
     justify-content: space-between;
   }
 
-
-  /*.element{
-    margin: 0 30%;
-  }*/
 
 
   .element p {

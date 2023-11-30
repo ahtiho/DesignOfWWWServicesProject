@@ -1,7 +1,7 @@
 import React from "react";
 import './Summary.css'
 
-
+// Summary of all results (Continents, Countries, Universities), a section after Filters and before map
 const Summary = ({ continents, universities, countries }) => {
     return(
         <div id="summarywrap">

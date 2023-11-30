@@ -1,4 +1,4 @@
-//ScrollComponent.jsx
+//ScrollComponent: the "Back to Filters" button which pops up when scrolling down
 
 import React, { useEffect, useState } from 'react';
 import './App.css'
@@ -26,10 +26,8 @@ const ScrollComponent = () => {
 
   return (
     <div id="scrollWrap">
-
-      {/* Conditional rendering based on showCTA state */}
       <div id="customID" className={showCTA ? 'cta show' : 'cta hide'}>
-        {/* Your CTA content */}<div className="container">
+       <div className="container">
           <a href="#filterBox"> <div className="sticky-div">Back to filters</div> </a>
         </div>
       </div>

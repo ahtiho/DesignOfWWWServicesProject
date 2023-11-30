@@ -12,6 +12,8 @@ import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import PopulationChanger from './PopulationChanger';
 
+// Individual exchange destination information boxes
+
 class InfoComponent extends Component {
     
     render() {

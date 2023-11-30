@@ -1,4 +1,4 @@
-//ClickOutside.jsx
+//ClickOutside -> function for filters, that when dropdown is opened, the filter will close when clicking wherever outside the box.
 
 import { React, useRef, useEffect } from 'react';
 

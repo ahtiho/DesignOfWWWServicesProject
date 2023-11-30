@@ -1,4 +1,4 @@
-// SearchComponent
+// Text Search in filter section
 
 import { useState } from 'react'
 import './App.css'

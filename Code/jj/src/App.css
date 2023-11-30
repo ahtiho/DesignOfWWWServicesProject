@@ -20,7 +20,7 @@ html {
   overflow: hidden;
 }
 
-/* yleiset -------------------------------------------------------------------------------- */
+/* general styling -------------------------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6,li,p,button {
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -36,7 +36,7 @@ p {
   text-align: left;
   }
 
-h1 { /* avara aalto */
+h1 { /* avara aalto text*/
   
   font-size: 80px;
   font-weight: 700;
@@ -65,7 +65,6 @@ h2 {  /* aalto university school of business */
 /* header ------------------------------------------------------------------------------------------- */
 
 header {
-  /*background-color: #FF9F46;*/
   background: linear-gradient(#FF9F46, #FF9F4600);
   margin-bottom: 50px;
   padding-bottom: 30px;
@@ -91,14 +90,10 @@ header {
     }
 
   #aaltolinkki {
-    /*border: 1px solid #222;
-    border-radius: 50px;
-    padding: 0px;*/
     padding-top: 38px;
   }
 
     #navLine {
-      /*width: 60vw;*/
       max-width: 1200px;
         margin-left: auto;
         margin-right: auto;
@@ -126,22 +121,11 @@ header {
   
   }
 
-  /* JATKA TÄSTÄ */
   #titleDiv {
     padding: 10px 50px;
     max-width: 700px;
     padding-top: 50px;
   }
-
-  /*  float: left;
-  display: flex;
-  justify-content:space-between; */
-
-/*nav li a {
-text-align: center;
-  display: block;
-  width: 130px;
-padding: 30px;*/
 
 
 #headerButtonPosition{
@@ -161,7 +145,6 @@ padding: 30px;*/
         cursor: pointer;
         border-radius: 50px;
         text-align: center;
-        /*border: 2px solid #000;*/
         padding: 14px 36px;
         margin: auto;
         color: white;
@@ -169,7 +152,7 @@ padding: 30px;*/
      }
 
      #headerButton a {
-        color: white; /* Set the text color for the anchor element inside the button */
+        color: white; 
     }
 
   #headerButton:hover{
@@ -190,9 +173,7 @@ padding: 30px;*/
 
 
 
-/* filterit ----------------------------------------------------------------------------------------- */
-
-
+/* filters ----------------------------------------------------------------------------------------- */
 
 #filterBox {
   display: grid;
@@ -204,9 +185,7 @@ padding: 30px;*/
   
 }
 
-
-
-/* YKSITTÄINEN FILTER-KOMPONENTTI KUVA + BUTTON*/
+/* INDIVIDUAL FILTER COMPONENT PICTURE + BUTTON*/
 .container {
   display: flex;
   align-items: center;
@@ -227,7 +206,7 @@ padding: 30px;*/
   border:#e16969; */
 }
 
-/* yksittäisen filteririvin div */
+/* filter row div */
 .dropdown-group{
   display: grid;
   grid-template-columns: auto auto auto;
@@ -242,17 +221,7 @@ padding: 30px;*/
 
 /* --------------------------------------------------------------------------- */
   
-/* SORT BUTTONIIN MUOTOILUJA */
-
-.btn{
- /* display: flex;
-  justify-content:flex-end;
-  padding-right: 25%;
-  padding-bottom: 4.25%; */
-  
-  
-  /*float: right;*/
-}
+/* SORT BUTTONIIN STYLINGS */
 
 .btn button {
   background-color: black;
@@ -294,15 +263,10 @@ padding: 30px;*/
 }
 
 .results {
-  /*position: absolute;*/
-  /*left: 25%;
-  padding-top: 100px;
-  padding-bottom: 50px; */
   max-width: 400px;
 }
 .results p {
  font-size: 40px;
- 
  
 }
 
@@ -317,14 +281,6 @@ padding: 30px;*/
 
 }
 
-
-.showmoreButton {
-  /*display: flex;
-  justify-content:flex-end;*/
-  /*padding-right: 20%;
-  padding-bottom: 4.25%;*/
-  /*float: right;*/
-}
 
 .showmoreButton button {
   background-color: black;
@@ -346,20 +302,10 @@ padding: 30px;*/
   width: 160px;
 }
 
-/* DROPDOWN ESIM. GPA */
-
-/* SORT BUTTONIIN VAIKUTTAA */
+/* SORT BUTTON */
 select{
-  /*height: 40px;
-  /*padding: 10px 0px;
-  width: 160px;
-  font-size: 16px;
-  font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;;
-  border: 2px solid #222222;
-  border-radius:25px;*/
   border: 2px solid #222222;      
   border-radius:30px;
-  /*width: 84%; */
   width: 190px;
   background-color: white;
   padding: 10px 0px;
@@ -367,18 +313,10 @@ select{
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #040404;
   cursor: pointer;
-  /*display:flex;
-        flex-direction: row;
-        justify-content: space-between;*/
-        /*padding-right: 10px;
-        padding-left: 10px;*/
-        text-align: center;
+  text-align: center;
         
-        
-        /*margin-top: 5px; */
 
 }
-
 
 /* TEXT SEARCH */
 input[type = text]{
@@ -393,8 +331,8 @@ input[type = text]{
 .info-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px; /* Adjust the gap as needed */
-  justify-content: center; /* Center the items horizontally */
+  gap: 50px; 
+  justify-content: center;
   padding-top: 50px;
   width: 1000px;
   margin-left: auto;
@@ -409,9 +347,6 @@ input[type = text]{
   width: 100%;
 
 }
-
-
-
 
 /* Footer ---------------------------------------------------------------------------------------- */
 
@@ -453,99 +388,12 @@ input[type = text]{
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-
-    /*
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 100px;
-    padding-bottom: 100px; */
   } 
   
 
-  /* PopulationRange ---------------------------------------------------------------*/
-
-  .priceSlider {
-    width: 200px;
-    background-color: white;
-    border-radius: 5px;
-    padding: 10px 20px;
-  }
-
-  .min-max label {
-    font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
-    float: left;
-    margin-right: 5px;
-    line-height: 1.6;
-  }
-
-  .min {
-    float: left;
-  }
-
-  .max {
-    float:right;
-  }
-
-  .min-max {
-    width: 90%;
-    max-width: 200px;
-    margin: 0 auto;
-    padding: 25px 0px 15px 0px;
-  }
-
-  .min-max span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    text-align: center;
-    display: inline-block;
-    width: 40px;
-    border: 1px solid #dedede;
-  }
-
-  .min-max-range {
-    padding: 30px 0px 20px 0px;
-  }
-
-  .range {
-    -webkit-appearance:none;
-    appearance: none;
-    width: 50%;
-    height: 10px;
-    max-width: 400px;
-    background-color: #040404;
-    margin: 0;
-    padding: 0;
-    outline: none;
-    float: left;
-
-  }
-
-  .range::-webkit-slider-thumb {
-    -webkit-appearance:none;
-    appearance: none;
-    background-color: #FF9F46;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-  .range::moz-range-thumb {
-    -webkit-appearance:none;
-    appearance: none;
-    background-color: red;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-
-
   
 
-  /* Filterit ----------------------------------------------- */
+  /* More filters here ----------------------------------------------- */
 
       #filterBox {
         width: 100%;
@@ -565,8 +413,6 @@ input[type = text]{
         font-size: 20px;
       
       }
-      
-     
       
       .FilterLabel { /* filter button */
         border: 2px solid #222222;
@@ -650,8 +496,6 @@ input[type = text]{
       }
 
       .checkboxHide {
-        /* default checkbox */ 
-          
           margin-left: 10px;
         
         }
@@ -693,9 +537,6 @@ input[type = text]{
         display: none;
         position: absolute;
         width: 140px;
-        /*position: absolute;
-        top: 0;
-        /*left: calc(100% + 10px); /* Position the box to the right of the image */
         padding: 10px;
         background-color: rgba(255, 246, 232, 0.9);
         text-align: center;
@@ -708,29 +549,20 @@ input[type = text]{
         clear: both;
       }
     
-
-
-
-      
-/* ssticky--------------------------------------------*/
+/* Sticky 'back to filters' button --------------------------------------------*/
 
 .sticky-div {
   border: 2px solid #222222;
   border-radius:25px;
   width:140px;
-  /*z-index:100;
-  float: right;
-  /*left: 1200px;*/
   text-align: center;
   font-family: "Inter", "Tahoma", "Geneva", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   font-size: 14px;
-  /*margin-top: 20px;*/
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: #040404;
   filter: drop-shadow(6px 5px 16.9px rgba(88, 71, 55, 0.29));
-  /*margin-left: 1200px;*/
   
 }
 
@@ -742,15 +574,10 @@ input[type = text]{
   position: fixed;
   bottom: 50px;
   right: 20%;
-  /*left: 20px;
-  /*right:80px;*/
   width: 60px;
   height: 60px;
   border-radius:50%;
   z-index: 1;
-  /*transition: all 1s;*/
-  /*transform: translateX(100%);
-  transition: transform 1s;*/
   transition: 1s;
   right: 0;
   
@@ -770,13 +597,10 @@ input[type = text]{
   align-content: center;
 }
 
-
-
-
 /* responsive desings --------------------------------------------------------------------------*/
 
-@media only screen and (max-width: 920px) { /* MUOKKAA */
-  /* styles for devices with a maximum screen width of 950px */
+@media only screen and (max-width: 920px) {
+  /* styles for devices with a maximum screen width of 920px */
   .info-container {
     display: flex;
     flex-wrap: wrap;
@@ -790,7 +614,7 @@ input[type = text]{
 }
 
 @media only screen and (max-width: 840px) {
-  /* styles for devices with a maximum screen width of 950px */
+  /* styles for devices with a maximum screen width of 840px */
 
  #mainHeaderContent {
     
@@ -818,15 +642,11 @@ input[type = text]{
     display: none;
   }
 
- 
-
   .dropdown-group{
     display:flex;
     flex-direction:column;
     align-items: center;
     justify-content: space-between;
-    /*flex-wrap:wrap;
-    justify-content: space-between;*/
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
@@ -855,9 +675,6 @@ input[type = text]{
         align-items: center;
         margin: 20px 20px 20px -21px;
         column-gap: 10px;
-        /*border-style: solid;
-        border-width: 5px;
-        border:#e16969; */
       }
 
 
@@ -885,7 +702,7 @@ input[type = text]{
   }
 
   @media only screen and (max-width: 740px) {
-    /* styles for devices with a maximum screen width of 950px */
+    /* styles for devices with a maximum screen width of 740px */
     .info-container {
       display: block;
       gap: 50px; /* Adjust the gap as needed */
@@ -932,26 +749,18 @@ input[type = text]{
       right:40%;
       margin-right:20px;
       transform: translateX(0);}
-    /* KORJAA KUN TUOTEKORTIT OVAT OK */
 
     #ResultsAndSort {
       max-width: 350px;
       display:block;
       margin-left: auto;
       margin-right: auto;
-      /*flex-direction: row;
-      justify-content: space-around;
-      align-items: center;*/
       margin-top: 50px;
       align-content: center;
       text-align: center;
     }
 
     .results {
-      /*position: absolute;*/
-      /*left: 25%;
-      padding-top: 100px;
-      padding-bottom: 50px; */
       max-width: 300px;
       margin-left: 20px;
       margin-bottom: 20px;
@@ -967,9 +776,6 @@ input[type = text]{
       align-items: center;
       margin: 20px 20px 20px -21px;
       column-gap: 10px;
-      /*border-style: solid;
-      border-width: 5px;
-      border:#e16969; */
     }
 
     #showmoreButtonWrap {
@@ -1009,9 +815,6 @@ input[type = text]{
   }
 
     #aaltolinkki {
-      /*border: 1px solid #222;
-      border-radius: 50px;
-      padding: 0px;*/
       padding-top: 18px;
     }
 
@@ -1031,9 +834,7 @@ input[type = text]{
       cursor: pointer;
       border-radius: 50px;
       text-align: center;
-      /*border: 2px solid #000;*/
       padding: 14px 36px;
-      /*margin: auto;*/
       color: white;
       align-content: center;
       width: 160px;
@@ -1047,15 +848,12 @@ input[type = text]{
       width: 350px;
       display: flex;
       flex-direction: column;
-    }
-
-
- }
+    }}
 
   }
 
     @media only screen and (max-width: 430px) {
-      /* styles for devices with a maximum screen width of 950px */
+      /* styles for devices with a maximum screen width of 430px */
       .info-container {
         display: block;
         gap: 50px; /* Adjust the gap as needed */

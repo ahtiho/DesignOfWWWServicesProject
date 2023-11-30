@@ -7,7 +7,7 @@ import searchResult from './App';
 class MapComponent extends React.Component {
     
     render() {
-        // Define the position with latitude and longitude
+        // Leaftlet map
         
 
         const position = [40.4168, -0.09];
