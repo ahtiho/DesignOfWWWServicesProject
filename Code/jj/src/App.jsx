@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
-import './App.css'
-// kuvat
+import React from 'react';
+import './App.css';
+import jsonData from './unidata.json';
+// photos
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -11,19 +13,16 @@ import imageSearch from "/src/photos/text-search-icon.png"
 import imagePop from "/src/photos/population-icon.png"
 import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
-import React from 'react';
-import jsonData from './unidata.json';
+
+// Components
 import InfoComponent from './InfoBox'
 import SortButton from './SortButton'
-//erilliset komponentit
 import HeaderComponent from './Header.jsx';
 import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
 import Search from './SearchComponent'
 import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
 import {FilterFunction} from './filterit_toim.jsx'
-import { components } from "react-select";
-
 import Summary from './Summary';
 import FilterComponent from './FilterComponent';
 import ScrollComponent from './ScrollComponent';
@@ -34,10 +33,9 @@ const App = () => {
   const sortvalues = ["Alphabetical order", "Sort by Price Level ", "Sort by Safety", "Sort by Population"]
 
   const [selectedProperty, setSelectedProperty] = useState("Country");
-  //const [sortedData, setSortedData] = useState([]);
 
 
-  // FILTEREIHIN LIITTYVII JUTTUJAAAA -----------------------------------------
+  // filters stuff -----------------------------------------
   const [filters, setFilters] = useState({
     Country: [],
     "Study Language": [],
@@ -52,17 +50,9 @@ const App = () => {
 
   });
 
-
-
-const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
-
-
-//newFilteredData.forEach(item => console.log(item.Country));
-
+const [newFilteredData, setFilteredData] = useState(jsonData);
 
   useEffect(() => {
-    // Kutsu FilterFunction-funktiota aina, kun filters-tila päivittyy
-    // Varmista, että filters sisältää jonkin filtterin ennen filtteröinnin suorittamista
     const areFiltersSet = Object.values(filters).some(filter => filter.length > 0);
     if (areFiltersSet) {
      
@@ -82,61 +72,33 @@ const handleFiltersChange = (name, selectedValues) => {
       [name]: selectedValues
     }) )
   };
-
-
-
 // -----------------------------------------------------------------
-  
 
-  //filterien dropdown-valikot
-  var values_list = ["UG", "G"];
-
-
+  //filters dropdown values
   var level_list = ["UG", "G"];
   var region_list = regionfilter;
-
   var month_list = monthfilter;
   var language_list = languagefilter;
   var gpa_list = ["Yes", "No"];
 
   var price_list = [1, 2, 3, 4, 5];
   var country_list = countryfilter;
-  // tee population
   var population_list = 
   ["10k - 500k", "500k - 1 mil", "1 mil - 5 mil", "5 mil +"];
   var safety_list = [1, 2, 3, 4,5];
 
-
-  // määrittää asetusten perustilat
   const [showMore, setShowMore] = useState(false)
   const [searchInput, setSearchInput] = useState("");
 
   const toggleShowMore = () => {
     setShowMore(!showMore);
     };
-  
-  /*const [filters, setFilters] = useState({
-      Country: [],
-      Language: [],
-      Region: [],
-      Start_Month: [],
-      End_Month: [],
-      Level: [],
-      Price: [],
-      Population: [],
-      Gpa: [],
-      Safety: []
-    })
-*/
 
-  //Checkbox: todennäköisesti turhia :) ----------------------------------------------------------
   const [checked, setChecked] = useState(false);
-
 
   const handleChange = () => {
     setChecked(!checked);
   };
-
 
    const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -210,7 +172,6 @@ const handleFiltersChange = (name, selectedValues) => {
   return (
      
     <div>
-        {/* Header -> erillinen tiedosto */}
         <div>
           <HeaderComponent />
         </div>
@@ -219,12 +180,12 @@ const handleFiltersChange = (name, selectedValues) => {
           <ScrollComponent/>
         </div>
 
-        {/* Filteriosio */}
+        {/* Filter section */}
         <div id="filterBox">
           <h2 id="filter-title">Filters</h2>
 
 
-            <div className="dropdown-group"> {/* 1st line of filters*/}
+            <div className="dropdown-group"> {/* Default shown filters*/}
               <Search className="app-dropdown" name="Text Search" img={imageSearch} searchInput={searchInput} handleSearchChange={(event) => setSearchInput(event.target.value)} />
               <FilterComponent filters = {filters} name="Level" values={level_list} img={imageLevel} className="app-dropdown" onFilterChange={handleFiltersChange} />
               <FilterComponent filters = {filters} name="Region" values={region_list} img={imageRegion} className="app-dropdown" onFilterChange={handleFiltersChange} />
@@ -235,7 +196,7 @@ const handleFiltersChange = (name, selectedValues) => {
             </div>
 
             {showMore && (
-             <div className="dropdown-group"> {/* 3rd line of filters*/}
+             <div className="dropdown-group"> {/* Show more filters*/}
                   <FilterComponent filters = {filters} name="Price" values={price_list} img={imagePrice} className="app-dropdown"onFilterChange={handleFiltersChange} />
                   <FilterComponent filters = {filters} name="Country" values={country_list} img={imageCountry} className="app-dropdown"onFilterChange={handleFiltersChange} />
                   <FilterComponent filters = {filters} name="Population" values={population_list} img={imagePop} className="app-dropdown" onFilterChange={handleFiltersChange}/>
@@ -263,15 +224,13 @@ const handleFiltersChange = (name, selectedValues) => {
 
         <div className="clear"></div>
         
-        </div>  {/* Filteriosio päättyy !*/}
+        </div>  {/* Filter section ends !*/}
 
         <div className='Summaryofdest'>
           <Summary continents = {distinctRegions} universities = {distinctUniversities}  countries = {distinctCountries}/>
 
         </div>
-
-        
-        {/* Kartta, erillisestä tiedostosta */}
+            {/* MapComponent*/}
         <div className="leaflet_container">
           <MapComponent data = {searchResult}/>
         </div>
@@ -285,13 +244,11 @@ const handleFiltersChange = (name, selectedValues) => {
             values={sortvalues}
             handleChange={(event) => setSelectedProperty(event.target.value)} /> 
             </div>
-       
+      
 
-        </div> {/* ResultsAndSort päättyy*/}
+        </div> {/* ResultsAndSort ends*/}
 
-
-
-        {/* tähän tulee kaikki hakutulokset */}
+        {/* All individual results here */}
         <div className="info-container">
           {searchResult.map((item, index) => (
             <div key={index}>
@@ -301,11 +258,8 @@ const handleFiltersChange = (name, selectedValues) => {
 
         <div><Footer /></div>
 
-      </div> /* Sisältö päättyy tähän*/
-
-
+      </div> /* Content ends here*/
   )
       }
-
   
   export default App;
