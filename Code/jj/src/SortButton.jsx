@@ -1,7 +1,7 @@
 import React from "react";
 import './App.css';
-// The button which sorts the results based on safety, price, population
 
+//Creating the Sorting button
 const SortButton = ({ name, values, handleChange }) => {
   return (
     <div className="sortbutton">

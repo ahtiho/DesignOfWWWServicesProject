@@ -123,39 +123,32 @@ const handleFiltersChange = (name, selectedValues) => {
   const distinctUniversities = new Set(universityvalues).size;
   const sortByProperty = (arr, property) => {
     return arr.slice().sort((a, b) => {
-        if (property === 'Sort by Price Level ') {
-          const property = 'Price'
-          const propA = a[property];
-          const propB = b[property];
-          if (propA < propB) return -1;
-          if (propA > propB) return 1;
-          return 0;}
-        else if (property === 'Sort by Population'){
-          const property = 'CityPop'
-          const propA = a[property];
-          const propB = b[property];
-          console.log(propA, propB)
-          if (propA < propB) return -1;
-          if (propA > propB) return 1;
-          return 0;}
-        else if (property === 'Sort by Safety'){
-            const property = 'Safety'
-            const propA = a[property];
-            const propB = b[property];
-            if (propA < propB) return -1;
-            if (propA > propB) return 1;
-            return 0;
-      } else  {
-            const property = 'Country'
-            const propA = a[property].toLowerCase();
-            const propB = b[property].toLowerCase();
-            if (propA < propB) return -1;
-            if (propA > propB) return 1;
-            return 0;}
+        let propA, propB;
+
+        if (property === 'Sort by Price Level') {
+            propA = a['Price'];
+            propB = b['Price'];
+        } else if (property === 'Sort by Population') {
+            propA = parseInt(a['CityPop'], 10);
+            propB = parseInt(b['CityPop'], 10);
+        } else if (property === 'Sort by Safety') {
+            propA = a['Safety'];
+            propB = b['Safety'];
+        } else {
+            propA = a['Country'].toLowerCase();
+            propB = b['Country'].toLowerCase();
         }
 
-        )
-      };
+        if (propA < propB) return -1;
+        if (propA > propB) return 1;
+        return 0;
+    });
+};
+
+
+
+// Example usage:
+
 
   return (
      
