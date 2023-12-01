@@ -93,12 +93,6 @@ export const CheckboxDropdown = observer(({ name, items, img }) => {
         onSelectAll={handleSelectAll}
         onSelectNone={handleSelectNone}
       >
-
-    {/*{values.map((value, index) => (
-              <option key={index} value={value}>
-                {value}
-              </option>
-    ))}*/}
             
 
             {items.map((value, index) => (
@@ -114,18 +108,6 @@ export const CheckboxDropdown = observer(({ name, items, img }) => {
 
 
         ))}
-
-        {/*{items.map(i => (
-          <Dropdown.Item
-            key={i.id}
-            as={CheckDropdownItem}
-            id={i.id}
-            checked={i.checked}
-            onChange={handleChecked}
-          >
-            {i.label}
-          </Dropdown.Item>
-        ))}*/}
       </Dropdown.Menu>
     </Dropdown>
   );

@@ -2,6 +2,9 @@ import React from 'react'; // Import React
 import './App.css'
 import herokuva from "/src/photos/herokuva.png"
 import nuoli from "/src/photos/arrow.png"
+
+// Header component with navigation and header picture + info
+
 class HeaderComponent extends React.Component {
   render() {
     return (

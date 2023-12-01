@@ -4,6 +4,7 @@ import React from 'react';
 import nuoli from "/src/photos/nuoli.png"
 import ClickOutside from './ClickOutside';
 
+// Individual filter component which is called from App.jsx
 
 const FilterComponent = ({ name, values, img, onFilterChange, includeSearchBar, filters}) => {
   

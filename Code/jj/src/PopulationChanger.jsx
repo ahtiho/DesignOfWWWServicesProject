@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './InfoBox.css'
 
+// Changes the population value from string to int and then styles it with commas
 const PopulationChanger = (props) => {
-    const population = parseInt(props.pop, 10); // Convert pop string to an integer
+    const population = parseInt(props.pop, 10);
   
     if (!isNaN(population)) {
       const formattedPopulation = population.toLocaleString();

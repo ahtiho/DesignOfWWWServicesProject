@@ -1,3 +1,4 @@
+/* Styling for Infobox */
 
 .InfoBox {
     display: inline-block;
@@ -7,7 +8,7 @@
     border-radius: 16px;
     width: 380px;
     height: 360px;
-    box-sizing: border-box; /* Include padding and borders in the total width */
+    box-sizing: border-box; 
     overflow-y: auto;
   }
 
@@ -95,9 +96,6 @@ a.linkki:visited{
     display: none;
     position: absolute;
     width: 90px;
-    /*position: absolute;
-    top: 0;
-    /*left: calc(100% + 10px); /* Position the box to the right of the image */
     padding: 10px;
     background-color: rgba(255, 246, 232, 0.9);
     text-align: center;
@@ -114,7 +112,7 @@ a.linkki:visited{
 
 
   @media only screen and (max-width: 920px) {
-    /* styles for devices with a maximum screen width of 950px */
+    /* styles for devices with a maximum screen width of 920px */
     .InfoBox {
       display: inline-block;
       flex-direction: column;
@@ -128,7 +126,7 @@ a.linkki:visited{
   }
 
   @media only screen and (max-width: 740px) {
-    /* styles for devices with a maximum screen width of 950px */
+    /* styles for devices with a maximum screen width of 740px */
     .InfoBox {
       display: inline-block;
       flex-direction: column;
@@ -143,7 +141,7 @@ a.linkki:visited{
   }
 
   @media only screen and (max-width: 440px) {
-    /* styles for devices with a maximum screen width of 950px */
+    /* styles for devices with a maximum screen width of 440px */
     .InfoBox {
       display: inline-block;
       flex-direction: column;
