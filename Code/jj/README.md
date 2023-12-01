@@ -1,8 +1,5 @@
-# React + Vite
+# Avara Aalto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+All the code files of our website, Avara Aalto, are in /src/ folder. The rendering happens in main.jsx, and App.jsx is the main file of the code. For different sections (and functions) of the website we have created separate .jsx files and they are being called in App.jsx . Most of the styling is in App.css with couple of exceptions where we have separete files (e.g., InfoBox.css). Photos are found in ./photos/ folder and used font in ./fonts/
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This website was created using HTML, CSS and React.
