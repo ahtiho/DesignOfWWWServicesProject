@@ -26,26 +26,9 @@ const Dropdown2 = ({ name, values, img }) => {
           </option>
         ))}
       </select>
-         
-         {/*} <select name="select" multiple className="multiselect" multiselect-search="true" multiselect-select-all="true" multiselect-max-items="10">
-          <option value="" disabled selected>{name}</option>
-            {values.map((value, index) => (
-              <option key={index} value={value}>
-                {value}
-              </option>
-            ))}
-            </select> */}
+
         </form>
 
-            {/*}
-          <select>
-           <option value="" disabled selected>{name}</option>
-            {values.map((value, index) => (
-              <option key={index} value={value}>
-                {value}
-              </option>
-            ))}
-            </select> */}
         </div>
       </div>            
     );

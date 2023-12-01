@@ -1,5 +1,7 @@
 import alasql from 'alasql'
 
+
+//Create a clauses for querying data 
 function createFilterClause(filterdata, column) {
     var filterValues = [];
 
@@ -13,9 +15,6 @@ function createFilterClause(filterdata, column) {
                 return `${filterValues.map(value => `"${value}"`).join(',')}`
 
             }
-            /*if (column.includes('Population')) {
-                return `${column} BETWEEN ${filterValues.map(value => `"${value}"`).join(' AND ')}`
-            }*/
             return `${column} IN (${filterValues.map(value => `"${value}"`).join(',')})`;
         }
     return '';
@@ -26,6 +25,7 @@ function createFilterClause(filterdata, column) {
 
 export function FilterFunction(filterdata, data) {
     
+    //Separate way to create filter for the study level
     var level = filterdata.Level;
     var levelsClause = '';
 
@@ -37,27 +37,20 @@ export function FilterFunction(filterdata, data) {
             var levelsClause = `G = "1"`;
         }
     }
+
+    //Define clauses
     var regionClause = createFilterClause(filterdata, 'Region');
     var countryClause = createFilterClause(filterdata, 'Country');
     var priceClause = createFilterClause(filterdata, 'Price');
     var safetyClause = createFilterClause(filterdata, 'Safety');
     var GPAClause = createFilterClause(filterdata, 'Gpa');
-
-  
     var populationClause = ''
-    //var gpaClause = createBinaryClause(filterdata, ''); 
-    //var populationLower = filterdata[0].Population_Lower[0];
-    //var populationUpper = filterdata[0].Population_Upper[0];
-    //if (populationLower != null && populationUpper != null) {
-    //    populationClause = `population >= ${populationLower} AND population <= ${populationUpper}`;
-    //} else if (populationLower != null) {
-     //   populationClause = `population >= ${populationLower}`;
-    //} else if (populationUpper != null) {
-    //    populationClause = `population <= ${populationUpper}`;
-    //}
     var languageClause = ''
     var clauses = [];
     // ... Muut suodattimet ...
+
+
+    //Functions to convert data to a more appropriate format
     function convertMonthNamesToNumbers(monthNames) {
          return monthNames.map(name => monthNamesToNumbers[name]);
       }
@@ -71,6 +64,7 @@ export function FilterFunction(filterdata, data) {
     const endMonthNumbers = convertMonthNamesToNumbers(filterdata['Ending month']);
     const endMonthFilter = createFilterClause({ 'Ending month': endMonthNumbers }, 'Ending month');
     
+    //Filtering of months
     if (startMonthFilter) {
         let startMonthClauses = [];
         if (level.length === 1 && level.includes('UG')) {
@@ -108,6 +102,8 @@ export function FilterFunction(filterdata, data) {
         }
     } 
     
+    //Filtering by language
+
     if(filterdata["Study Language"].length > 0) {
         if (level.length === 1 && level.includes('UG')) {
             const conditions = filterdata["Study Language"].map(language => `${language}_UG = "1"`);
@@ -124,9 +120,8 @@ export function FilterFunction(filterdata, data) {
         }}
 
     const populationNumbers = convertPopulationToNumbers(filterdata['Population'])
-    console.log(populationNumbers)
-
-    if (populationNumbers.length > 0) {
+    // Filter by population
+     if (populationNumbers.length > 0) {
         let populationClauses = [];
     
         if (populationNumbers.includes(5000000)) {
@@ -146,15 +141,18 @@ export function FilterFunction(filterdata, data) {
         }
     
         clauses.push(`${populationClauses.join(' OR ')}`);
-    }
-    var GpaClause=""
-    
+    }    
+
+    //Push the individual clauses in to a common clause
     if (levelsClause.length > 0) clauses.push(levelsClause);
     if (regionClause.length > 0) clauses.push(regionClause);
     if (countryClause.length > 0) clauses.push(countryClause);
     if (priceClause.length > 0) clauses.push(priceClause);
     if (safetyClause.length > 0) clauses.push(safetyClause);
-    console.log(filterdata.Gpa.length)
+    if (populationClause.length > 0) clauses.push(populationClause);
+ 
+    if (languageClause.length > 0) clauses.push(languageClause);
+    //Filtering by the possible additional requirements 
     if (filterdata.Gpa.length > 0){
         let gpaClauses = []
         console.log(data[0]["ADDITIONAL_REQUIREMENTS"])
@@ -168,14 +166,10 @@ export function FilterFunction(filterdata, data) {
         }
     clauses.push(`${gpaClauses.join(' OR ')}`) 
     }
-   
-    //if (gpaClause.length > 0) clauses.push(gpaClause);
-    if (populationClause.length > 0) clauses.push(populationClause);
-    //if (startMonthClause.length > 0) clauses.push(startMonthClause);
-    //if (endMonthClause.length > 0) clauses.push(endMonthClause);
-    console.log(languageClause)
-    if (languageClause.length > 0) clauses.push(languageClause);
+    
     var clauses = clauses.map(element => `(${element})`);
+
+    //Create the where clause
     var whereClause = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : 'WHERE 1=1';
 
     if (whereClause === "") {
@@ -187,20 +181,13 @@ export function FilterFunction(filterdata, data) {
         FROM ?
         ${whereClause}`;
     }
-   
-    console.log(query)
     var result = alasql(query, [data]);
-    console.log(result)
-
-    
     return result;
-    console.log(result instanceof Promise);
 }
 
 
 
 var languagefilter = ['Eng', 'Jap', 'Ger', 'Fr', 'Ita', 'Nor', 'Spa', 'Por', 'Swe']
-//var countryfilter = ['South Africa', 'China', 'India', 'Israel', 'Japan', 'Singapore', 'South Korea', 'Taiwan', 'Thailand', 'Austria', 'Belgium', 'Czech Republic', 'Denmark', 'France', 'Germany', 'Hungary', 'Iceland', 'Italy', 'Netherlands', 'Norway', 'Poland', 'Portugal', 'Slovenia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'United Kingdom', 'Argentina', 'Brazil', 'Chile', 'Mexico', 'Peru', 'Canada', 'United States', 'Australia', 'New Zealand']
 var countryfilter = ['Argentina', 'Australia', 'Austria', 'Belgium', 'Brazil', 'Canada', 'Chile', 'China', 'Czech Republic', 'Denmark', 'France', 'Germany', 'Hungary', 'Iceland', 'India', 'Israel', 'Italy', 'Japan', 'Mexico', 'Netherlands', 'New Zealand', 'Norway', 'Peru', 'Poland', 'Portugal', 'Singapore', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'United Kingdom', 'United States'];
 var regionfilter = ['Africa', 'Asia', 'Europe (Erasmus) ', 'Europe (Bilat)', 'Latin America', 'North America', 'Oceania']
 var monthfilter = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']

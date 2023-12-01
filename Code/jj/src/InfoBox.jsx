@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './InfoBox.css'
-import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
-import imageLevel from "/src/photos/level-icon.png"
-import imageRegion from "/src/photos/region-icon.png"
 import imageSafety from "/src/photos/safety-icon.png"
 import imageLang from "/src/photos/study-language-icon.png"
-import imageSearch from "/src/photos/text-search-icon.png"
 import imagePop from "/src/photos/population-icon.png"
-import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
 import PopulationChanger from './PopulationChanger';
 

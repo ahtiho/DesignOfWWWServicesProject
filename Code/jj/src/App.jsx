@@ -19,20 +19,14 @@ import SortButton from './SortButton'
 import HeaderComponent from './Header.jsx';
 import Footer from './Footer.jsx'
 import MapComponent from './Kartta'
-import Dropdown from './DropdownComponent.jsx'
 import Search from './SearchComponent'
 import { languagefilter, countryfilter, regionfilter, monthfilter } from "./filterit_toim.jsx"
 import {FilterFunction} from './filterit_toim.jsx'
-import { components } from "react-select";
-import { CheckboxDropdown } from "./CheckboxDropdown.jsx";
-
 import Summary from './Summary';
-import Dropdown2 from './DropdownComponent-copy';
-//import 'bootstrap/dist/css/bootstrap.min.css';
 import FilterComponent from './FilterComponent';
 import ScrollComponent from './ScrollComponent';
 import Info from "/src/photos/Info.png";
-import GPAInfo from './GPAInfo';
+
 
 
 const App = () => {
@@ -62,7 +56,7 @@ const App = () => {
 const [newFilteredData, setFilteredData] = useState(jsonData); // Tila suodatetulle datalle
 
 
-//newFilteredData.forEach(item => console.log(item.Country));
+
 
 
   useEffect(() => {
@@ -94,9 +88,6 @@ const handleFiltersChange = (name, selectedValues) => {
   
 
   //filterien dropdown-valikot
-  var values_list = ["UG", "G"];
-
-
   var level_list = ["UG", "G"];
   var region_list = regionfilter;
 
@@ -119,29 +110,6 @@ const handleFiltersChange = (name, selectedValues) => {
   const toggleShowMore = () => {
     setShowMore(!showMore);
     };
-  
-  /*const [filters, setFilters] = useState({
-      Country: [],
-      Language: [],
-      Region: [],
-      Start_Month: [],
-      End_Month: [],
-      Level: [],
-      Price: [],
-      Population: [],
-      Gpa: [],
-      Safety: []
-    })
-*/
-
-  //Checkbox: todennäköisesti turhia :) ----------------------------------------------------------
-  const [checked, setChecked] = useState(false);
-
-
-  const handleChange = () => {
-    setChecked(!checked);
-  };
-
 
    const searchResult = newFilteredData.filter((data) =>
     data.Country.toLowerCase().includes(searchInput.toLowerCase()) ||
@@ -176,6 +144,7 @@ const handleFiltersChange = (name, selectedValues) => {
           const property = 'CityPop'
           const propA = a[property];
           const propB = b[property];
+          console.log(propA, propB)
           if (propA < propB) return -1;
           if (propA > propB) return 1;
           return 0;}
@@ -197,20 +166,6 @@ const handleFiltersChange = (name, selectedValues) => {
 
         )
       };
-
-  const [checkedOne, setCheckedOne] = useState(false);
-  const [checkedTwo, setCheckedTwo] = useState(false);
-
-  const handleChangeOne = () => {
-    setCheckedOne(!checkedOne);
-  };
-
-  const handleChangeTwo = () => {
-    setCheckedTwo(!checkedTwo);
-  };
-
-
-// -------------------------------------------------------------------------------------------
 
   return (
      

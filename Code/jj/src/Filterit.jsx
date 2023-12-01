@@ -1,7 +1,6 @@
-// filterit
+
 import React from 'react'; // Import React
 import './App.css'
-import { useState } from 'react'
 import imageCountry from "/src/photos/country_icon.png"
 import imageGpa from "/src/photos/gpa-icon.png"
 import imageLevel from "/src/photos/level-icon.png"
@@ -12,8 +11,7 @@ import imageSearch from "/src/photos/text-search-icon.png"
 import imagePop from "/src/photos/population-icon.png"
 import imageDates from "/src/photos/dates-icon.png"
 import imagePrice from "/src/photos/price-icon.png"
-import jsonData from './unidata.json';
-import InfoComponent from './InfoBox'
+
 
 
 
